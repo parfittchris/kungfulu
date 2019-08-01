@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     z-index: 40;
-    height: 82px;
+    height: 82px
 }
 
 .nav-logo {
@@ -23,8 +23,8 @@
     display: flex;
     justify-content: space-between;
     text-transform: uppercase;
-    font-family: 'Futura Md BT Medium';
-    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1
     
 }
 
@@ -41,7 +41,11 @@
     padding: 0 32px;
     font-size: 14px;
     font-weight: 600;
-    height: 48px;
+    height: 56px;
+    width: 191px;
+    text-align: center;
+    letter-spacing: 1px;
+    cursor: pointer;
 }
 
 .nav-button-login {
@@ -52,13 +56,27 @@
    font-size: 14px;
    font-weight: 600;
    border-bottom: 5px solid white;
-}
-
-.nav-button-login {
+    letter-spacing: 2px;
    cursor: pointer;
 }
 
-.nav-button-signup {
-   cursor: pointer;
+.nav-button-signup:hover {
+    transition-delay: 1s;
+    -webkit-transition-delay: 1s;
+    position: relative;
+    top: -3px;
+    box-shadow: 2px 2px rgb(58, 55, 55)
 }
 
+
+.navbar {
+  width: 100%;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  transition: top 0.6s;
+}
+
+.navbar--hidden {
+  top: -1px;
+}

@@ -12,7 +12,7 @@ class SessionForm extends React.Component {
         this.redirect = this.redirect.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demoUserSubmit = this.demoUserSubmit.bind(this);
-        // this.userLogin = this.userLogin.bind(this);
+        // this.userLogin = this.userLogin.bind(this)
     }
     
     redirect() {
@@ -27,6 +27,8 @@ class SessionForm extends React.Component {
 
     demoUserSubmit(e) {
         e.preventDefault()
+        // debugger
+
         this.props.userLogin({ email: 'demoUser', password: 'password' }).then(this.props.closeModal());
     }
 
@@ -76,6 +78,7 @@ class SessionForm extends React.Component {
                         <div className="forgot-password-container">
                             <a className="form-link">Forgot your email or password?</a>
                         </div>
+                        <div className="error-message">{this.props.errors}</div>
                             <button className="submit-button">{this.props.formType.toUpperCase()}</button>
                     </div>
 

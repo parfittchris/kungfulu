@@ -200,11 +200,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _splashPage_loginFormContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./splashPage/loginFormContainer */ "./frontend/components/splashPage/loginFormContainer.jsx");
 /* harmony import */ var _splashPage_signupFormContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./splashPage/signupFormContainer */ "./frontend/components/splashPage/signupFormContainer.jsx");
 /* harmony import */ var _modal_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modal/modal */ "./frontend/components/modal/modal.jsx");
-/* harmony import */ var _splashPage_splashPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./splashPage/splashPage */ "./frontend/components/splashPage/splashPage.jsx");
+/* harmony import */ var _splashPage_splashPageContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./splashPage/splashPageContainer */ "./frontend/components/splashPage/splashPageContainer.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _navbar_navbarContainer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./navbar/navbarContainer */ "./frontend/components/navbar/navbarContainer.js");
 /* harmony import */ var _indexPage_indexContainer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./indexPage/indexContainer */ "./frontend/components/indexPage/indexContainer.jsx");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./footer/footer */ "./frontend/components/footer/footer.jsx");
+
 
 
 
@@ -225,13 +227,36 @@ var App = function App() {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_8__["AuthRoute"], {
     exact: true,
     path: "/",
-    component: _splashPage_splashPage__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _splashPage_splashPageContainer__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "KungFulu happened here...")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
     className: "footer"
-  }, "This is the footer"));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_9__["Footer"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./frontend/components/footer/footer.jsx":
+/*!***********************************************!*\
+  !*** ./frontend/components/footer/footer.jsx ***!
+  \***********************************************/
+/*! exports provided: Footer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Footer", function() { return Footer; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var Footer = function Footer() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "footer-overall"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "footer-text"
+  }, "\xA9 2019 KUNGFULU"));
+};
 
 /***/ }),
 
@@ -436,9 +461,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -451,16 +476,45 @@ var Navbar =
 function (_React$Component) {
   _inherits(Navbar, _React$Component);
 
-  function Navbar() {
+  function Navbar(props) {
+    var _this;
+
     _classCallCheck(this, Navbar);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Navbar).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props));
+    _this.state = {
+      prevScrollpos: window.pageYOffset,
+      visible: true
+    };
+    _this.handleScroll = _this.handleScroll.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Navbar, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      window.addEventListener("scroll", this.handleScroll);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      window.removeEventListener("scroll", this.handleScroll);
+    }
+  }, {
+    key: "handleScroll",
+    value: function handleScroll() {
+      var prevScrollpos = this.state.prevScrollpos;
+      var currentScrollPos = window.pageYOffset;
+      var visible = prevScrollpos > currentScrollPos;
+      this.setState({
+        prevScrollpos: currentScrollPos,
+        visible: visible
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "navigation-container"
@@ -473,12 +527,12 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "nav-button-signup",
         onClick: function onClick() {
-          return _this.props.openModal('signup');
+          return _this2.props.openModal('signup');
         }
       }, "START YOUR FREE TRIAL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "nav-button-login",
         onClick: function onClick() {
-          return _this.props.openModal('login');
+          return _this2.props.openModal('login');
         }
       }, "LOG IN")));
     }
@@ -659,7 +713,7 @@ function (_React$Component) {
     };
     _this.redirect = _this.redirect.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.demoUserSubmit = _this.demoUserSubmit.bind(_assertThisInitialized(_this)); // this.userLogin = this.userLogin.bind(this);
+    _this.demoUserSubmit = _this.demoUserSubmit.bind(_assertThisInitialized(_this)); // this.userLogin = this.userLogin.bind(this)
 
     return _this;
   }
@@ -679,7 +733,8 @@ function (_React$Component) {
   }, {
     key: "demoUserSubmit",
     value: function demoUserSubmit(e) {
-      e.preventDefault();
+      e.preventDefault(); // debugger
+
       this.props.userLogin({
         email: 'demoUser',
         password: 'password'
@@ -759,7 +814,9 @@ function (_React$Component) {
         className: "forgot-password-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "form-link"
-      }, "Forgot your email or password?")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Forgot your email or password?")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "error-message"
+      }, this.props.errors), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "submit-button"
       }, this.props.formType.toUpperCase()))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "footer-container"
@@ -799,7 +856,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    errors: state.errors,
+    errors: state.errors.session,
     formType: 'Sign Up',
     formMessage: 'Already have an account? '
   };
@@ -812,6 +869,9 @@ var mapDispatchToPros = function mapDispatchToPros(dispatch) {
     },
     openModal: function openModal(modal) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])(modal));
+    },
+    userLogin: function userLogin(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["userLogin"])(user));
     },
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["closeModal"])());
@@ -870,28 +930,71 @@ function (_React$Component) {
   _createClass(SplashPage, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "masthead"
+        className: "splashPage"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "masthead-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "masthead-headline"
-      }, "All Your TV In One Place"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "mast-primary"
-      }, "Watch thousands of shows and movies, with plans starting at $5.99/month"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "mast-secondary"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "headline"
+      }, "All Your KungFu Content One Place")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "primary"
+      }, "Watch thousands of shows and movies, with plans starting at ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " $5.99/month"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "secondary"
       }, "HBO\xAE, SHOWTIME\xAE, CINEMAX\xAE and STARZ\xAE available as add-ons."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "mast-input"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/signup"
-      }, "Start your free trial"))));
+        className: "input"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "splash-btn",
+        onClick: function onClick() {
+          return _this.props.openModal("signup");
+        }
+      }, "SIGN UP TODAY")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "legal"
+      }, "Free trials available only to those who know KungFu")));
     }
   }]);
 
   return SplashPage;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (SplashPage);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(SplashPage));
+
+/***/ }),
+
+/***/ "./frontend/components/splashPage/splashPageContainer.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/splashPage/splashPageContainer.jsx ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _splashPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./splashPage */ "./frontend/components/splashPage/splashPage.jsx");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    state: {}
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    openModal: function openModal(modal) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])(modal));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_splashPage__WEBPACK_IMPORTED_MODULE_2__["default"]));
 
 /***/ }),
 

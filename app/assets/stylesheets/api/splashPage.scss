@@ -1,0 +1,81 @@
+
+.splashPage {
+    height: 700px;
+    background-image: image-url('./kungfuluSplashBackground.jpg');
+    background-size: cover;
+    background-position: center;
+    display:flex;
+    text-align: center;
+    align-items: center;
+    position: relative;
+}
+
+.masthead-container {
+    padding: 40px 80px;
+    height: 402px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.headline {
+    font-size: 56px;
+    line-height: 48px;
+}
+
+.primary {
+    margin-top: 32px;
+    font-size: 24px;
+}
+
+.secondary {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.input {
+    display: flex;
+    font-size: 16px;
+    justify-content: center;
+    margin-left: 97px;
+    margin-right: 97px;
+    margin-top: 25px;
+    text-align:center;
+}
+
+.splash-btn {
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    height: 46px;
+    width:  191px;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.splash-btn:hover {
+    transition-delay: 1s;
+    -webkit-transition-delay: 1s;
+    position: relative;
+    top: -3px;
+    box-shadow: 1.5px gray;
+}
+
+.legal {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    opacity: 0.6;
+    font-size: 10px;
+}

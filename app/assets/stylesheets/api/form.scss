@@ -1,8 +1,8 @@
 .form-container {
     width: 418px;
-    // margin-left: 170px;
-    // margin-right: 170px;
-    margin-top: 80px;
+    margin-left: 170px;
+    margin-right: 170px;
+    margin-top: 110px;
     margin-bottom: 80px;
     display: flex;
     color: black;
@@ -10,7 +10,6 @@
     position: relative;
     border: 1px solid (0,0,0, .2);
     font-weight: 400;
-    // font-family: 'PT Sans Narrow', sans-serif;
 }
 
 
@@ -149,7 +148,7 @@ form {
     color: white;
     cursor: pointer;
     margin-bottom: 41px;
-    margin-top: 40px;
+    margin-top: 20px;
     text-align: center;
     height: 56px;
     font-size: 14px;
@@ -171,4 +170,11 @@ form {
     cursor: pointer;
 }   
 
+.error-message {
+    font-family: 'Graphik';
+    margin-top: 20px;
+    font-size: 16px;
+    color: red;
+
+}
     
