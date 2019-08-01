@@ -3,6 +3,9 @@
   <head>
     <title>KungFulu</title>
     <%= csrf_meta_tags %>
+     <script type="text/javascript">
+      window.logoURL = "<%= image_url('logo.png') %>"
+    </script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,400|Titillium+Web:200&display=swap" rel="stylesheet">    <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>

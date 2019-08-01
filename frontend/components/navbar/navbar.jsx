@@ -34,8 +34,8 @@ class Navbar extends React.Component {
     render() {
         return (
             <nav className="navigation-container">
-                <span>
-                    <img src="./assets/logo.png" alt="kungfulu-log" className="nav-logo"/>
+                <span className="nav-logo">
+                   <img src={window.logoURL} />
                 </span>
                 <div className="nav-buttons">
                         <button className="nav-button-signup" onClick={() => this.props.openModal('signup')}>START YOUR FREE TRIAL</button>
