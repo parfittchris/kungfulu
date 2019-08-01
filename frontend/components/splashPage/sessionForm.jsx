@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import { userLogin } from '../../actions/session_actions';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -10,6 +11,8 @@ class SessionForm extends React.Component {
         }   
         this.redirect = this.redirect.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoUserSubmit = this.demoUserSubmit.bind(this);
+        // this.userLogin = this.userLogin.bind(this);
     }
     
     redirect() {
@@ -19,7 +22,12 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        this.props.formAction(this.state).then(this.redirect())
+        this.props.formAction(this.state).then(this.redirect()).then(this.props.closeModal());
+    }
+
+    demoUserSubmit(e) {
+        e.preventDefault()
+        this.props.userLogin({ email: 'demoUser', password: 'password' }).then(this.props.closeModal());
     }
 
     update(field) {
@@ -31,38 +39,50 @@ class SessionForm extends React.Component {
     }
 
     render() {
+        let otherFormtype;
+        let otherFormText;
+
+        if (this.props.formType === 'Sign Up') {
+            otherFormtype = 'login';
+            otherFormText = 'Login';
+            } else {
+            otherFormtype = 'signup';
+            otherFormText = 'Sign Up';
+        }
+
         return (
             <div className="form-container">
-                <form onSubmit={this.handleSubmit}>
-                    <div className="auth-login">
-                        <div className="login-message"></div>
-                        <div className="login-dialog">
-                            {this.props.formType}
+                <form className="real-form" onSubmit={this.handleSubmit}>
+                    <div className='form-header'>
+                        <button className='close-button' onClick={() => this.props.closeModal()}>X</button>
                     </div>
-
-                    <div className="login-dialog-2">
-                        <div className ="facebook-btn">
-                            <div className="facebook-login">
-                                <button className='login-button'>
-                                    <span className="fb-btn-text">CONTINUE TO FACEBOOK</span>
+                    <div className="auth-login">
+                        <div className="login-message">
+                            {this.props.formType} to KungFulu
+                        </div>
+                        <div className='loginDialogue'>
+                            <button className="demo-login-btn" onClick={e => this.demoUserSubmit(e)}>
+                                    <span className='demo-login-text'>DEMO LOGIN</span>
                                 </button>
                             </div>
-                            <div className="panel_divider">
-                                or
+                            <div className="panel-divider">
+                                <div className="or">or</div>            
                             </div>
-                        </div>
                         <div className="hulu-login">
                             <div className="form-label">EMAIL</div>
                             <input className="hulu-login-input" type="text" value={this.state.email} onChange={this.update("email")}/>
                             <div className="form-label">PASSWORD</div>
                             <input className="hulu-login-input" type="password" value={this.state.password} onChange={this.update("password")}/>
-                        
-                        <div className="forget-message">
-                            <a className="forgot-text">Forgot your email or password?</a>
+                        <div className="forgot-password-container">
+                            <a className="form-link">Forgot your email or password?</a>
                         </div>
-                        <button className="submit-button">{this.props.formType.toUpperCase()}</button>
-                        </div>
+                            <button className="submit-button">{this.props.formType.toUpperCase()}</button>
                     </div>
+
+                </div>
+                <div className="footer-container">
+                       {this.props.formMessage}
+                        <a onClick={() => this.props.openModal(otherFormtype)} className="form-link">&nbsp;{otherFormText} here!</a>
                 </div>
                 </form>
             </div>

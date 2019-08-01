@@ -4,7 +4,7 @@ import Index from './index';
 
 const mapStateToProps = state => {
     return ({
-        index: state
+        state: state
     });
 }
 
