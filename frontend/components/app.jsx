@@ -14,7 +14,7 @@ const App = () => (
     <div>
         <Modal/>
         <header className="header">
-            <Navbar />
+            <AuthRoute exact path="/" component= {Navbar}/>
         </header> 
         <Switch>
             <ProtectedRoute exact path="/index" component={indexContainer}/>

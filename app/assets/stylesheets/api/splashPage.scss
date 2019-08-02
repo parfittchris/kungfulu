@@ -60,16 +60,16 @@
     font-size: 14px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
+    font-weight: 800;
     padding-left: 32px;
     padding-right: 32px;
+    letter-spacing: 1.5px;
 }
 
 .splash-btn:hover {
-    transition-delay: 1s;
-    -webkit-transition-delay: 1s;
+    box-shadow: 1px 1.5px 5px rgb(92, 90, 90);
     position: relative;
     top: -3px;
-    box-shadow: 1.5px gray;
 }
 
 .legal {

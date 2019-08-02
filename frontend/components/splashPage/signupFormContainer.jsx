@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { userSignup, userLogin } from '../../actions/session_actions';
+import { userSignup, userLogin, removeErrors } from '../../actions/session_actions';
 import SessionForm from './sessionForm';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
@@ -16,7 +16,8 @@ const mapDispatchToPros = dispatch => {
         formAction: user => dispatch(userSignup(user)),
         openModal: modal => dispatch(openModal(modal)),
         userLogin: user => dispatch(userLogin(user)),
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        removeErrors: () => dispatch(removeErrors()),
     });
 }
 

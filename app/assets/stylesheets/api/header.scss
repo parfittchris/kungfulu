@@ -12,12 +12,15 @@
     width: 90px;
     height: 72px;
     box-sizing: border-box;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    color: white;
+    font-size: 24px;
+    margin-top: 30px;
 }
 
 .navigation-container {
     padding-left: 40px;
     padding-right: 40px; 
-    background-color: #FFFFFF;
     display: flex;
     justify-content: space-between;
     text-transform: uppercase;
@@ -33,14 +36,11 @@
 }
 
 .nav-button-signup {
-    background-color: #262930;
     color: #FCFCFC;
-    margin: 4px 32px 0px 0px;
+    margin: 0px 32px 0px 0px;
     padding: 0 32px;
     font-size: 14px;
     font-weight: 600;
-    height: 56px;
-    width: 191px;
     text-align: center;
     letter-spacing: 1px;
     cursor: pointer;
@@ -48,22 +48,21 @@
 
 .nav-button-login {
    border: none;
-   color:  #5E6573;
+   color:  white;
    margin: 4px 0px;
-   padding: 31px 0px 17px;
+   padding: 17px 0px 17px;
    font-size: 14px;
    font-weight: 600;
-   border-bottom: 5px solid white;
-    letter-spacing: 2px;
+   letter-spacing: 2px;
    cursor: pointer;
 }
 
+.nav-button-login:hover {
+    color: darkgray;
+}
+
 .nav-button-signup:hover {
-    transition-delay: 1s;
-    -webkit-transition-delay: 1s;
-    position: relative;
-    top: -3px;
-    box-shadow: 2px 2px rgb(58, 55, 55)
+    color: darkgray;
 }
 
 
