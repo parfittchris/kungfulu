@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+User.destroy_all
+
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
+
+u1 = User.create!(email: 'demoUser', password: 'password');
+u2 = User.create!(email: 'chris_the_great@gmail.com', password: '123456');
+u3 = User.create!(email: 'theDressIsBlue@hotmail.com', password: 'password');
+
