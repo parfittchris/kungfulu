@@ -1,4 +1,4 @@
-class Api::SessionsController < ApplicationController
+class Api::EpisodesController < ApplicationController
    
 
 end

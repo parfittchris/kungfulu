@@ -9,7 +9,7 @@ export const REMOVE_ERRORS = 'REMOVE_ERRORS';
 
 const receiveCurrentUser = user => ({
     type: RECEIVE_CURRENT_USER,
-    user,
+    user
 });
 
 const logoutCurrentUser = () => ({

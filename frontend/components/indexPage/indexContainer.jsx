@@ -4,13 +4,13 @@ import Index from './index';
 
 const mapStateToProps = state => {
     return ({
-        state: state
+        state: state,
     });
 }
 
 const mapDispatchToPros = dispatch => {
     return ({
-        userLogout: () => dispatch(userLogout()),
+        userLogout: () => dispatch(userLogout()), 
     });
 }
 

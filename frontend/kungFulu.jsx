@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
+import { userSelectAllShows, userSelectShow } from './actions/show_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -19,8 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore();
     }
 
+
     window.getState = store.getState;
-    window.dispatch = store.dispatch
+    window.dispatch = store.dispatch;
+
+
 
 
     const root= document.getElementById('root');

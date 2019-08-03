@@ -3,6 +3,8 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../splashPage/loginFormContainer'
 import SignupFormContainer from '../splashPage/signupFormContainer';
+import VideoPlayer from '../indexPage/video_player';
+
 
 
 function Modal({modal, closeModal}) {
@@ -17,6 +19,8 @@ function Modal({modal, closeModal}) {
              break;
         case 'signup':
             component = <SignupFormContainer />;
+        case 'video':
+            component = <VideoPlayer />;
         break;
         default:
             return null;
