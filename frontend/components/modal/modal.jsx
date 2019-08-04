@@ -19,8 +19,6 @@ function Modal({modal, closeModal}) {
              break;
         case 'signup':
             component = <SignupFormContainer />;
-        case 'video':
-            component = <VideoPlayer />;
         break;
         default:
             return null;

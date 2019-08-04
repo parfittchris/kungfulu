@@ -1,7 +1,7 @@
 
 .splashPage {
     height: 700px;
-    background-image: image-url('kungfuluSplashBackground.jpg');
+    background: (linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),image_url('kungfulu_cover.jpg')) ;
     background-size: cover;
     background-position: center;
     display:flex;

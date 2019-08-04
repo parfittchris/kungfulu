@@ -12,7 +12,7 @@ class SplashPage extends React.Component {
                 <div className="splashPage">
                     <div className="masthead-container">
                         <div>
-                            <h1 className="headline">All Your KungFu Content One Place</h1>
+                            <h1 className="headline">All Your KungFu Content In One Place</h1>
                         </div>
                         <div className="primary">
                             Watch thousands of shows and movies,

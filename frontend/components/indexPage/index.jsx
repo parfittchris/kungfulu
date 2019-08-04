@@ -5,25 +5,26 @@ class Index extends React.Component {
     constructor(props) {
         super(props);
         this.state = {}
-        this.handleSubmit = this.handleSubmit.bind(this);
-
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.userLogout();
     }
 
     render() {
         return (
-            <div className ="logout-btn">
-                <form onSubmit={this.handleSubmit}>
-                    <button>Logout</button>
-                </form>
-            </div>
+           <div>
+               <div className="hub">
+                   <div className="masthead-thumbnail"></div>
+                   <div className="hub-container">
+                        <div className="slider">
+                            <div className="slider-movie-1"></div>
+                            <div className="slider-movie-2"></div>
+                            <div className="slider-movie-3"></div>
+                            <div className="slider-movie-4"></div>
+                        </div>
+                    </div>
+                    <h2 className="shows-container">TV></h2>
+               </div>
+           </div>
         )
     }
 }
 
 export default Index;
-

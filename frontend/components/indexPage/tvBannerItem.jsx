@@ -1,15 +1,42 @@
 import React from 'react';
+import VideoPlayer from './video_player';
+import { Route, Redirect } from 'react-router-dom';
 
-const TvBannerItem = props => {
-    debugger
 
-    return (
-        <li className="show-item" onClick=""> 
-            {/* video image here */}
-            {/* <video height="500px" width="500px" src={props.show.video_url} controls></video> */}
-            {/* Link to show page */}
-        </li>
-    )
+class TvBannerItem extends React.Component {
+    constructor(props) {
+        super(props)
+
+        // this.state = {
+        //     redirect: false
+        // }
+    }
+
+    // handleSubmit(e) {
+    //     e.preventDefault();
+    //     this.setState({
+    //         redirect: true
+    //     });
+    // }
+
+
+
+    render() {
+        // debugger
+        // if (this.state.redirect) {
+        //     return <VideoPlayer url={this.props.show.video_url} />
+        // }
+        
+        return (
+
+            <div className="show-item">
+                <div>{this.props.show.title}</div>
+            </div>
+        )
+    }
+
 }
 
-export default TvBannerItem;
+
+
+export default TvBannerItem
