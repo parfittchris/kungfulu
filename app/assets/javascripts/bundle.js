@@ -425,7 +425,7 @@ var Footer = function Footer() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _tvBannerContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tvBannerContainer */ "./frontend/components/indexPage/tvBannerContainer.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -458,7 +458,10 @@ function (_React$Component) {
     _classCallCheck(this, Index);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Index).call(this, props));
-    _this.state = {};
+    _this.state = {
+      redirect: false,
+      video_url: ""
+    };
     return _this;
   }
 
@@ -481,9 +484,9 @@ function (_React$Component) {
         className: "slider-movie-3"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-movie-4"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "shows-container"
-      }, "TV>")));
+      }, "TV>"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tvBannerContainer__WEBPACK_IMPORTED_MODULE_1__["default"], null))));
     }
   }]);
 
@@ -705,27 +708,15 @@ var TvBannerItem =
 function (_React$Component) {
   _inherits(TvBannerItem, _React$Component);
 
-  function TvBannerItem(props) {
+  function TvBannerItem() {
     _classCallCheck(this, TvBannerItem);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(TvBannerItem).call(this, props)); // this.state = {
-    //     redirect: false
-    // }
-  } // handleSubmit(e) {
-  //     e.preventDefault();
-  //     this.setState({
-  //         redirect: true
-  //     });
-  // }
-
+    return _possibleConstructorReturn(this, _getPrototypeOf(TvBannerItem).apply(this, arguments));
+  }
 
   _createClass(TvBannerItem, [{
     key: "render",
     value: function render() {
-      // debugger
-      // if (this.state.redirect) {
-      //     return <VideoPlayer url={this.props.show.video_url} />
-      // }
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.show.title));

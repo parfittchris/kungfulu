@@ -7,6 +7,5 @@ export const Footer = () => {
         <div className="footer-overall">
                 <span className="footer-text">© 2019 KUNGFULU</span>
         </div>
-        
     )
 }

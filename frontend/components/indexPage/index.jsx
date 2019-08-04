@@ -1,11 +1,16 @@
 import React from 'react'
-import { userLogout } from '../../actions/session_actions';
+import TVBannerContainer from './tvBannerContainer';
 
 class Index extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            redirect: false,
+            video_url: ""
+        }
+        
     }
+
 
     render() {
         return (
@@ -19,8 +24,9 @@ class Index extends React.Component {
                             <div className="slider-movie-3"></div>
                             <div className="slider-movie-4"></div>
                         </div>
+                        <h2 className="shows-container">TV></h2>
+                        <TVBannerContainer />
                     </div>
-                    <h2 className="shows-container">TV></h2>
                </div>
            </div>
         )
