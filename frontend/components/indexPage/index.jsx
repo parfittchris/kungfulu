@@ -1,14 +1,12 @@
 import React from 'react'
-import TVBannerContainer from './tvBannerContainer';
+import TVBannerContainer from './banner/tvBannerContainer';
+import MovieBannerContainer from './banner/movieBannerContainer';
+
 
 class Index extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            redirect: false,
-            video_url: ""
-        }
-        
+        this.state = {}
     }
 
 
@@ -26,6 +24,8 @@ class Index extends React.Component {
                         </div>
                         <h2 className="shows-container">TV></h2>
                         <TVBannerContainer />
+                        <h2 className="movies-container">MOVIES></h2>
+                        <MovieBannerContainer />
                     </div>
                </div>
            </div>

@@ -1,5 +1,87 @@
-.show-item {
-    margin-top: 100px;
-    border: 1px solid black;
+.show-item-container {
+    color: #292C33;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
     cursor: pointer;
+}
+
+.show-item {
+    margin: 0 2px;
+    width: 265px;
+    height: 230px;
+    position: relative;
+}
+
+.video-image {
+    cursor: pointer;
+    height: 160px;
+}
+
+.show-item-info {
+    margin-top: 16px;
+    margin-left: 30px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.vid-title {
+    margin-top: 17px;
+    color: #292C33;
+    font-size: 20px;
+}
+
+.season-info {
+    visibility: hidden;
+}
+
+.vid-description {
+    visibility: hidden;
+    margin-bottom: 30px;
+}
+
+.vid-info-btn {
+    visibility: hidden;
+}
+
+.show-item:hover {
+    transition-delay: 0.5s;
+    transition-duration: 0.5s;
+    height: 350px;
+    box-shadow: 5px 5px 50px 5px lightgray;
+    border: 1px solid rgb(240, 239, 239);
+}
+
+.show-item:hover .show-item-info {
+    transition-delay: 0.5s;
+    height: 140px;
+}
+
+.show-item:hover .season-info {
+    transition-delay: 0.75s;
+    visibility: visible;
+}
+
+.show-item:hover .vid-description {
+    transition-delay: 0.75s;
+    visibility: visible;
+}
+
+.show-item:hover .vid-info-btn {
+    transition-delay: 0.75s;
+    position: absolute;
+    bottom: 5px;
+    visibility: visible;
+}
+
+.detail-arrow-btn {
+    width: 40px;
+    height: 40px;
+    color:blue;
+}
+
+.season-info {
+    font-weight: 900;
 }

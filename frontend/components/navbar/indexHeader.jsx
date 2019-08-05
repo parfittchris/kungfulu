@@ -4,7 +4,7 @@ class IndexHeader extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {currentScrollHeight: 0, activeClass: "index-header-container"}
+        this.state = {currentScrollHeight: 0, activeClass: "hidden-header"}
         this.handleSubmit = this.handleSubmit.bind(this)
     };
 
@@ -12,10 +12,10 @@ class IndexHeader extends React.Component {
         window.onscroll = () => {
         const newScrollHeight = Math.ceil(window.scrollY / 50) * 50;
 
-            if (newScrollHeight < 70) {
+            if (newScrollHeight > 70) {
                 this.setState({ activeClass: "index-header-container"})
                 return
-            } else if (newScrollHeight >= 70) {
+            } else if (newScrollHeight <= 70) {
                 this.setState({ activeClass: "hidden-header" })
             } else if (this.state.currentScrollHeight != newScrollHeight) {
                 this.setState({ currentScrollHeight: newScrollHeight })

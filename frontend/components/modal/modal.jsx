@@ -3,11 +3,10 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../splashPage/loginFormContainer'
 import SignupFormContainer from '../splashPage/signupFormContainer';
-import VideoPlayer from '../indexPage/video_player';
+import DetailPageContainer from '../indexPage/detailPage/detailPageContainer';
+import VideoPlayerContainer from '../indexPage/videoPlayer/videoPlayerContainer';
 
-
-
-function Modal({modal, closeModal}) {
+function Modal({modal, id, closeModal}) {
     if (!modal) {
         return null;
     }
@@ -19,7 +18,19 @@ function Modal({modal, closeModal}) {
              break;
         case 'signup':
             component = <SignupFormContainer />;
+             break;
+        case 'detail':
+            component = <DetailPageContainer id={id} />;
         break;
+        case 'movieDetail':
+            component = <MovieDetailPageContainer id={id} />;
+        break;
+        case 'video':
+            component = <VideoPlayerContainer id={id} />
+        break;
+        case 'movieVideo':
+            component = <MovieVideoPlayerContainer id={id} />
+            break;
         default:
             return null;
     }
@@ -35,7 +46,8 @@ function Modal({modal, closeModal}) {
 
     const mapStateToProps = state => {
         return {
-            modal: state.ui.modal
+            modal: state.ui.modal.type,
+            id: state.ui.modal.id
         };
     };
 

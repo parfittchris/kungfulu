@@ -1,16 +1,14 @@
 import React from 'react';
-import LoginFormContainer from './splashPage/loginFormContainer';
-import SignUpFormContainer from './splashPage/signupFormContainer';
 import Modal from './modal/modal';
 import SplashPageContainer from './splashPage/splashPageContainer';
-import { Route, Switch, Link} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Navbar from './navbar/navbarContainer';
 import IndexHeader from './navbar/indexHeaderContainer';
 import indexContainer from './indexPage/indexContainer';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Footer } from './footer/footer'
-import tvBanner from './indexPage/tvBannerContainer';
-import VideoPlayer from './indexPage/video_player';
+import tvBanner from './indexPage/banner/movieBannerContainer';
+import detailPage from './indexPage/detailPage/detailPage';
 
 
 const App = () => (
@@ -24,10 +22,13 @@ const App = () => (
         </header> 
         <Switch>
             <Route exact path='/banner' component={tvBanner} />
-            <ProtectedRoute exact path="/index" component={indexContainer}/>
+            <ProtectedRoute path="/index" component={indexContainer}/>
             <AuthRoute exact path="/" component={SplashPageContainer} />
-            <ProtectedRoute exact path="/video" component={VideoPlayer} />
         </Switch>
+            <ProtectedRoute path="/index/shows/detail/:videoId" component={detailPage} />
+            <ProtectedRoute path="/index/shows/video/:videoId" component={detailPage} />
+            {/* <ProtectedRoute path="/index/movies/detail/:videoId" component={movieDetailPage} />
+            <ProtectedRoute path="/index/movies/video/:videoId" component={movieDetailPage} /> */}
             <footer className="footer"><Footer /></footer>
     </div>
 )
