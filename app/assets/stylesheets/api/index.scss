@@ -1,20 +1,19 @@
-// .hub {
-//     height: 1750px;
-// }
 
 .masthead-thumbnail {
-        // background-image: image-url('kung_movie_7.jpeg');
         background: (linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),image_url('kung_movie_7.jpeg')) ;
         background-size: cover;
         background-position: center;
         height: 588px;
     }
     
+    .thumbnail-details {
+       
+    }
+
     .hub-container {
         margin-left: 40px;
         margin-right: 40px;
         height: 100px;
-        border: 1px solid black;
     }
 
     .slider {
@@ -68,10 +67,4 @@
         margin-bottom: 10px;
     }
 
-    // .index-end {
-    //     position: absolute;
-    //     bottom: 20px;
-    //     width: 50%;
-    //     height: 100px;
-    //     border: 1px solid black;
-    // }
+ 

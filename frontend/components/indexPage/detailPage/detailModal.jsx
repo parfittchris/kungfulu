@@ -25,8 +25,8 @@ render() {
 
     return (
             <div className="detail-page-container">
-                <div className="detail-header">{this.props.video.title}
-                        </div>
+                <div className="detail-header">{this.props.video.title}</div>
+                {/* <img src={this.props.video.image_url} className="detail-background-icon"></img> */}
                 <div className="detail-body">
                     <div className="detail-masthead-container">
                         <img src={image} className="detail-masthead-picture"></img>

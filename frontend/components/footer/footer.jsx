@@ -5,7 +5,9 @@ export const Footer = () => {
 
     return (
         <div className="footer-overall">
-                <div className="footer-text">© 2019 KUNGFULU</div>
+                <ul className="footer-text">
+                    <li>© 2019 KUNGFULU</li>
+                </ul> 
         </div>
     )
 }

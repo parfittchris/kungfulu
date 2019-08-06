@@ -23,10 +23,10 @@ class MovieDetailModal extends React.Component {
         return (
 
             <div className="detail-page-container">
-                <div className="detail-header">{this.props.video.title}
-                </div>
+                <div className="detail-header">{this.props.video.title}</div>
                 <div className="detail-body">
                     <div className="detail-masthead-container">
+                        {/* <img src={this.props.video.image_url} className="detail-background-icon"></img> */}
                         <img src={this.props.video.image_url} className="detail-masthead-picture"></img>
                         <div className="detail-masthead-info">
                             <div className="detail-masthead-info-title">{this.props.video.title}</div>

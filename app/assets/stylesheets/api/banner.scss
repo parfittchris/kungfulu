@@ -62,6 +62,9 @@
 .show-item:hover .show-item-info {
     transition-delay: 0.5s;
     height: 140px;
+    // text-overflow: ellipsis;
+    // white-space: nowrap;
+    // overflow: auto;
 }
 
 .show-item:hover .season-info {

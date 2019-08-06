@@ -9,10 +9,12 @@ import MovieVideoPlayerContainer from '../indexPage/videoPlayer/movieVideoPlayer
 import MovieDetailPageContainer from '../indexPage/detailPage/movieDetailPageContainer';
 
 function Modal({modal, id, closeModal}) {
+    
     if (!modal) {
         return null;
-        
     }
+    
+    let modalClass = "modal-background";
 
     let component;
     switch (modal) {
@@ -34,12 +36,20 @@ function Modal({modal, id, closeModal}) {
         case 'movieVideo':
             component = <MovieVideoPlayerContainer id={id} />
             break;
+        case 'mini':
+            modalClass = "modal-background-mini"
+            component = <VideoPlayerContainer id={id} />
+        break;
+        case 'mini-movie':
+            modalClass = "modal-background-mini"
+            component = <MovieVideoPlayerContainer id={id} />
+        break;
         default:
             return null;
     }
 
     return (
-        <div className="modal-background" onClick={closeModal}>
+        <div className={modalClass} onClick={closeModal}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
                 {component}
             </div>

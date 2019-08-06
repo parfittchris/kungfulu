@@ -1,10 +1,61 @@
-.webplayer {
-    position: relative;
-    margin-top: 10px;
+.webPlayer {
+    margin-top: 30px;
     height: 100vh;
+    height: 100vh;
+    width: 100vw;
     background-color: black; 
+    z-index: 10000;
+}
+
+.webPlayer-mini {
+    position: absolute;
+    left: 125px;
+    top: 50px;
+    height: 40vh;
+    width: 40vw;
+    background-color: black;
 }
 
 .player-container {
     background-color: black;
+}
+
+
+.video-close-button {
+    visibility: hidden;
+    position: absolute;
+    font-size: 50px;
+    font-weight: 200;
+    color: gray;
+    z-index: 10000;
+    right: 50px;
+    top: 60px;
+}
+
+.video-close-button:hover {
+    color: white;
+}
+
+
+.player-container:hover .video-close-button {
+    visibility: visible;
+}
+
+.video-close-button-mini {
+    visibility: hidden;
+    position: absolute;
+    font-size: 50px;
+    font-weight: 200;
+    color: gray;
+    z-index: 10000;
+    left: 658px;
+    top: 38px;
+}
+
+.video-close-button-mini:hover {
+    color: white;
+}
+
+.player-container:hover .video-close-button-mini {
+    visibility: visible;
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import TVBannerContainer from './banner/tvBannerContainer';
 import MovieBannerContainer from './banner/movieBannerContainer';
-
+import Footer from '../footer/footer';
 
 class Index extends React.Component {
     constructor(props) {
@@ -14,7 +14,14 @@ class Index extends React.Component {
         return (
            <div>
                <div className="hub">
-                   <div className="masthead-thumbnail"></div>
+                   <div className="masthead-thumbnail">
+                    <div className="thumbnail-details">
+                        {/* <div className="thumbnail-details-title">title</div>
+                        <div className="thumbnail-details-info">info</div>
+                        <div className="thumbnail-details-description">description</div>
+                        <div className="thumbnail-details-links">links</div> */}
+                   </div>
+                   </div>
                    <div className="hub-container">
                         <div className="slider">
                             <div className="slider-movie-1"></div>

@@ -12,8 +12,6 @@ class SessionForm extends React.Component {
         this.redirect = this.redirect.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demoUserSubmit = this.demoUserSubmit.bind(this);
-        // this.removeErrors = this.removeErrors.bind(this);
-        // this.userLogin = this.userLogin.bind(this)
     }
     
     componentWillUnmount() {

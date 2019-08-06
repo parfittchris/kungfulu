@@ -59,21 +59,21 @@ movie5 = Movie.create!(title: "The Invincible Armor", year: 1977, rating: 7.1, d
     image6 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/invicible-cover.jpeg')
     movie5.image.attach(io: image6, filename: "armor-cover.jpg")
 
-show1 = Show.create!(title: "Tim does Karate 1", year: 1994, rating: 4.7, description: "Tim does karate in the living room.", video_type: "show");
+show1 = Show.create!(title: "Tim does Kung Fu 1", year: 1994, rating: 4.7, description: "Tim does karate in the living room.", video_type: "show");
     video1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/KungFulu_1.mp4')
     show1.video.attach(io: video1, filename: "show1_video_content.mp4")
     image7 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/kung_fu_show.jpeg')
     show1.image.attach(io: image7, filename: "show-cover.jpeg")
 
 
-show2 = Show.create!(title: "Tim does Karate 2", year: 1995, rating: 3.1, description: "Tim does karate in the garage.", video_type: "show");
+show2 = Show.create!(title: "Tim does Kung Fu 2", year: 1995, rating: 3.1, description: "Tim does karate in the garage.", video_type: "show");
     video7 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/tim_2.mp4')
     show2.video.attach(io: video7, filename: "show2_video_content.mp4")
 
-show3 = Show.create!(title: "Tim does Karate 3", year: 1996, rating: 1.9, description: "Tim does karate in the backyard", video_type: "show");
+show3 = Show.create!(title: "Tim does Kung Fu 3", year: 1996, rating: 1.9, description: "Tim does karate in the backyard", video_type: "show");
     video8 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/tim_3.mp4')
     show3.video.attach(io: video8, filename: "show3_video_content.mp4")
 
 
-show4 = Show.create!(title: "Tim does Karate 4", year: 1997, rating: 1.9, description: "Tim does karate at Jeff's house.", video_type: "show");
-show5 = Show.create!(title: "Tim does Karate 5", year: 1998, rating: 1.9, description: "Tim does karate in the woods behind Jeff's house", video_type: "show");
+show4 = Show.create!(title: "Tim does Kung Fu 4", year: 1997, rating: 1.9, description: "Tim does karate at Jeff's house.", video_type: "show");
+show5 = Show.create!(title: "Tim does Kung Fu 5", year: 1998, rating: 1.9, description: "Tim does karate in the woods behind Jeff's house", video_type: "show");

@@ -411,9 +411,9 @@ __webpack_require__.r(__webpack_exports__);
 var Footer = function Footer() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "footer-overall"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     className: "footer-text"
-  }, "\xA9 2019 KUNGFULU"));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "\xA9 2019 KUNGFULU")));
 };
 
 /***/ }),
@@ -1278,6 +1278,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _banner_tvBannerContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./banner/tvBannerContainer */ "./frontend/components/indexPage/banner/tvBannerContainer.jsx");
 /* harmony import */ var _banner_movieBannerContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./banner/movieBannerContainer */ "./frontend/components/indexPage/banner/movieBannerContainer.jsx");
+/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../footer/footer */ "./frontend/components/footer/footer.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1295,6 +1296,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1322,7 +1324,9 @@ function (_React$Component) {
         className: "hub"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "masthead-thumbnail"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "thumbnail-details"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "hub-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider"
@@ -1415,9 +1419,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -1432,9 +1436,17 @@ function (_React$Component) {
   _inherits(videoPlayer, _React$Component);
 
   function videoPlayer(props) {
+    var _this;
+
     _classCallCheck(this, videoPlayer);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(videoPlayer).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(videoPlayer).call(this, props));
+    _this.state = {
+      playerClass: 'webPlayer',
+      closeClass: 'video-close-button'
+    };
+    _this.miniWindow = _this.miniWindow.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(videoPlayer, [{
@@ -1448,13 +1460,36 @@ function (_React$Component) {
       this.props.history.push("/index");
     }
   }, {
+    key: "miniWindow",
+    value: function miniWindow(e) {
+      e.preventDefault();
+      debugger;
+
+      if (this.state.playerClass === 'webPlayer') {
+        this.setState({
+          playerClass: "webPlayer-mini",
+          closeClass: 'video-close-button-mini'
+        });
+        this.props.openModal('mini-movie', this.props.id);
+      } else {
+        this.props.closeModal();
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "player-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("video", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick(e) {
+          return _this2.miniWindow(e);
+        },
+        className: this.state.closeClass
+      }, "\xD7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("video", {
         src: this.props.video.video_url,
-        className: "webplayer",
+        className: this.state.playerClass,
         controls: true,
         autoPlay: true
       }));
@@ -1500,6 +1535,9 @@ var mapDispatchToProps = function mapDispatchToProps(state) {
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["closeModal"])());
     },
+    openModal: function openModal(modal, id) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])(modal, id));
+    },
     userSelectAllMovies: function userSelectAllMovies() {
       return dispatch(Object(_actions_movie_actions__WEBPACK_IMPORTED_MODULE_4__["userSelectAllMovies"])());
     }
@@ -1542,6 +1580,9 @@ var mapDispatchToProps = function mapDispatchToProps(state) {
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["closeModal"])());
     },
+    openModal: function openModal(modal, id) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_3__["openModal"])(modal, id));
+    },
     userSelectAllShows: function userSelectAllShows() {
       return dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_4__["userSelectAllShows"])());
     }
@@ -1574,9 +1615,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -1591,9 +1632,17 @@ function (_React$Component) {
   _inherits(videoPlayer, _React$Component);
 
   function videoPlayer(props) {
+    var _this;
+
     _classCallCheck(this, videoPlayer);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(videoPlayer).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(videoPlayer).call(this, props));
+    _this.state = {
+      playerClass: 'webPlayer',
+      closeClass: 'video-close-button'
+    };
+    _this.miniWindow = _this.miniWindow.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(videoPlayer, [{
@@ -1607,17 +1656,36 @@ function (_React$Component) {
       this.props.history.push("/index");
     }
   }, {
+    key: "miniWindow",
+    value: function miniWindow(e) {
+      e.preventDefault();
+
+      if (this.state.playerClass === 'webPlayer') {
+        this.setState({
+          playerClass: "webPlayer-mini",
+          closeClass: 'video-close-button-mini'
+        }); // this.props.history.push(`/index`)
+
+        this.props.openModal('mini', this.props.id);
+      } else {
+        this.props.closeModal();
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      if (window.location.href.indexOf("movies") != -1) {
-        type = "movies";
-      }
+      var _this2 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "player-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("video", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: function onClick(e) {
+          return _this2.miniWindow(e);
+        },
+        className: this.state.closeClass
+      }, "\xD7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("video", {
         src: this.props.video.video_url,
-        className: "webplayer",
+        className: this.state.playerClass,
         controls: true,
         autoPlay: true
       }));
@@ -1669,6 +1737,7 @@ function Modal(_ref) {
     return null;
   }
 
+  var modalClass = "modal-background";
   var component;
 
   switch (modal) {
@@ -1704,12 +1773,26 @@ function Modal(_ref) {
       });
       break;
 
+    case 'mini':
+      modalClass = "modal-background-mini";
+      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_indexPage_videoPlayer_videoPlayerContainer__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        id: id
+      });
+      break;
+
+    case 'mini-movie':
+      modalClass = "modal-background-mini";
+      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_indexPage_videoPlayer_movieVideoPlayerContainer__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        id: id
+      });
+      break;
+
     default:
       return null;
   }
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "modal-background",
+    className: modalClass,
     onClick: closeModal
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "modal-child",
@@ -2200,9 +2283,7 @@ function (_React$Component) {
     };
     _this.redirect = _this.redirect.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.demoUserSubmit = _this.demoUserSubmit.bind(_assertThisInitialized(_this)); // this.removeErrors = this.removeErrors.bind(this);
-    // this.userLogin = this.userLogin.bind(this)
-
+    _this.demoUserSubmit = _this.demoUserSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 

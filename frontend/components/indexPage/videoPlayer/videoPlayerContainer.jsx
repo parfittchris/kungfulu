@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import videoPlayer from './video_player';
-import { closeModal } from '../../../actions/modal_actions';
+import { openModal, closeModal } from '../../../actions/modal_actions';
 import { userSelectAllShows } from '../../../actions/show_actions';
 
 
@@ -15,6 +15,7 @@ const mapStateToProps = (state, myParams) => {
 const mapDispatchToProps = state => {
     return ({
         closeModal: () => dispatch(closeModal()),
+        openModal: (modal, id) => dispatch(openModal(modal, id)),
         userSelectAllShows: () => dispatch(userSelectAllShows()),
     });
 }

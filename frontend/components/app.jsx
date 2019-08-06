@@ -29,7 +29,7 @@ const App = () => (
             <ProtectedRoute path="/index/shows/video/:videoId" component={detailPage} />
             <ProtectedRoute path="/index/movies/detail/:videoId" component={detailPage} />
             <ProtectedRoute path="/index/movies/video/:videoId" component={detailPage} />
-        <footer className="footer"><Footer /></footer>
+            <footer className="footer"><Footer /></footer>
     </div>
 )
 
