@@ -43,5 +43,8 @@
   "bugs": {
     "url": "https://github.com/parfittchris/kungfulu/issues"
   },
-  "homepage": "https://github.com/parfittchris/kungfulu#readme"
+  "homepage": "https://github.com/parfittchris/kungfulu#readme",
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.10.1"
+  }
 }

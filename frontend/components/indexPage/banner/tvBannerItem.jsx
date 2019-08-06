@@ -8,19 +8,15 @@ class TvBannerItem extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    
-    // openModal(modal, id) {
-    //     this.props.openModal(modal, id);
-    // }
 
     handleSubmit(e, type) {
         e.preventDefault()
         this.props.history.push(`/index/shows/${type}/${this.props.show.id}`)
     }
     
-  
+    
     render() {
-        const image = "https://vignette.wikia.nocookie.net/kungfupanda/images/7/73/KFP3-promo-po4.jpg/revision/latest?cb=20150726165358";
+        const image = 'https://kungfulu-aa-seeds.s3.amazonaws.com/kung_fu_show.jpeg'
         
             return (
                 <div className="show-item">

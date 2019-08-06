@@ -5,11 +5,11 @@ import { withRouter } from 'react-router';
 class videoPlayer extends React.Component {
     constructor(props) {
         super(props);
-        
+
     }
 
     componentDidMount() {
-        this.props.userSelectAllShows();
+        this.props.userSelectAllMovies();
     }
 
     componentWillUnmount() {
@@ -18,17 +18,13 @@ class videoPlayer extends React.Component {
 
     render() {
 
-        if (window.location.href.indexOf("movies") != -1) {
-            type = "movies"
-        }
-
         return (
             <div className="player-container">
-                <video src={this.props.video.video_url} className= "webplayer" controls autoPlay></video>
-            </div>   
+                <video src={this.props.video.video_url} className="webplayer" controls autoPlay></video>
+            </div>
         )
     }
-}   
+}
 
 
 

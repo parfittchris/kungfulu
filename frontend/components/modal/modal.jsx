@@ -5,10 +5,13 @@ import LoginFormContainer from '../splashPage/loginFormContainer'
 import SignupFormContainer from '../splashPage/signupFormContainer';
 import DetailPageContainer from '../indexPage/detailPage/detailPageContainer';
 import VideoPlayerContainer from '../indexPage/videoPlayer/videoPlayerContainer';
+import MovieVideoPlayerContainer from '../indexPage/videoPlayer/movieVideoPlayerContainer';
+import MovieDetailPageContainer from '../indexPage/detailPage/movieDetailPageContainer';
 
 function Modal({modal, id, closeModal}) {
     if (!modal) {
         return null;
+        
     }
 
     let component;
@@ -20,14 +23,14 @@ function Modal({modal, id, closeModal}) {
             component = <SignupFormContainer />;
              break;
         case 'detail':
-            component = <DetailPageContainer id={id} />;
+            component = <DetailPageContainer id={id}/>;
+        break;
+        case 'video':
+            component = <VideoPlayerContainer id={id}/>
         break;
         case 'movieDetail':
             component = <MovieDetailPageContainer id={id} />;
-        break;
-        case 'video':
-            component = <VideoPlayerContainer id={id} />
-        break;
+            break;
         case 'movieVideo':
             component = <MovieVideoPlayerContainer id={id} />
             break;

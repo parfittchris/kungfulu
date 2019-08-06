@@ -1,12 +1,12 @@
 import React from 'react';
 import { openModal, closeModal } from '../../../actions/modal_actions'
 import { connect } from 'react-redux';
-import detailModal from './detailModal';
+import MovieDetailModal from './movieDetailModal';
 
 const mapStateToProps = (state, myParams) => {
     let videoId = myParams.id
     return ({
-        video: state.entities.videos.shows[videoId]
+        video: state.entities.videos.movies[videoId]
     });
 }
 
@@ -17,4 +17,4 @@ const mapDispatchToProps = dispatch => {
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(detailModal);
+export default connect(mapStateToProps, mapDispatchToProps)(MovieDetailModal);

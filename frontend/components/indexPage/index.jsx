@@ -26,6 +26,7 @@ class Index extends React.Component {
                         <TVBannerContainer />
                         <h2 className="movies-container">MOVIES></h2>
                         <MovieBannerContainer />
+                        <button className="index-end"></button>
                     </div>
                </div>
            </div>

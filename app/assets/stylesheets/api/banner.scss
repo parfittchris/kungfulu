@@ -13,9 +13,14 @@
     position: relative;
 }
 
+.video-image-btn {
+    // height: 160px;
+}
+
 .video-image {
     cursor: pointer;
     height: 160px;
+    width: 265px;
 }
 
 .show-item-info {
@@ -39,7 +44,7 @@
 
 .vid-description {
     visibility: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .vid-info-btn {

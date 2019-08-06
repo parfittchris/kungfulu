@@ -16,7 +16,7 @@ const mapDispatchToProps = state => {
     return ({
         closeModal: () => dispatch(closeModal()),
         userSelectAllShows: () => dispatch(userSelectAllShows()),
-    })
+    });
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(videoPlayer);

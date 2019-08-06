@@ -1,4 +1,11 @@
+.footer {
+    position: absolute;
+    bottom: 100vh;
+}
+
+
 .footer-overall {
+    display: absolute;
     background-color: rgb(235, 237, 242);
     line-height: 12px;
     display: block;

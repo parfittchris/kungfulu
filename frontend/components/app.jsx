@@ -9,7 +9,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Footer } from './footer/footer'
 import tvBanner from './indexPage/banner/movieBannerContainer';
 import detailPage from './indexPage/detailPage/detailPage';
-
+// import movieDetailPage from './indexPage/detailPage/movieDetailPage;'
 
 const App = () => (
     <div>
@@ -27,9 +27,9 @@ const App = () => (
         </Switch>
             <ProtectedRoute path="/index/shows/detail/:videoId" component={detailPage} />
             <ProtectedRoute path="/index/shows/video/:videoId" component={detailPage} />
-            {/* <ProtectedRoute path="/index/movies/detail/:videoId" component={movieDetailPage} />
-            <ProtectedRoute path="/index/movies/video/:videoId" component={movieDetailPage} /> */}
-            <footer className="footer"><Footer /></footer>
+            <ProtectedRoute path="/index/movies/detail/:videoId" component={detailPage} />
+            <ProtectedRoute path="/index/movies/video/:videoId" component={detailPage} />
+        <footer className="footer"><Footer /></footer>
     </div>
 )
 
