@@ -62,9 +62,6 @@
 .show-item:hover .show-item-info {
     transition-delay: 0.5s;
     height: 140px;
-    // text-overflow: ellipsis;
-    // white-space: nowrap;
-    // overflow: auto;
 }
 
 .show-item:hover .season-info {
@@ -92,4 +89,9 @@
 
 .season-info {
     font-weight: 900;
+}
+
+.fa-arrow-circle-right:hover {
+    color: gray;
+    cursor: pointer;
 }

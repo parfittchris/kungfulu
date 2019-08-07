@@ -30,7 +30,7 @@ class TvBannerItem extends React.Component {
                         <li className="season-info">Season 1</li>
                         <li className= "vid-description">{this.props.show.description}</li>
                         <button className="vid-info-btn" onClick={(e) => this.handleSubmit(e, 'detail')}>
-                            <img className="detail-arrow-btn" src="https://img.icons8.com/pastel-glyph/64/000000/circled-right.png"></img>
+                            <i className="fas fa-arrow-circle-right fa-2x"></i>
                         </button>
                     </ul>
                 </div>

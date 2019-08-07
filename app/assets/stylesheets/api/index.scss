@@ -1,17 +1,40 @@
+    body * {
+        // font-family:'tahoma'!important;
+    }
 
-.masthead-thumbnail {
+    body i {
+       font-family:'FontAwesome'!important;
+    }
+
+    .masthead-thumbnail {
         background: (linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),image_url('kung_movie_7.jpeg')) ;
         background-size: cover;
         background-position: center;
         height: 588px;
+        display: flex;
+        align-items: center;
     }
     
     .thumbnail-details {
-       
+       font-size: 18px;
+       width: 50%;
+       height: 285px;
+       color: white;
+       margin-left: 100px;
+       margin-top: 30px;
+       display: flex;
+       flex-direction: column;
+       justify-content: space-around;
+    }
+
+    .thumbnail-details-title {
+        font-size: 52px;
+        font-weight: 300;
+        margin-top: 30px
     }
 
     .hub-container {
-        margin-left: 40px;
+        margin-left: 40px; 
         margin-right: 40px;
         height: 100px;
     }
@@ -25,33 +48,16 @@
     .slider-movie-1 {
         margin-top: -80px;
         width: 25%;
-        background-image: image_url('kung_movie_3');
+        background-color: white;
+        background-image: linear-gradient(to top, rgba(31, 93, 185, 0.6) 0%, rgba(255, 255, 255, 0.1) 70%), image_url('kung_movie_3');
         background-size: cover;
         background-position: center;
-    }
-
-     .slider-movie-2 {
-        margin-top: -80px;
-        width: 25%;
-        background-image: image_url('kung_movie_2');
-        background-size: cover;
-        background-position: center;
-    }
-
-     .slider-movie-3 {
-        margin-top: -80px;
-        width: 25%;
-        background-image: image_url('kung_movie_1');
-        background-size: cover;
-        background-position: center;
-    }
-
-     .slider-movie-4 {
-        margin-top: -80px;
-        width: 25%;
-        background-image: image_url('kung_movie_5');
-        background-size: cover;
-        background-position: center;
+        display: flex;
+        align-items: flex-end;
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        cursor: pointer;
+        
     }
 
     .shows-container {
@@ -60,11 +66,365 @@
         margin-bottom: 10px;
     }
     
-      .movies-container {
+    .movies-container {
         margin-top: 30px;
         font-size: 18px;
         font-weight: 900;
         margin-bottom: 10px;
     }
 
- 
+    .thumbnail-details-info-links {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+    }
+
+    .thumbnail-play-text {
+        margin-left: 10px;
+        margin-right: 20px;
+    }
+
+    .slider-1-info {
+        width: 100%;
+        height: 60%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column
+    }
+    
+    .slider-1-info-details {
+        height: 75%;
+        width: 100%;
+        margin: 0px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        color: white;
+    }
+
+    .slider-movie-1:hover .slider-1-info {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        background-color:rgba(31, 93, 185, 0.9);
+    }
+
+    .slider-movie-1:hover .slider-1-info-buttons {
+        transition-delay: 0.5s;
+        visibility: visible;
+        height: 33%;
+        width: 100%;
+        margin-left: 30px;
+        display: flex;
+        align-items: center;
+        color: gray;
+    }
+
+   .slider-1-info-buttons {
+        visibility: hidden;
+    }
+
+    .slider-1-title {
+        margin-top: 150px;
+        font-size: 32px;
+    }
+
+    .slider-movie-1:hover .slider-1-title {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        margin-top: 10px;
+    }
+
+     .slider-1-info-li {
+        visibility: hidden;
+    }
+
+     .slider-1-description {
+        width: 80%;
+        visibility: hidden;
+    }
+
+     .slider-movie-1:hover .slider-1-description {
+         width: 80%;
+         transition-delay: 0.5s;
+         visibility: visible;
+     }
+
+      .slider-movie-1:hover .slider-1-info-li {
+         transition-delay: 0.5s;
+         visibility: visible;
+     }
+
+     //Image 2
+
+
+
+    .slider-movie-2 {
+        margin-top: -80px;
+        width: 25%;
+        background-color: white;
+        background-image: linear-gradient(to top, rgba(31, 93, 185, 0.6) 0%, rgba(255, 255, 255, 0.1) 70%), image_url('kung_movie_2');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: flex-end;
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        cursor: pointer;
+        
+    }
+
+    .slider-2-info {
+        width: 100%;
+        height: 60%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column
+    }
+    
+    .slider-2-info-details {
+        height: 75%;
+        width: 100%;
+        margin: 0px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        color: white;
+    }
+
+    .slider-movie-2:hover .slider-2-info {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        background-color:rgba(31, 93, 185, 0.9);
+    }
+
+    .slider-movie-2:hover .slider-2-info-buttons {
+        transition-delay: 0.5s;
+        visibility: visible;
+        height: 33%;
+        width: 100%;
+        margin-left: 30px;
+        display: flex;
+        align-items: center;
+        color: gray;
+    }
+
+   .slider-2-info-buttons {
+        visibility: hidden;
+    }
+
+    .slider-2-title {
+        margin-top: 150px;
+        font-size: 32px;
+    }
+
+    .slider-movie-2:hover .slider-2-title {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        margin-top: 10px;
+    }
+
+     .slider-2-info-li {
+        visibility: hidden;
+    }
+
+     .slider-2-description {
+        width: 80%;
+        visibility: hidden;
+    }
+
+     .slider-movie-2:hover .slider-2-description {
+         width: 80%;
+         transition-delay: 0.5s;
+         visibility: visible;
+     }
+
+      .slider-movie-2:hover .slider-2-info-li {
+         transition-delay: 0.5s;
+         visibility: visible;
+     }
+
+
+     //movie 3
+
+
+
+    .slider-movie-3 {
+        margin-top: -80px;
+        width: 25%;
+        background-image: linear-gradient(to top, rgba(31, 93, 185, 0.6) 0%, rgba(255, 255, 255, 0.1) 70%), image_url('kung-fu-panda-4');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: flex-end;
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        cursor: pointer;
+        
+    }
+
+    .slider-3-info {
+        width: 100%;
+        height: 60%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column
+    }
+    
+    .slider-3-info-details {
+        height: 75%;
+        width: 100%;
+        margin-left: 30px;
+        margin-right: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        color: white;
+    }
+
+    .slider-movie-3:hover .slider-3-info {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        background-color:rgba(31, 93, 185, 0.9);
+    }
+
+    .slider-movie-3:hover .slider-3-info-buttons {
+        transition-delay: 0.5s;
+        visibility: visible;
+        height: 33%;
+        width: 100%;
+        margin-left: 30px;
+        display: flex;
+        align-items: center;
+        color: gray;
+    }
+
+   .slider-3-info-buttons {
+        visibility: hidden;
+    }
+
+    .slider-3-title {
+        margin-top: 150px;
+        font-size: 32px;
+    }
+
+    .slider-movie-3:hover .slider-3-title {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        margin-top: 10px;
+    }
+
+     .slider-3-info-li {
+        visibility: hidden;
+    }
+
+     .slider-3-description {
+        width: 80%;
+        visibility: hidden;
+    }
+
+     .slider-movie-3:hover .slider-3-description {
+         width: 80%;
+         transition-delay: 0.5s;
+         visibility: visible;
+     }
+
+      .slider-movie-3:hover .slider-3-info-li {
+         transition-delay: 0.5s;
+         visibility: visible;
+     }
+
+     // movie 4
+
+  
+      .slider-movie-4 {
+        margin-top: -80px;
+        width: 25%;
+        background-color: white;
+        background-image: linear-gradient(to top, rgba(31, 93, 185, 0.6) 0%, rgba(255, 255, 255, 0.1) 70%), image_url('kung_movie_5');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: flex-end;
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        cursor: pointer;
+        
+    }
+
+    .slider-4-info {
+        width: 100%;
+        height: 60%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column
+    }
+    
+    .slider-4-info-details {
+        height: 75%;
+        width: 100%;
+        margin: 0 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        color: white;
+    }
+
+    .slider-movie-4:hover .slider-4-info {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        background-color:rgba(31, 93, 185, 0.9);
+    }
+
+    .slider-movie-4:hover .slider-4-info-buttons {
+        transition-delay: 0.5s;
+        visibility: visible;
+        height: 33%;
+        width: 100%;
+        margin-left: 30px;
+        display: flex;
+        align-items: center;
+        color: gray;
+    }
+
+   .slider-4-info-buttons {
+        visibility: hidden;
+    }
+
+    .slider-4-title {
+        margin-top: 150px;
+        font-size: 32px;
+    }
+
+    .slider-movie-4:hover .slider-4-title {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        margin-top: 10px;
+    }
+
+    .slider-movie-4:hover .slider-movie-4 {
+        // transition-delay: 0.5s;
+        // transition-duration: 0.5s;
+        box-shadow: 3px 3px black;
+    }
+
+     .slider-4-info-li {
+        visibility: hidden;
+    }
+
+     .slider-4-description {
+        visibility: hidden;
+        width: 80%;
+    }
+
+     .slider-movie-4:hover .slider-4-description {
+          width: 80%;
+         transition-delay: 0.5s;
+         visibility: visible;
+     }
+
+      .slider-movie-4:hover .slider-4-info-li {
+         transition-delay: 0.5s;
+         visibility: visible;
+     }
+
+     

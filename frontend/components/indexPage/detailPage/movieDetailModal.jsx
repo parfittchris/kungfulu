@@ -32,8 +32,11 @@ class MovieDetailModal extends React.Component {
                             <div className="detail-masthead-info-title">{this.props.video.title}</div>
                             <div className="detail-masthead-info-info">{this.props.video.date}</div>
                             <div className="detail-masthead-info-description">{this.props.video.description}</div>
-                            <div>
-                               
+                            <div className="detail-masthead-info-links">
+                                <button className="detail-masthead-info-links" onClick={(e) => this.handleSubmit(e, 'video')}>
+                                    <i className="fas fa-play-circle fa-2x"></i>
+                                    <h3>Start watching: {this.props.video.title}</h3>
+                                </button>
                             </div>
                         </div>
                         <p className="detail-logo">KUNGFULU</p>

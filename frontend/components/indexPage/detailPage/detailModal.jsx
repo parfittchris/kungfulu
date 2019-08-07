@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 class DetailModal extends React.Component {
     constructor(props) {
         super(props)
-
+        
 
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -36,7 +36,7 @@ render() {
                             <div className="detail-masthead-info-description">{this.props.video.description}</div>
                             <div className="detail-masthead-info-links">
                                 <button className="detail-masthead-info-links" onClick={(e) => this.handleSubmit(e, 'video')}>
-                                    <img className="detail-play-button" src="https://img.icons8.com/color/48/000000/circled-play--v1.png"></img>
+                                <i className="fas fa-play-circle fa-2x"></i> 
                                     <h3>Start watching: {this.props.video.title}</h3>
                                 </button>
                             </div>
