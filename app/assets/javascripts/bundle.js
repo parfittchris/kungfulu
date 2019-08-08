@@ -1423,7 +1423,6 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      // debugger
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "hub"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2413,6 +2412,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _indexPage_banner_tvBannerItemContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../indexPage/banner/tvBannerItemContainer */ "./frontend/components/indexPage/banner/tvBannerItemContainer.jsx");
 /* harmony import */ var _indexPage_banner_movieBannerItemContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../indexPage/banner/movieBannerItemContainer */ "./frontend/components/indexPage/banner/movieBannerItemContainer.jsx");
+/* harmony import */ var _indexPage_banner_movieBannerContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../indexPage/banner/movieBannerContainer */ "./frontend/components/indexPage/banner/movieBannerContainer.jsx");
+/* harmony import */ var _indexPage_banner_tvBannerContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../indexPage/banner/tvBannerContainer */ "./frontend/components/indexPage/banner/tvBannerContainer.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2430,6 +2431,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 
@@ -2481,13 +2484,19 @@ function (_React$Component) {
           showResults: Object.values(response.titles)
         });
       });
-      debugger;
+    }
+  }, {
+    key: "clearSearch",
+    value: function clearSearch() {
+      this.setState({
+        searchTerm: ""
+      });
     }
   }, {
     key: "getResults",
     value: function getResults() {
-      var movies;
-      var shows;
+      var movies = null;
+      var shows = null;
 
       if (this.state.movieResults.length > 0) {
         movies = this.state.movieResults.map(function (movie) {
@@ -2496,32 +2505,63 @@ function (_React$Component) {
             movie: movie
           }));
         });
+      }
 
-        if (this.state.showResults.length > 0) {
-          shows = this.state.showResults.map(function (show) {
-            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_indexPage_banner_tvBannerItemContainer__WEBPACK_IMPORTED_MODULE_1__["default"], {
-              key: show.id,
-              show: show
-            }));
-          });
-        }
+      if (this.state.showResults.length > 0) {
+        shows = this.state.showResults.map(function (show) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_indexPage_banner_tvBannerItemContainer__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            key: show.id,
+            show: show
+          }));
+        });
+      }
 
-        if (movies || shows) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Movies"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "movies-results"
-          }, movies), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "TV Shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "shows-results"
-          }, shows));
-        } else {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "No results found");
-        }
+      if (movies && shows) {
+        debugger;
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "search-results"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "results-header"
+        }, "Movies"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "movies-results"
+        }, movies), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "results-header"
+        }, "Shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "shows-results"
+        }, shows)));
+      } else if (movies && shows === null) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "search-results"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "results-header"
+        }, "Movies"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "movies-results"
+        }, movies)));
+      } else if (shows && movies === null) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "search-results"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "results-header"
+        }, "Shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "shows-results"
+        }, shows)));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "no-results-message"
+        }, "0 results matching your search were found."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "no-results-sub-message"
+        }, "Check your spelling or try another term."));
       }
     }
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       if (this.state.searchTerm === "") {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "search-page-prior"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "search-form-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           className: "search_form",
@@ -2535,14 +2575,22 @@ function (_React$Component) {
           value: this.state.searchTerm,
           onChange: this.handleChange
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: ""
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          className: "",
-          type: "submit",
-          value: "Search for ".concat(this.state.searchTerm)
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.getResults()));
+          className: "before-search-input-button-container"
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "browse-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "search-browse-tv"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "browse-header"
+        }, " TV >"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_indexPage_banner_tvBannerContainer__WEBPACK_IMPORTED_MODULE_4__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "search-browse-movie"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "browse-header"
+        }, "MOVIES >"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_indexPage_banner_movieBannerContainer__WEBPACK_IMPORTED_MODULE_3__["default"], null))));
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "search-page-inprogress"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "search-form-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           className: "search_form",
@@ -2564,7 +2612,14 @@ function (_React$Component) {
           className: "search-input-button",
           type: "submit",
           value: "Search for ".concat(this.state.searchTerm)
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.getResults()));
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "submit",
+          value: "CLEAR",
+          className: "search-clear-btn",
+          onClick: function onClick() {
+            return _this3.clearSearch();
+          }
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.getResults())));
       }
     }
   }]);

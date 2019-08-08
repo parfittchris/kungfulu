@@ -7,7 +7,6 @@
     width: 100vw;
     margin-top: 85px;
     display: flex;
-    // align-items: flex-end;
 }
 
 .search-input {
@@ -20,13 +19,15 @@
     transform: translateY(20px);
 }
 
-.search-input-button {
-   
+.search-input::placeholder{
+    font-size: 48px;
+    color: #6B7790;
 }
+
 
 .search-input-button-container {
     display: flex;
-     position: relative;
+    position: relative;
     background-color: #EBEDF2;
     height: 90px;
     width: 94vw;
@@ -35,9 +36,88 @@
     font-size: 20px;
 }
 
+
+.before-search-input-button-container {
+    display: flex;
+    position: relative;
+    height: 90px;
+    width: 94vw;
+    margin: 0 45px;
+    border-top: 1px solid gray;
+    font-size: 20px;
+}
+
+.search-clear-btn {
+    position: absolute;
+    right: 50px;
+    top: 150px;
+    font-weight: 500;
+    color: gray;
+    cursor: pointer;
+}
+
+
+.search-clear-btn:hover {
+    color: black;
+}
+
 .submit-button-search-image {
     width: 28px;
     height: 28px;
     transform: translateY(32px);
     margin: 0 15px;
+}
+
+.browse-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.browse-header {
+    margin-left: 40px;
+    margin-bottom: 8px;
+    color: #292C33;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.search-browse-tv {
+    margin-bottom: 60px;
+}
+.movies-results {
+    margin-left: 45px;
+    margin-bottom: 30px;
+    border: 1px bottom gray;
+    display: flex;
+}
+
+.shows-results {
+    margin-left: 45px;
+    border: 1px bottom gray;
+    display: flex;
+}
+
+.results-header {
+    margin: 20px 45px;
+    color: #292C33;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.search-results {
+    font-size: 18px;
+    font-weight: 1200;
+}
+
+.no-results-message {
+    margin: 30px 45px;
+    font-size: 48px;
+    font-weight: 100;
+}
+
+.no-results-sub-message {
+    margin-top: 20px;
+    margin-left: 45px;
+    font-size: 20px;
+    font-weight: 100;
 }
