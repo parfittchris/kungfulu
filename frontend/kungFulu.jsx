@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
+import { userSearchShowTitles } from './actions/show_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+    window.searchShows = userSearchShowTitles;
 
 
     const root= document.getElementById('root');

@@ -16,4 +16,17 @@ class Api::ShowsController < ApplicationController
             end
         end
 
+        def search
+            title = params[:title]
+            @shows = Show.where('title iLIKE ?', "%#{title}%")
+            if @shows.nil?
+                render json: 'Search returned no results'
+            else
+                render "api/shows/index"
+            end
+        end
+
+         def movie_params
+            params.require(:show).permit(:title, :year, :rating, :description)
+        end
 end

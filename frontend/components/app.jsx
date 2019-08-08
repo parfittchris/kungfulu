@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import Navbar from './navbar/navbarContainer';
 import IndexHeader from './navbar/indexHeaderContainer';
 import indexContainer from './indexPage/indexContainer';
+import SearchHeaderContainer from './searchPage/searchHeaderContainer';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Footer } from './footer/footer'
 import tvBanner from './indexPage/banner/movieBannerContainer';
@@ -18,6 +19,7 @@ const App = () => (
             <Switch>
                 <AuthRoute exact path="/" component= {Navbar}/>
                 <ProtectedRoute exact path="/index" component={IndexHeader} />
+                <ProtectedRoute exact path="/search" component={SearchHeaderContainer} />
             </Switch>
         </header>  
         <Switch>

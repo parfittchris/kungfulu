@@ -11,3 +11,11 @@ export const findShow = (id) => (
         url: `api/shows/${id}`,
     })
 );
+
+
+export const findTitle = (title) => (
+    $.ajax({
+        method: 'GET',
+        url: `api/shows/search/${title}`,
+    })
+);

@@ -1,12 +1,12 @@
-@shows.each do |show|
-    json.set! show.id do
-    json.extract! show, :id, :title, :year, :rating, :description, :seasons
-        if (show.video.attached?)
-            json.video_url url_for(show.video)
+@shows.each do |showItem|
+    json.set! showItem.id do
+    json.extract! showItem, :id, :title, :year, :rating, :description, :seasons
+        if (showItem.video.attached?)
+            json.video_url url_for(showItem.video)
         end
 
-        if (show.image.attached?)
-            json.image_url url_for(show.image)
+        if (showItem.image.attached?)
+            json.image_url url_for(showItem.image)
         end
     end
 end

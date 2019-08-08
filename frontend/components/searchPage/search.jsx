@@ -30,10 +30,17 @@ class Search extends React.Component {
         this.props.userSearchTitles(this.state.searchTerm).then(
             response => {
                 this.setState({
-                    movieResults: Object.values(response.titles)
-                    // showResults:  Object.values(this.props.state.entities.videos.shows)
+                    movieResults: Object.values(response.titles),
                 });
             })
+
+        this.props.userSearchShowTitles(this.state.searchTerm).then(
+            response => {
+                this.setState({
+                    showResults: Object.values(response.titles),
+                });
+            })
+            debugger
     }
     
     getResults() {
@@ -71,22 +78,42 @@ class Search extends React.Component {
             } else {
                 return (
                     <h2>No results found</h2>
-                        )
+                )
             }
         }
     }
     render() {
-        return (
-            <div className="search-form-container">
-                <form className="search_form" onSubmit={this.handleSubmit}>
-                    <label>SEARCH:
-                        <input type="text" value={this.state.searchTerm} onChange={this.handleChange}/>
-                     </label>
-                        <input type="submit" value="Search"></input>
-                </form>
-                <div>{this.getResults()}</div>
-            </div>
-        )
+
+    if (this.state.searchTerm === "") {
+            return (
+                <div className="search-form-container">
+                    <form className="search_form" onSubmit={this.handleSubmit}>
+                        <div className="search-input-container">
+                            <input className="search-input" type="text" placeholder="Search" value={this.state.searchTerm} onChange={this.handleChange} />
+                        </div>
+                        <div className="">
+                            <input className="" type="submit" value={`Search for ${this.state.searchTerm}`}></input>
+                        </div>
+                    </form>
+                    <div>{this.getResults()}</div>
+                </div>
+            )
+        } else {
+            return (
+                < div className="search-form-container" >
+                    <form className="search_form" onSubmit={this.handleSubmit}>
+                        <div className="search-input-container">
+                            <input className="search-input" type="text" placeholder="Search" value={this.state.searchTerm} onChange={this.handleChange} />
+                        </div>
+                        <div className="search-input-button-container">
+                            <img className="submit-button-search-image" src="https://img.icons8.com/ios/50/000000/search--v1.png" />
+                            <input className="search-input-button" type="submit" value={`Search for ${this.state.searchTerm}`}></input>
+                        </div>
+                    </form>
+                    <div>{this.getResults()}</div>
+                </div >
+            )
+        }
     }
 }
 
@@ -95,9 +122,7 @@ export default Search
 
 
 
-
-
-
+    
 
 
 
