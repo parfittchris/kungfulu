@@ -20,7 +20,7 @@ class MovieBanner extends React.Component {
 
             return (
                 <div>
-                    <ul className="show-item-container">
+                    <ul className="movie-item-container">
                         {all_movies}
                     </ul>
                 </div>

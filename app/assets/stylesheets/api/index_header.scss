@@ -9,7 +9,7 @@
     width: 100%;
     display: flex;
     background-color: rgba(255, 255, 255, .90);
-    z-index: -500;
+    z-index: 10000;
 }
 
 .hidden-header {
@@ -23,6 +23,7 @@
     width: 100%;
     display: flex;
     background-color: rgba(0, 0, 0, 0);
+    z-index: 500;
 }
 
 .nav-container {
@@ -124,7 +125,7 @@
     cursor: pointer;
 }
 
-.search-btn {
+.search-btn{ 
     height: 24px;
     width: 24px;
 }
@@ -154,13 +155,12 @@
     text-align: center;
     font-size: 16px;
     margin-bottom: 3px;
-    font-family: 'Galatik'
+    font-family: 'Galatik';
 }   
 
 .profile-text {
     padding-left: 10px;
     padding-top: 3px;
-    
 }
 
 .profile:hover .drop-down-container {
@@ -190,6 +190,7 @@
     border-bottom: 1px solid rgb(240, 239, 239);
     color: #6B7790;
 }
+
 .drop-down-items {
     display: flex;
     flex-direction: column;

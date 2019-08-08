@@ -47,13 +47,13 @@ movie3 = Movie.create!(title: "Enter the Dragon", year: 1973, rating: 7.7, descr
     movie3.image.attach(io: image4, filename: "dragon-cover.jpg")
 
 
-movie4 = Movie.create!(title: "Kung Fu Panda", year: 2008, rating: 7.6, description: "The Dragon Warrior has to clash against the savage Tai Lung as China's fate hangs in the balance. However, the Dragon Warrior mantle is supposedly mistaken to be bestowed upon an obese panda who is a novice in martial arts.", video_type: "movie");
+movie4 = Movie.create!(title: "Kung Fu Panda", year: 2008, rating: 7.6, description: "The Dragon Warrior has to clash against the savage Tai Lung as China's fate hangs in the balance.", video_type: "movie");
     video5 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/kung-fu-panda-scene.mp4')
     movie4.video.attach(io: video5, filename: "panda-clip.mp4")
     image5 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/kung-fu-panda-cover.jpg')
     movie4.image.attach(io: image5, filename: "panda-cover.jpg")
 
-movie5 = Movie.create!(title: "The Invincible Armor", year: 1977, rating: 7.1, description: "An aging martial arts expert is gifted a plaque from the Emperor declaring him the Kung Fu World Champion. Unsure of whether or not be is deserving of this title, he embarks on a journey to defeat the 7 Grandmasters.", video_type: "movie");
+movie5 = Movie.create!(title: "The Invincible Armor", year: 1977, rating: 7.1, description: "An aging martial arts expert is gifted a plaque from the Emperor declaring him the Kung Fu World Champion.", video_type: "movie");
     video6 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/kung-fight.mp4')
     movie5.video.attach(io: video6, filename: "armor-clip.mp4")
     image6 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/invicible-cover.jpeg')

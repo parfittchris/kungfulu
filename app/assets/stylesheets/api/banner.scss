@@ -4,38 +4,66 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
+    position:absolute;
+    transition: all .2s ease-in-out;
+    height: 1px;
+    z-index: 100;
+}
+
+.movie-item-container  {
+    color: #292C33;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    position:absolute;
+    transition: all .2s ease-in-out;
+    height: 1px;
+    z-index: 100;
 }
 
 .show-item {
     margin: 0 2px;
     width: 265px;
-    height: 230px;
+    height: 1px;
     position: relative;
+    z-index:100;
 }
 
-.video-image-btn {
-    // height: 160px;
+.show-item:hover {
+    transition-delay: 0.5s;
+    transition-duration: 0.5s;
+    box-shadow: 5px 5px 50px 5px lightgray;
+    transform: scale(1.25);
+    height: 325px;
+    z-index:500;    
 }
+
 
 .video-image {
     cursor: pointer;
     height: 160px;
     width: 265px;
+    z-index:100;
 }
 
 .show-item-info {
-    margin-top: 16px;
+    // margin-top: 50px;
     margin-left: 30px;
     margin-right: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    // justify-content: space-around;
+    height: 20px;
+    background-color: white;
+    z-index:100;
 }
 
 .vid-title {
     margin-top: 17px;
     color: #292C33;
     font-size: 20px;
+    z-index:100;
 }
 
 .season-info {
@@ -45,33 +73,28 @@
 .vid-description {
     visibility: hidden;
     margin-bottom: 50px;
+    z-index: 100;
 }
 
 .vid-info-btn {
     visibility: hidden;
 }
 
-.show-item:hover {
-    transition-delay: 0.5s;
-    transition-duration: 0.5s;
-    height: 350px;
-    box-shadow: 5px 5px 50px 5px lightgray;
-    border: 1px solid rgb(240, 239, 239);
-}
-
-
-
 .show-item:hover .show-item-info {
     transition-delay: 0.5s;
-    height: 140px;
+    // height: 140px;
+    z-index:200;    
 }
 
 .show-item:hover .season-info {
+    margin-top: 10px;
     transition-delay: 0.75s;
     visibility: visible;
+    z-index:200;
 }
 
 .show-item:hover .vid-description {
+    margin-top: 10px;
     transition-delay: 0.75s;
     visibility: visible;
 }

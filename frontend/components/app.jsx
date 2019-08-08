@@ -8,7 +8,7 @@ import indexContainer from './indexPage/indexContainer';
 import SearchHeaderContainer from './searchPage/searchHeaderContainer';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Footer } from './footer/footer'
-import tvBanner from './indexPage/banner/movieBannerContainer';
+import movieBanner from './indexPage/banner/movieBannerContainer';
 import detailPage from './indexPage/detailPage/detailPage';
 import searchBarContainer from './searchPage/searchContainer';
 
@@ -23,6 +23,7 @@ const App = () => (
             </Switch>
         </header>  
         <Switch>
+            <Route path="/test" component={movieBanner} />
             <ProtectedRoute path="/index" component={indexContainer}/>
             <AuthRoute exact path="/" component={SplashPageContainer} />
             <ProtectedRoute exact path="/search" component={searchBarContainer} />

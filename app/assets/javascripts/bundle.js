@@ -409,7 +409,10 @@ var App = function App() {
     exact: true,
     path: "/search",
     component: _searchPage_searchHeaderContainer__WEBPACK_IMPORTED_MODULE_7__["default"]
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_8__["ProtectedRoute"], {
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+    path: "/test",
+    component: _indexPage_banner_movieBannerContainer__WEBPACK_IMPORTED_MODULE_10__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_8__["ProtectedRoute"], {
     path: "/index",
     component: _indexPage_indexContainer__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_8__["AuthRoute"], {
@@ -523,7 +526,7 @@ function (_React$Component) {
         });
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "show-item-container"
+        className: "movie-item-container"
       }, all_movies));
     }
   }]);
@@ -1460,6 +1463,8 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-movie-1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "slider-1-new-photo"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-1-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-1-info-details"
@@ -1542,10 +1547,14 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-arrow-circle-right fa-3x"
       })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "shows-container-title"
+      }, "TV>"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "shows-container"
-      }, "TV>"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_banner_tvBannerContainer__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_banner_tvBannerContainer__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "movies-container-title"
+      }, "MOVIES>"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "movies-container"
-      }, "MOVIES>"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_banner_movieBannerContainer__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_banner_movieBannerContainer__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "index-end"
       }))));
     }

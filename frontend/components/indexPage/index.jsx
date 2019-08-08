@@ -52,6 +52,7 @@ class Index extends React.Component {
                    <div className="hub-container">
                         <div className="slider">
                             <div className="slider-movie-1">
+                                <div className="slider-1-new-photo"></div>
                                 <div className="slider-1-info">
                                     <div className="slider-1-info-details">
                                         <div className="slider-1-title">{this.state.example1.title}</div>
@@ -108,10 +109,10 @@ class Index extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <h2 className="shows-container">TV></h2>
-                        <TVBannerContainer />
-                        <h2 className="movies-container">MOVIES></h2>
-                        <MovieBannerContainer />
+                        <h2 className="shows-container-title">TV></h2>
+                        <div className="shows-container"><TVBannerContainer /></div>
+                        <h2 className="movies-container-title">MOVIES></h2>
+                        <div className="movies-container"><MovieBannerContainer /></div>
                         <button className="index-end"></button>
                     </div>
                
