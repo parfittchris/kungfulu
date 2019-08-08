@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router'
 
 class IndexHeader extends React.Component {
     constructor(props) {
@@ -23,8 +24,10 @@ class IndexHeader extends React.Component {
         }
     }
 
- 
-
+    searchRedirect() {
+        this.props.history.push(`/search`);
+    }
+    
 
     handleSubmit(e) {
         e.preventDefault();
@@ -56,7 +59,7 @@ class IndexHeader extends React.Component {
                 </div>
                 <div className="empty-space"></div>
                 <div className="user-container">
-                    <div className="search">
+                    <div className="search" onClick={() => this.searchRedirect()}>
                         <button className="search-btn">
                             <img src="https://img.icons8.com/ios/50/000000/search--v1.png"></img>
                         </button>
@@ -89,4 +92,4 @@ class IndexHeader extends React.Component {
     }
 }
 
-export default IndexHeader
+export default withRouter(IndexHeader)

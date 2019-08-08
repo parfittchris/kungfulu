@@ -16,9 +16,9 @@ class DetailModal extends React.Component {
     }
 
     
-    componentWillUnmount() {
-        this.props.history.push(`/index`)
-    }
+    // componentWillUnmount() {
+    //     this.props.history.push(`/index`)
+    // }
 
 render() {
     const image = 'https://kungfulu-aa-seeds.s3.amazonaws.com/kung_fu_show.jpeg'

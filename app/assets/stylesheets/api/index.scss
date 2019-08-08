@@ -1,6 +1,3 @@
-    body * {
-        // font-family:'tahoma'!important;
-    }
 
     body i {
        font-family:'FontAwesome'!important;
@@ -36,7 +33,7 @@
     .hub-container {
         margin-left: 40px; 
         margin-right: 40px;
-        height: 100px;
+        height: 100%;
     }
 
     .slider {
@@ -85,14 +82,18 @@
     }
 
     .slider-1-info {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
         width: 100%;
         height: 60%;
         margin: 0 auto;
         display: flex;
-        flex-direction: column
+        flex-direction: column;
     }
     
     .slider-1-info-details {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
         height: 75%;
         width: 100%;
         margin: 0px 30px;
@@ -124,6 +125,8 @@
     }
 
     .slider-1-title {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
         margin-top: 150px;
         font-size: 32px;
     }
@@ -174,14 +177,18 @@
     }
 
     .slider-2-info {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
         width: 100%;
         height: 60%;
         margin: 0 auto;
         display: flex;
-        flex-direction: column
+        flex-direction: column;
     }
     
     .slider-2-info-details {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
         height: 75%;
         width: 100%;
         margin: 0px 30px;
@@ -213,6 +220,8 @@
     }
 
     .slider-2-title {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
         margin-top: 150px;
         font-size: 32px;
     }
@@ -263,6 +272,8 @@
     }
 
     .slider-3-info {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
         width: 100%;
         height: 60%;
         margin: 0 auto;
@@ -271,6 +282,8 @@
     }
     
     .slider-3-info-details {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
         height: 75%;
         width: 100%;
         margin-left: 30px;
@@ -303,6 +316,8 @@
     }
 
     .slider-3-title {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
         margin-top: 150px;
         font-size: 32px;
     }
@@ -352,6 +367,8 @@
     }
 
     .slider-4-info {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
         width: 100%;
         height: 60%;
         margin: 0 auto;
@@ -360,6 +377,8 @@
     }
     
     .slider-4-info-details {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
         height: 75%;
         width: 100%;
         margin: 0 30px;
@@ -391,6 +410,8 @@
     }
 
     .slider-4-title {
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
         margin-top: 150px;
         font-size: 32px;
     }

@@ -28,7 +28,7 @@ class MovieBannerItem extends React.Component {
                     <li className="vid-title" onClick={(e) => this.handleSubmit(e, 'detail')}>{this.props.movie.title}</li>
                     <li className="vid-description">{this.props.movie.description}</li>
                     <button className="vid-info-btn" onClick={(e) => this.handleSubmit(e, 'detail')}>
-                        <i class="fas fa-arrow-circle-right fa-2x"></i>
+                        <i className="fas fa-arrow-circle-right fa-2x"></i>
                     </button>
                 </ul>
             </div>

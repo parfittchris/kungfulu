@@ -22,18 +22,6 @@ class Index extends React.Component {
         this.props.userSelectAllShows();
     }
 
-    
-    // goToVideo(e, id) {
-    //     e.preventDefault()
-    //     this.props.history.push(`/index/movies/video/${id}`)
-    // }
-
-    // goToDetail(e, id) {
-    //     e.preventDefault()
-    //     this.props.history.push(`/index/movies/details/${id}`)
-    // }
-
-
     handleSubmit(e, type, id) {
         e.preventDefault()
         this.props.history.push(`/index/movies/${type}/${id}`)
@@ -127,8 +115,10 @@ class Index extends React.Component {
                         <MovieBannerContainer />
                         <button className="index-end"></button>
                     </div>
+               
                </div>
            </div>
+
         )
     }
 }

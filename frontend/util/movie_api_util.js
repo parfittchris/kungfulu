@@ -11,3 +11,10 @@ export const findMovie = (id) => (
         url: `api/movies/${id}`,
     })
 );
+
+export const findTitle = (title) => (
+    $.ajax({
+        method: 'GET',
+        url: `api/movies/search/${title}`,
+    })
+);

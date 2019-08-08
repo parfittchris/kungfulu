@@ -8,5 +8,10 @@ Rails.application.routes.draw do
     resources :shows, only: [:index, :show]
     resources :episodes, only: [:index]
     resource :session, only: [:create, :destroy, :show]
+
+    
+    get '/movies/search/:title', to: 'movies#search'
+    get '/shows/search/:title', to: 'shows#search'
+
   end
 end

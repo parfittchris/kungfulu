@@ -16,4 +16,20 @@ class Api::MoviesController < ApplicationController
             end
         end
 
+        def search
+            title = params[:title]
+            @movies = Movie.where('title iLIKE ?', "%#{title}%")
+            
+            if @movies.nil?
+                render json: 'Search returned no results'
+            else
+                render "api/movies/index"
+            end
+        end
+
+
+        def movie_params
+            params.require(:movie).permit(:title, :year, :rating, :description)
+        end
+
 end

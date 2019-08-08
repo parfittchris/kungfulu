@@ -9,7 +9,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Footer } from './footer/footer'
 import tvBanner from './indexPage/banner/movieBannerContainer';
 import detailPage from './indexPage/detailPage/detailPage';
-// import movieDetailPage from './indexPage/detailPage/movieDetailPage;'
+import searchBarContainer from './searchPage/searchContainer';
 
 const App = () => (
     <div>
@@ -19,11 +19,11 @@ const App = () => (
                 <AuthRoute exact path="/" component= {Navbar}/>
                 <ProtectedRoute exact path="/index" component={IndexHeader} />
             </Switch>
-        </header> 
+        </header>  
         <Switch>
-            <Route exact path='/banner' component={tvBanner} />
             <ProtectedRoute path="/index" component={indexContainer}/>
             <AuthRoute exact path="/" component={SplashPageContainer} />
+            <ProtectedRoute exact path="/search" component={searchBarContainer} />
         </Switch>
             <ProtectedRoute path="/index/shows/detail/:videoId" component={detailPage} />
             <ProtectedRoute path="/index/shows/video/:videoId" component={detailPage} />

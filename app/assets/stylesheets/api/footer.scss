@@ -1,3 +1,26 @@
+
+
 .footer {
-    background-color: lightgray;
+    position: relative;
+    margin-top: 120px;
+    clear: both;
+}
+
+
+
+.footer-overall {
+    background-color: rgb(235, 237, 242);
+    line-height: 12px;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+.footer-text {
+     color: rgb(30, 30, 30);
+     font-size: 12px;
+     font-weight: 600;
 }
