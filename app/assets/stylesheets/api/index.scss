@@ -433,6 +433,10 @@
          visibility: visible;
      }
 
+     .shows-container {
+        margin-top: 20px;
+     }
+
      .movies-container {
          margin-top: 20px;
      }
@@ -449,3 +453,266 @@
         font-weight: 900;
         margin-bottom: 10px;
     }
+
+    .showcase-container {
+        margin-top: 20px;
+        width: 100%;
+        height: 375px;
+        display: flex;
+    }
+
+
+
+
+    //SHOWCASE FEATURES
+
+    .showcase-items {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        height: 100%;
+        width: 50%
+    }
+
+    .showcase-items-details {
+        font-family: 'Raleway', sans-serif;
+        position: relative;
+        top: 250px;
+        left: 20px;
+        height: 100px;
+        width: 400px;
+        color: white;
+        font-size: 32px;
+        font-weight: 200;
+    }
+
+    .showcase-details {
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+    .showcase-item-1-img {
+        background-image: image_url('kungshow3.jpg');
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .showcase-item-2-img {
+        background-image: image_url('kungshow6.jpg');
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+
+
+    .showcase-items {
+        // display: flex;
+        display: absolute;
+        flex-direction: column;
+        border: 1px solid black;
+        height: 100%;
+        width: 50%
+    }
+
+    .showcase-items:hover {
+        //  transform: scale(1.25);
+    }
+
+    .showcase-item-3-img {
+        background-image: image_url('the-matrix.jpg');
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .showcase-item-4-img {
+        background-image: image_url('panda-land.jpg');
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+
+
+    //SHOWCASE 1
+    .showcase-details-1 {
+        // transition-delay: 0.5s;
+        // transition-duration: 0.5s;
+        position: absolute;
+        visibility: hidden;
+        box-sizing: border-box;
+        bottom: 0;
+        font-size: 24px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 1px;
+        width: 100%;
+        background-color: rgb(59, 7, 75);
+        padding: 15px;
+    }
+
+    .showcase-item-1-img:hover .showcase-details-1 {
+        position:absolute;
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        visibility: visible;
+        height: 150px;
+    }
+
+    .showcase-item-1-img:hover .showcase-items-details {
+        position: absolute;
+        visibility: visible;
+        transition-delay: 0.5s;
+        // animation: fadein 2s;
+    }
+
+    .showcase-btn-extra-1 {
+        font-size: 14px;
+    }
+
+     .showcase-item-1-img:hover {
+       transition-delay: 0.5s;
+       transition-duration: 0.5s;
+       transform: scale(1.10);
+    }
+    
+
+    //SHOWCASE 2
+
+
+    .showcase-details-2 {
+        // transition-delay: 0.5s;
+        // transition-duration: 0.5s;
+        position: absolute;
+        visibility: hidden;
+        box-sizing: border-box;
+        bottom: 0;
+        font-size: 24px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 1px;
+        width: 100%;
+        background-color: rgb(59, 7, 75);
+        padding: 15px;
+    }
+
+    .showcase-item-2-img:hover .showcase-details-2 {
+        position:absolute;
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        visibility: visible;
+        height: 150px;
+    }
+
+    .showcase-item-2-img:hover .showcase-items-details {
+        position: absolute;
+        visibility: visible;
+        transition-delay: 0.5s;
+        // animation: fadein 2s;
+    }
+
+    .showcase-btn-extra-2 {
+        font-size: 14px;
+    }
+
+     .showcase-item-2-img:hover {
+       transition-delay: 0.5s;
+       transition-duration: 0.5s;
+       transform: scale(1.10);
+    }
+    
+    //SHOWCASE 3
+
+
+    .showcase-details-3 {
+        // transition-delay: 0.5s;
+        // transition-duration: 0.5s;
+        position: absolute;
+        visibility: hidden;
+        box-sizing: border-box;
+        bottom: 0;
+        font-size: 24px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 1px;
+        width: 100%;
+        background-color: rgb(59, 7, 75);
+        padding: 15px;
+    }
+
+    .showcase-item-3-img:hover .showcase-details-3 {
+        position:absolute;
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        visibility: visible;
+        height: 150px;
+    }
+
+    .showcase-item-3-img:hover .showcase-items-details {
+        position: absolute;
+        visibility: visible;
+        transition-delay: 0.5s;
+        // animation: fadein 2s;
+    }
+
+    .showcase-btn-extra-3 {
+        font-size: 14px;
+    }
+
+     .showcase-item-3-img:hover {
+       transition-delay: 0.5s;
+       transition-duration: 0.5s;
+       transform: scale(1.10);
+    }
+    
+    //SHOWCASE 4
+
+    .showcase-details-4 {
+        // transition-delay: 0.5s;
+        // transition-duration: 0.5s;
+        position: absolute;
+        visibility: hidden;
+        box-sizing: border-box;
+        bottom: 0;
+        font-size: 24px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 1px;
+        width: 100%;
+        background-color: rgb(59, 7, 75);
+        padding: 15px;
+    }
+
+    .showcase-item-4-img:hover .showcase-details-4 {
+        position:absolute;
+        transition-delay: 0.5s;
+        transition-duration: 0.5s;
+        visibility: visible;
+        height: 150px;
+    }
+
+    .showcase-item-4-img:hover .showcase-items-details {
+        position: absolute;
+        visibility: visible;
+        transition-delay: 0.5s;
+        // animation: fadein 2s;
+    }
+
+    .showcase-btn-extra-4 {
+        font-size: 14px;
+    }
+
+     .showcase-item-4-img:hover {
+       transition-delay: 0.5s;
+       transition-duration: 0.5s;
+       transform: scale(1.10);
+    }
+    

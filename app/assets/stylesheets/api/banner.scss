@@ -36,7 +36,8 @@
     box-shadow: 5px 5px 50px 5px lightgray;
     transform: scale(1.25);
     height: 325px;
-    z-index:500;    
+    z-index:500;
+    background-color: white;    
 }
 
 
@@ -83,14 +84,15 @@
 .show-item:hover .show-item-info {
     transition-delay: 0.5s;
     // height: 140px;
-    z-index:200;    
+    z-index:200; 
+    background-color:white;   
 }
 
 .show-item:hover .season-info {
     margin-top: 10px;
     transition-delay: 0.75s;
     visibility: visible;
-    z-index:200;
+    z-index: 200;
 }
 
 .show-item:hover .vid-description {

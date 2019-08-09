@@ -23,7 +23,6 @@ const App = () => (
             </Switch>
         </header>  
         <Switch>
-            <Route path="/test" component={movieBanner} />
             <ProtectedRoute path="/index" component={indexContainer}/>
             <AuthRoute exact path="/" component={SplashPageContainer} />
             <ProtectedRoute exact path="/search" component={searchBarContainer} />

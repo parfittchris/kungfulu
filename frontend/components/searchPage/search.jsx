@@ -77,9 +77,9 @@ class Search extends React.Component {
                 return (
                     <> 
                     <div className="search-results">
-                        <h2 className="results-header">Movies</h2>
+                        <h2 className="results-header-movie">Movies</h2>
                             <div className="movies-results">{movies}</div>
-                        <h2 className="results-header">Shows</h2>
+                        <h2 className="results-header-show">Shows</h2>
                             <div className="shows-results">{shows}</div>
                     </div>
                     </>
@@ -88,7 +88,7 @@ class Search extends React.Component {
                 return (
                     <>
                         <div className="search-results">
-                            <h2 className="results-header">Movies</h2>
+                            <h2 className="results-header-movie">Movies</h2>
                             <div className="movies-results">{movies}</div>
                         </div>
                     </>
@@ -97,7 +97,7 @@ class Search extends React.Component {
                 return (
                     <>
                         <div className="search-results">
-                            <h2 className="results-header">Shows</h2>
+                            <h2 className="results-header-show">Shows</h2>
                             <div className="shows-results">{shows}</div>
                         </div>
                     </>

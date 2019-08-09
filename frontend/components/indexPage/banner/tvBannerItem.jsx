@@ -17,12 +17,11 @@ class TvBannerItem extends React.Component {
     
     render() {
         const image = 'https://kungfulu-aa-seeds.s3.amazonaws.com/kung_fu_show.jpeg'
-        
             return (
                 <div className="show-item">
                     <div className="show-item-photo">
                         <button onClick={(e) => this.handleSubmit(e, 'video')}>
-                            <img src={image} className="video-image"></img>
+                            <img src={this.props.show.image_url} className="video-image"></img>
                         </button>
                     </div>
                     <ul className="show-item-info">

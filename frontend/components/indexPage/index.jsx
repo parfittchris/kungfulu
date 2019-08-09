@@ -11,7 +11,9 @@ class Index extends React.Component {
             example1: { title: "Enter the Dragon", year: 1973, rating: 7.7, description: "A martial artist agrees to spy on a reclusive crime lord using his invitation to a tournament there as cover.", video_type: "movie"},
             example2: { title: "The Invincible Armor", year: 1977, rating: 7.1, description: "An aging martial arts expert is gifted a plaque from the Emperor declaring him the Kung Fu World Champion. Unsure of whether or not be is deserving of this title, he embarks on a journey to defeat the 7 Grandmasters.", video_type: "movie"},
             example3: { title: "Kung Fu Panda", year: 2008, rating: 7.6, description: "The Dragon Warrior has to clash against the savage Tai Lung as China's fate hangs in the balance. However, the Dragon Warrior mantle is supposedly mistaken to be bestowed upon an obese panda who is a novice in martial arts.", video_type: "movie"},
-            example4: { title: "The Karate Kid", year: 1984, rating: 7.2, description: "A Japanese martial arts instructor agrees to teach karate to a bullied teenager.", video_type: "movie" }
+            example4: { title: "The Karate Kid", year: 1984, rating: 7.2, description: "A Japanese martial arts instructor agrees to teach karate to a bullied teenager.", video_type: "movie" },
+            example5: { title: "Lessons from the Greats: Bruce Lee", year: 1994, rating: 7.9, description: "Bruce Lee teaches masterful kung fu techniques", video_type: "show"},
+            example6: { title: "Lessons from the Greats: This Guy", year: 1998, rating: 4.2, description: "This guy spouts wisdom", video_type: "show" }
         }
 
     }
@@ -27,8 +29,13 @@ class Index extends React.Component {
         this.props.history.push(`/index/movies/${type}/${id}`)
     }
 
+    handleSubmitVideo(e, type, id) {
+        e.preventDefault()
+        this.props.history.push(`/index/shows/${type}/${id}`)
+    }
 
     render() {
+     
         return (
 
            <div>
@@ -102,7 +109,7 @@ class Index extends React.Component {
                                             <div className="slider-4-description">{this.state.example4.description}</div>
                                     </div>
                                     <div className="slider-4-info-buttons">
-                                        <button onClick={(e) => this.handleSubmit(e, 'detail', 1)}className="thumbnail-details-button">
+                                        <button onClick={(e) => this.handleSubmit(e, 'detail', 1)} className="thumbnail-details-button">
                                             <i className="fas fa-arrow-circle-right fa-3x" ></i>
                                         </button>
                                     </div>
@@ -110,11 +117,59 @@ class Index extends React.Component {
                             </div>
                         </div>
                         <h2 className="shows-container-title">TV></h2>
+                        <div className="showcase-container">
+                            <div className="showcase-items">
+                                <div className="showcase-item-1-img">
+                                    <div className="showcase-details-1">
+                                        <div className="showcase-title">{this.state.example5.title}</div>
+                                        <div className="showcase-details">{this.state.example5.year}</div>
+                                        <button onClick={(e) => this.handleSubmitVideo(e, 'detail', 4)} className="showcase-btn-extra-1">
+                                            <i className="fas fa-arrow-circle-right fa-3x" ></i>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div className="showcase-items">
+                                <div className="showcase-item-2-img">
+                                    <div className="showcase-details-2">
+                                        <div className="showcase-title">{this.state.example6.title}</div>
+                                        <div className="showcase-details">{this.state.example6.year}</div>
+                                        <button onClick={(e) => this.handleSubmitVideo(e, 'detail', 4)} className="showcase-btn-extra-2">
+                                            <i className="fas fa-arrow-circle-right fa-3x" ></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className="shows-container"><TVBannerContainer /></div>
                         <h2 className="movies-container-title">MOVIES></h2>
+                        <div className="showcase-container">
+                            <div className="showcase-items">
+                                <div className="showcase-item-3-img">
+                                <div className="showcase-details-3">
+                                    <div className="showcase-title">{this.state.headline.title}</div>
+                                    <div className="showcase-details">{this.state.headline.year}</div>
+                                        <button onClick={(e) => this.handleSubmitVideo(e, 'detail', 4)} className="showcase-btn-extra-3">
+                                            <i className="fas fa-arrow-circle-right fa-3x" ></i>
+                                        </button>
+                                    </div>
+                             </div>
+                            </div>
+                            <div className="showcase-items">
+                                <div className="showcase-item-4-img">
+                                    <div className="showcase-details-4">
+                                        <div className="showcase-title">{this.state.example3.title}</div>
+                                        <div className="showcase-details">{this.state.example3.year}</div>
+                                        <button onClick={(e) => this.handleSubmitVideo(e, 'detail', 4)} className="showcase-btn-extra-4">
+                                            <i className="fas fa-arrow-circle-right fa-3x" ></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className="movies-container"><MovieBannerContainer /></div>
-                        <button className="index-end"></button>
-                    </div>
+                     </div>
                
                </div>
            </div>
