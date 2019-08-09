@@ -1,6 +1,5 @@
 # KUNGFULU PRODUCTION README
-
-Link: https://kungfulu.herokuapp.com/#/
+[Demo Here!](https://kungfulu.herokuapp.com/#/)
 
 ### DESCRIPTION
 KUNGFULU is a hulu app clone that distills down the enormous offering of Hulu content into its one most important category: Kung Fu media. Built from the ground up, KUNGFULU offers visitors access to Kung Fu movies and TV shows, allowing viewing on the site itself. KUNGFULU also utilizes a search bar to help users quickly find the kung content they've been looking for. User authentication included as well to confirm that only logged-in users have access to KUNGFULU's immense database, with login/signup forms are included with the package for those wishing to get access to this incredible content.
@@ -37,7 +36,7 @@ INCOMING FEATURES
 
 ### VIDEO PLAYER
 The video player is implemented using a modal that covers the main index page. This allows the index page to continue to be navigated by the user while a video continues to be played in a miniaturized state in the corner. The minimization is a simple class change to the video player that alters its css. Since a single modal component was used for multiple features: Video player, Log in, and Sign up; it was necessary to issue a separate action to the modal component whenever specific styling changes to the modal itself were necessary, for example: Remove the default darkened backdrop when the user was browsing the index page with the video player present.
-
+    ![MiniPlayerScreenShot](/images/logo.png)
 
 
 ### SEARCH
