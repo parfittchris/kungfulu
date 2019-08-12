@@ -10,7 +10,6 @@ class MovieDetailModal extends React.Component {
 
     handleSubmit(e, type) {
         e.preventDefault()
-        // debugger
         this.props.history.push(`/index/movies/${type}/${this.props.video.id}`)
     }
 
@@ -19,7 +18,6 @@ class MovieDetailModal extends React.Component {
     }
 
     render() {
-        // debugger
         return (
 
             <div className="detail-page-container">

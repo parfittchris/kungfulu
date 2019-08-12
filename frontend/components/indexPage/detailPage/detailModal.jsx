@@ -5,7 +5,6 @@ import { withRouter } from 'react-router';
 class DetailModal extends React.Component {
     constructor(props) {
         super(props)
-        
 
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -14,11 +13,6 @@ class DetailModal extends React.Component {
         e.preventDefault()
         this.props.history.push(`/index/shows/${type}/${this.props.video.id}`)
     }
-
-    
-    // componentWillUnmount() {
-    //     this.props.history.push(`/index`)
-    // }
 
 render() {
     const image = 'https://kungfulu-aa-seeds.s3.amazonaws.com/kung_fu_show.jpeg'

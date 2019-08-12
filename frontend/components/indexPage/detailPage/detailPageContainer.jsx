@@ -8,13 +8,13 @@ const mapStateToProps = (state, myParams) => {
     return ({
         video: state.entities.videos.shows[videoId]
     });
-}
+};
 
 const mapDispatchToProps = dispatch => {
     return ({
         openModal: (modal, id) => dispatch(openModal(modal, id)),
         closeModal: () => dispatch(closeModal()),
     })
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(detailModal);

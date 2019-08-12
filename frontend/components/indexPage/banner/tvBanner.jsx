@@ -25,6 +25,6 @@ class TVBanner extends React.Component {
                 </div>
             )
         }
-    }
+    };
 
 export default TVBanner

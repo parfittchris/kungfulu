@@ -26,6 +26,6 @@ class MovieBanner extends React.Component {
                 </div>
             )
         }
-}
+};
 
 export default MovieBanner

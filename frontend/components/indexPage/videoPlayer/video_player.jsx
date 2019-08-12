@@ -28,7 +28,6 @@ class videoPlayer extends React.Component {
                 playerClass: "webPlayer-mini",
                 closeClass: 'video-close-button-mini'
             });
-            // this.props.history.push(`/index`)
             this.props.openModal('mini', this.props.id)
         } else {
             this.props.closeModal()

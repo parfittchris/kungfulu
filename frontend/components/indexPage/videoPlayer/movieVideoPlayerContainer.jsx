@@ -12,7 +12,7 @@ const mapStateToProps = (state, myParams) => {
     });
 }
 
-const mapDispatchToProps = state => {
+const mapDispatchToProps = dispatch => {
     return ({
         closeModal: () => dispatch(closeModal()),
         openModal: (modal, id) => dispatch(openModal(modal, id)),

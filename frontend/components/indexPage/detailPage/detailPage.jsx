@@ -8,15 +8,12 @@ const mapDispatchToProps = dispatch => {
     })
 }
 
-
-
 class DetailPage extends React.Component {
     constructor(props) {
         super(props)
         
     }   
     
-
     componentDidMount() {
         if (this.props.match.path === "/index/shows/detail/:videoId") {
             return this.props.openModal('detail', this.props.match.params.videoId,)
@@ -28,7 +25,6 @@ class DetailPage extends React.Component {
             return this.props.openModal('movieVideo', this.props.match.params.videoId)
         }
     }   
-    
 
     render() {
         return (

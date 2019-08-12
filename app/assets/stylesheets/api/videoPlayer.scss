@@ -9,8 +9,8 @@
 
 .webPlayer-mini {
     position: absolute;
-    left: 75px;
-    top: 50px;
+    top: 9vh;
+    left: 8vw;
     height: 40vh;
     width: 40vw;
     background-color: black;
@@ -36,7 +36,6 @@
     color: white;
 }
 
-
 .player-container:hover .video-close-button {
     visibility: visible;
 }
@@ -48,8 +47,8 @@
     font-weight: 200;
     color: gray;
     z-index: 10000;
-    left: 800px;
-    top: 38px;
+    left: 45vw;
+    top: 7vh;
 }
 
 .video-close-button-mini:hover {

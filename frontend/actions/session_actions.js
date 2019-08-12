@@ -28,15 +28,15 @@ export const receiveErrors = errors => ({
 export const userSignup = formUser => dispatch => signup(formUser)
     .then(user => dispatch(receiveCurrentUser(user))).fail(errors => (
         dispatch(receiveErrors(errors))
-    ));
+));
 
 export const userLogin = formUser => dispatch => login(formUser)
     .then(user => dispatch(receiveCurrentUser(user))).fail(errors => (
         dispatch(receiveErrors(errors)))
-    );
+);
 
 export const userLogout = () => dispatch => logout()
     .then(() => dispatch(logoutCurrentUser())).fail(errors => (
         dispatch(receiveErrors(errors)))
-    );
+);
 

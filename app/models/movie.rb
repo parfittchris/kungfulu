@@ -10,4 +10,5 @@ class Movie < ApplicationRecord
         movie = Movie.find_by(title: title)
         return nil unless movie
     end
+    
 end

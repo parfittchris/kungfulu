@@ -9,4 +9,6 @@ class Season < ApplicationRecord
     foreign_key: :show_id,
     class_name: :Show
 
+    has_one_attached :image
+
 end
