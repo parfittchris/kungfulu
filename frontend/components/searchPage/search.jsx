@@ -8,7 +8,6 @@ class Search extends React.Component {
     constructor(props) {
         super(props)
         
-
         this.state = {
             movieResults: [],
             showResults: [],
@@ -73,7 +72,6 @@ class Search extends React.Component {
             });
         }      
             if (movies && shows) {
-                debugger
                 return (
                     <> 
                     <div className="search-results">

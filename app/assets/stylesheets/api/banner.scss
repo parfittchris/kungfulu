@@ -19,7 +19,7 @@
     position:absolute;
     transition: all .2s ease-in-out;
     height: 1px;
-    z-index: 100;
+    z-index: 00;
 }
 
 .show-item {
@@ -45,7 +45,7 @@
     cursor: pointer;
     height: 160px;
     width: 265px;
-    z-index:100;
+    z-index: -50;
 }
 
 .show-item-info {
@@ -55,7 +55,7 @@
     display: flex;
     flex-direction: column;
     // justify-content: space-around;
-    height: 20px;
+    height: 40px;
     background-color: white;
     z-index:100;
 }
@@ -83,7 +83,7 @@
 
 .show-item:hover .show-item-info {
     transition-delay: 0.5s;
-    // height: 140px;
+    height: 100px;
     z-index:200; 
     background-color:white;   
 }
@@ -93,6 +93,7 @@
     transition-delay: 0.75s;
     visibility: visible;
     z-index: 200;
+    background-color: white;
 }
 
 .show-item:hover .vid-description {

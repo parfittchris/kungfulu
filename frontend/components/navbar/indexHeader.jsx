@@ -5,7 +5,13 @@ class IndexHeader extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {currentScrollHeight: 0, activeClass: "hidden-header"}
+        this.state = {
+            currentScrollHeight: 0, 
+            activeClass: "hidden-header",
+            categories: ['Classic', 'Home-Movie', 'Documentary', 
+                          'Sci-Fi', 'Animated', 'Foreign Film', 
+                          'Comedy', 'Drama']
+        }
         this.handleSubmit = this.handleSubmit.bind(this)
     };
 
@@ -33,9 +39,17 @@ class IndexHeader extends React.Component {
         e.preventDefault();
         this.props.userLogout();
     }
+
+    searchCategory(category) {
+            this.props.history.push(`/index/categories/${category}`)
+    }
   
 
     render() {
+        let categoryBtns = this.state.categories.map(category => {
+            return <button className="category-btn" onClick={() => this.searchCategory(category)}>{category}</button>
+        })
+
         return (
             <div className={this.state.activeClass}>
                 <div className="nav-container">
@@ -48,7 +62,32 @@ class IndexHeader extends React.Component {
                         <button to="/index" className="cat">
                             <img className="cat-button" src="https://img.icons8.com/cotton/64/000000/browser-window--v1.png"></img>
                         </button>
-                        <span className="cat-text">BROWSE</span>
+                        <div className="cat-text">BROWSE</div>
+                        <div className="categories-tab">
+                            <div className="categories-left">
+                                <ul className="categories-left-items">
+                                    <li className="categories-left-li">NETWORKS</li>
+                                    <li className="categories-left-li">TV SHOWS</li>
+                                    <li className="categories-left-li">MOVIES</li>
+                                    <li className="categories-left-li">HULU ORIGINALS</li>
+                                    <li className="categories-left-li">KIDS</li>
+                                </ul>
+                            </div>
+                            <div className="categories-right">
+                                <ul className="categories-right-ul">
+                                    {categoryBtns}
+                                </ul>
+                                <ul className="categories-right-ul">
+                                    {categoryBtns}
+                                </ul>
+                                <ul className="categories-right-ul">
+                                    {categoryBtns}
+                                </ul>
+                                <ul className="categories-right-ul">
+                                    {categoryBtns}                                    
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div className="stuff-link">
                         <button to="/index" className="stuff">

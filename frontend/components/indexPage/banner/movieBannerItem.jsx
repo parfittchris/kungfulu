@@ -6,6 +6,7 @@ class MovieBannerItem extends React.Component {
     constructor(props) {
         super(props)
         
+        // debugger
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -15,7 +16,10 @@ class MovieBannerItem extends React.Component {
     }
     
     render() {
-// debugger
+        let categories = this.props.movie.categories.map(category => {
+            return category.name
+        });
+        
         return (
            
             <div className="show-item">
