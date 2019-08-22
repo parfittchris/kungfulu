@@ -1,4 +1,4 @@
-import {findMovies, findMovie, findTitle, findGenre} from '../util/movie_api_util';
+import {findMovies, findMovie, findTitle, findGenre, favMovie, removeFavMovie} from '../util/movie_api_util';
 
 
 export const GET_MOVIES = 'GET_MOVIES';
@@ -6,6 +6,8 @@ export const GET_MOVIE = 'GET_MOVIE';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const SEARCH_TITLES = 'SEARCH_TITLES';
 export const SEARCH_GENRE = 'SEARCH_GENRE';
+export const LIKE_MOVIE = 'LIKE_MOVIE';
+export const REMOVE_LIKE = 'REMOVE_LIKE';
 
 
 const getMovies = (movies) => ({
@@ -28,6 +30,18 @@ const searchGenre = (genre) => ({
     genre
 });
 
+const likeMovie = (userId, movieId) => ({
+    type: LIKE_MOVIE,
+    userId,
+    movieId
+});
+
+const removeLike = (likeId, userId, movieId) => ({
+    type: REMOVE_LIKE,
+    likeId,
+    userId,
+    movieId
+});
 
 const receiveErrors = (errors) => ({
     type: RECEIVE_ERRORS,
@@ -55,3 +69,12 @@ export const userSearchGenre = (genre) => dispatch => findGenre(genre)
         dispatch(receiveErrors(errors)))
     );
 
+export const userLikeMovie = (userId, movieId) => dispatch => favMovie(userId, movieId)
+    .then((movie) => dispatch(likeMovie(movie))).fail(errors => (
+        dispatch(receiveErrors(errors)))
+    );
+
+export const userRemoveLike = (likeId, userId, movieId) => dispatch => removeFavMovie(likeId, userId, movieId)
+    .then((movie) => dispatch(removeLike(movie))).fail(errors => (
+        dispatch(receiveErrors(errors)))
+    );

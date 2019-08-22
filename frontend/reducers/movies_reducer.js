@@ -1,4 +1,4 @@
-import { GET_MOVIES, GET_MOVIE, SEARCH_TITLES, SEARCH_GENRE } from '../actions/movie_actions';
+import { GET_MOVIES, GET_MOVIE, SEARCH_TITLES, SEARCH_GENRE, LIKE_MOVIE, REMOVE_LIKE} from '../actions/movie_actions';
 import { merge } from 'lodash'
 
 const moviesReducer = (state = {}, action) => {
@@ -12,6 +12,10 @@ const moviesReducer = (state = {}, action) => {
             return merge({}, state, action.titles)
         case SEARCH_GENRE:
             return merge({}, state, action.genre)
+        case LIKE_MOVIE:
+            return merge({}, state, (action.userID, action.movieId))
+        case REMOVE_LIKE:
+            return merge({}, state, (action.likeId, action.userId, action.movieId))
         default:
             return state
     }

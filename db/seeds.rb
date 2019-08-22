@@ -17,15 +17,14 @@ Movie.destroy_all
 Show.destroy_all
 Category.destroy_all
 CategoryJoin.destroy_all
-
-
-
+Favorite.destroy_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!('users');
 ActiveRecord::Base.connection.reset_pk_sequence!('movies');
 ActiveRecord::Base.connection.reset_pk_sequence!('shows');
 ActiveRecord::Base.connection.reset_pk_sequence!('categories');
 ActiveRecord::Base.connection.reset_pk_sequence!('category_joins');
+ActiveRecord::Base.connection.reset_pk_sequence!('favorites');
 
 
 
@@ -93,7 +92,6 @@ show5 = Show.create!(title: "Lessons from the Greats: This Guy", year: 1998, rat
     # image9 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/kungshow6.jpg')
     # show5.image.attach(io:image9, filename:'show5_image.jpg')
 
-
 category1 = Category.create!(name: 'Classic');
 category2 = Category.create!(name: 'Home-Movie');
 category3 = Category.create!(name: 'Documentary');
@@ -103,16 +101,22 @@ category6 = Category.create!(name: 'Foreign Film');
 category7 = Category.create!(name: 'Comedy');
 category8 = Category.create!(name: 'Drama');
 
+catJoin1 = CategoryJoin.create!(joinable: movie1, categories: category1);
+catJoin2 = CategoryJoin.create!(joinable: show1, categories: category1);
+catJoin3 = CategoryJoin.create!(joinable: show1, categories: category2);
+catJoin4 = CategoryJoin.create!(joinable: show1, categories: category3);
+catJoin5 = CategoryJoin.create!(joinable: show1, categories: category4);
+catJoin6 = CategoryJoin.create!(joinable: show2, categories: category2);
+catJoin7 = CategoryJoin.create!(joinable: movie2, categories: category1);
+catJoin8 = CategoryJoin.create!(joinable: show2, categories: category1);
 
-catJoin1 = CategoryJoin.create!(videoId: movie1.id, categoryId: category1.id);
-catJoin2 = CategoryJoin.create!(videoId: movie1.id, categoryId: category8.id);
-catJoin3 = CategoryJoin.create!(videoId: movie2.id, categoryId: category1.id);
-catJoin4 = CategoryJoin.create!(videoId: movie2.id, categoryId: category8.id);
-catJoin5 = CategoryJoin.create!(videoId: movie3.id, categoryId: category1.id);
-catJoin6 = CategoryJoin.create!(videoId: movie3.id, categoryId: category6.id);
-catJoin7 = CategoryJoin.create!(videoId: movie3.id, categoryId: category8.id);
-catJoin7 = CategoryJoin.create!(videoId: movie4.id, categoryId: category5.id);
-catJoin7 = CategoryJoin.create!(videoId: movie5.id, categoryId: category1.id);
+
+favorite1 = Favorite.create(user_id: 1, video_id: 1, video_type: 'movie');
+favorite2 = Favorite.create(user_id: 1, video_id: 4, video_type: 'movie');
+favorite3 = Favorite.create(user_id: 1, video_id: 1, video_type: 'show');
+favorite4 = Favorite.create(user_id: 1, video_id: 2, video_type: 'show');
+favorite5 = Favorite.create(user_id: 1, video_id: 3, video_type: 'show');
+
 
 
 

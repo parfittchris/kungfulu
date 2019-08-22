@@ -11,6 +11,7 @@ import { Footer } from './footer/footer'
 import detailPage from './indexPage/detailPage/detailPage';
 import searchBarContainer from './searchPage/searchContainer';
 import categoryContainer from './indexPage/categories/categoriesContainer';
+import myStuffContainer from './myStuff/myStuffContainer';
 
 const App = () => (
     <div>
@@ -19,7 +20,8 @@ const App = () => (
             <Switch>
                 <AuthRoute exact path="/" component= {Navbar}/>
                 <ProtectedRoute exact path="/search" component={SearchHeaderContainer} />
-                <ProtectedRoute path="/index/categories" component={SearchHeaderContainer} />                
+                <ProtectedRoute path="/index/categories" component={SearchHeaderContainer} />
+                <ProtectedRoute path="/my-stuff" component={SearchHeaderContainer} />                
                 <ProtectedRoute path="/index" component={IndexHeader} />
                 <Route path='/header' component ={IndexHeader}></Route>
             </Switch>
@@ -27,7 +29,8 @@ const App = () => (
         <Switch>
             <ProtectedRoute exact path="/index/categories/:category" component={categoryContainer} />
             <ProtectedRoute path="/index" component={indexContainer}/>
-            <ProtectedRoute exact path="/search" component={searchBarContainer} />
+            <ProtectedRoute exact path="/search" component={searchBarContainer}/>
+            <ProtectedRoute exact path="/my-stuff" component={myStuffContainer}/>
             <AuthRoute exact path="/" component={SplashPageContainer} />
         </Switch>
             <ProtectedRoute path="/index/shows/detail/:videoId" component={detailPage} />

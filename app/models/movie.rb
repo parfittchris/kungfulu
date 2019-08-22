@@ -20,13 +20,21 @@ class Movie < ApplicationRecord
     has_one_attached :video
     has_one_attached :image
 
-    has_many :category_joins,
-    foreign_key: :videoId,
-    class_name: :CategoryJoin
+    has_many :category_joins, as: :joinable
+    # foreign_key: :videoId,
+    # class_name: :CategoryJoin
 
     has_many :categories,
     through: :category_joins,
     source: :categories
+
+    has_many :favorites,
+    foreign_key: :video_id,
+    class_name: :Favorite
+
+     has_many :users,
+     through: :favorites,
+     source: :users
 
     def self.find_by_title(title)
         movie = Movie.find_by(title: title)

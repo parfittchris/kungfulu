@@ -16,7 +16,7 @@ class Category < ApplicationRecord
     class_name: :CategoryJoin
 
 
-    belongs_to :genres, polymorphic: true
+    # belongs_to :genres, polymorphic: true
     # has_many :movies,
     # through: :category_joins,
     # source: :movies,

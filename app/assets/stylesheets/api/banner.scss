@@ -79,6 +79,7 @@
 
 .vid-info-btn {
     visibility: hidden;
+    
 }
 
 .show-item:hover .show-item-info {
@@ -104,9 +105,11 @@
 
 .show-item:hover .vid-info-btn {
     transition-delay: 0.75s;
-    position: absolute;
-    bottom: 5px;
+    // position: absolute;
+    margin-right: 15px;
+    padding-bottom: 5px;
     visibility: visible;
+
 }
 
 .detail-arrow-btn {
@@ -119,7 +122,24 @@
     font-weight: 900;
 }
 
+.show-item-info-btns {
+    position:absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
 .fa-arrow-circle-right:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+.fa-plus-circle:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+.fa-minus-circle:hover {
     color: gray;
     cursor: pointer;
 }

@@ -30,24 +30,20 @@ class IndexHeader extends React.Component {
         }
     }
 
-    searchRedirect() {
-        this.props.history.push(`/search`);
+    redirect(page) {
+        this.props.history.push(page);
     }
-    
 
     handleSubmit(e) {
         e.preventDefault();
         this.props.userLogout();
     }
 
-    searchCategory(category) {
-            this.props.history.push(`/index/categories/${category}`)
-    }
   
 
     render() {
-        let categoryBtns = this.state.categories.map(category => {
-            return <button className="category-btn" onClick={() => this.searchCategory(category)}>{category}</button>
+        let categoryBtns = this.state.categories.map((category, idx) => {
+            return <button className="category-btn" key={idx}  onClick={() => this.redirect(`/index/categories/${category}`)}>{category}</button> 
         })
 
         return (
@@ -60,7 +56,7 @@ class IndexHeader extends React.Component {
                     </div>
                     <div className="cat-link">
                         <button to="/index" className="cat">
-                            <img className="cat-button" src="https://img.icons8.com/cotton/64/000000/browser-window--v1.png"></img>
+                            <i className="far fa-window-restore fa-lg"></i>
                         </button>
                         <div className="cat-text">BROWSE</div>
                         <div className="categories-tab">
@@ -74,33 +70,33 @@ class IndexHeader extends React.Component {
                                 </ul>
                             </div>
                             <div className="categories-right">
-                                <ul className="categories-right-ul">
+                                <div className="categories-right-ul">
                                     {categoryBtns}
-                                </ul>
-                                <ul className="categories-right-ul">
+                                </div>
+                                <div className="categories-right-ul">
                                     {categoryBtns}
-                                </ul>
-                                <ul className="categories-right-ul">
+                                </div>
+                                <div className="categories-right-ul">
                                     {categoryBtns}
-                                </ul>
-                                <ul className="categories-right-ul">
+                                </div>
+                                <div className="categories-right-ul">
                                     {categoryBtns}                                    
-                                </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="stuff-link">
                         <button to="/index" className="stuff">
-                            <img className="stuff-button" src="https://img.icons8.com/ios/50/000000/checked-checkbox.png"></img>
+                            <i className="far fa-check-square fa-2x"></i>
                         </button>
-                        <span className="stuff-text">MY STUFF</span>
+                        <button className="stuff-text" onClick={() => this.redirect(`/my-stuff`)}>MY STUFF</button>
                     </div>
                 </div>
                 <div className="empty-space"></div>
                 <div className="user-container">
-                    <div className="search" onClick={() => this.searchRedirect()}>
+                    <div className="search" onClick={() => this.redirect(`/search`)}>
                         <button className="search-btn">
-                            <img src="https://img.icons8.com/ios/50/000000/search--v1.png"></img>
+                            <i className="fas fa-search"></i>
                         </button>
                         <span className="search-text">SEARCH</span>
                     </div>
