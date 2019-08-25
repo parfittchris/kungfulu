@@ -28,7 +28,7 @@ class Categories extends React.Component {
         this.setState({
             category: nextProps.match.params.category,
             movieResults: this.conductMovieSearch(nextProps),
-            showResults: this.conductMovieSearch(nextProps)
+            showResults: this.conductShowSearch(nextProps)
         });
         this.getMovieResults();
         this.getShowResults();  
@@ -94,7 +94,6 @@ class Categories extends React.Component {
         if (this.state.movieResults.length > 0) {
             mResults = (
                 <div>
-                    <h2 className="category-banner-title">POPULAR MOVIES ></h2>
                     <div>{this.getMovieResults()}</div>
                 </div>
             )
@@ -103,7 +102,6 @@ class Categories extends React.Component {
         if (this.state.showResults.length > 0) {
             sResults = (
                 <div>
-                    <h2 className="category-banner-title">POPULAR SHOWS ></h2>
                     <div>{this.getShowResults()}</div>
                 </div>
             )
@@ -113,21 +111,25 @@ class Categories extends React.Component {
             return (
                 <div>
                     <h1 className="category-title">{this.state.category}</h1>
-                    <div>{mResults}</div>
+                    <h2 className="category-banner-title">POPULAR MOVIES ></h2>                    
+                    <div className="mResult">{mResults}</div>
                 </div>
             )
         } else if (!mResults && sResults) {
             return (
                 <div className="category-page">
                     <h1 className="category-title">{this.state.category}</h1>
-                    <div>{sResults}</div>
+                    <h2 className="category-banner-title">POPULAR SHOWS ></h2>                    
+                    <div className="sResult">{sResults}</div>
                 </div>
             )
         } else if (mResults && sResults) {
             return (
                 <div className="category-page">
                     <h1 className="category-title">{this.state.category}</h1>
-                    <div>{mResults}</div>
+                    <h2 className="category-banner-title">POPULAR MOVIES ></h2>                    
+                    <div className="mResult">{mResults}</div>
+                    <h2 className="category-banner-title">POPULAR SHOWS ></h2>
                     <div className="sResult">{sResults}</div>
                 </div>
             )

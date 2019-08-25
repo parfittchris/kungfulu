@@ -1,15 +1,3 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id              :bigint           not null, primary key
-#  email           :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#
-
 class User < ApplicationRecord
     attr_reader :password
 
@@ -21,13 +9,6 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Favorite
 
-    has_many :liked_movies,
-    through: :favorites,
-    source: :movies
-    
-    # has_many :liked_shows,
-    # through: :favorites,
-    # source: :shows
 
     after_initialize :ensure_session_token 
     

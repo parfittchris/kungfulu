@@ -716,3 +716,24 @@
        transform: scale(1.10);
     }
     
+    .next-videos-button {
+        position: absolute;
+        left: 95.25%;
+        margin-top: 4%;
+        border-radius: 50%;
+        background-color: white;
+        text-align: center;
+        height: 3.5vw;
+        width: 3.5vw;
+        z-index: 12000;
+        box-shadow: 2px 2px 10px 2px lightgray;
+        font-size: 18px;
+    }
+
+    .next-videos-button:hover {
+        cursor: pointer;
+    }
+
+    .next-videos-button:active {
+        margin-top: 4.25%;
+    }

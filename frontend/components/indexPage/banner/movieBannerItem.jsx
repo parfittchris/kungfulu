@@ -17,17 +17,14 @@ class MovieBannerItem extends React.Component {
     }
 
     addFav(userId, movieId) {
-        // debugger
         this.props.userLikeMovie(userId, movieId);
     }
 
     removeFav(userId, movieId) {
-        // debugger
         this.props.userRemoveLike(1, userId, movieId);
     }
     
     render() {
-        // debugger
         return (
             <div className="show-item">
                 <div className="show-item-photo">

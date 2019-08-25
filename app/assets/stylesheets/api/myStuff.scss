@@ -28,3 +28,18 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.stuff-category-results {
+    display: flex;
+    flex-direction: column;
+}
+
+.stuff-movie-results {
+    display: flex;
+    margin-top: 250px;
+}
+
+.stuff-show-results {
+    display: flex;
+    margin-top: 250px;
+}

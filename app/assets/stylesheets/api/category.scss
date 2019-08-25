@@ -3,6 +3,9 @@
     margin-top: 6%;
     margin-left: 2.5%;
     height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
 }
 
 .category-title {
@@ -28,6 +31,10 @@
     font-weight: 900;
 }
 
-.sResult {
-    margin-top: 250px;
+.category-results {
+    display: flex;
+    height: 30vh;
 }
+
+
+

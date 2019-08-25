@@ -5,8 +5,8 @@ class Api::FavoritesController < ApplicationController
     @favorite = Favorite.new(favorite_params)
     if Favorite.find_by(
         user_id: @favorite.user_id,
-        video_id: @favorite.video_id,
-        video_type: @favorite.video_type
+        likeable_id: @favorite.video_id,
+        likeable_type: @favorite.video_type
         )
 
       render json: 'Already favorited', status: 422
@@ -18,8 +18,8 @@ class Api::FavoritesController < ApplicationController
   def destroy
     favorite = Favorite.find_by(
         user_id: params[:user_id], 
-        video_id: params[:video_id], 
-        video_type: params[:video_type]
+        likeable_id: params[:video_id], 
+        likeable_type: params[:video_type]
         )
 
     if favorite 

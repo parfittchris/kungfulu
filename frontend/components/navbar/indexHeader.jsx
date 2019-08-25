@@ -8,9 +8,20 @@ class IndexHeader extends React.Component {
         this.state = {
             currentScrollHeight: 0, 
             activeClass: "hidden-header",
-            categories: ['Classic', 'Home-Movie', 'Documentary', 
-                          'Sci-Fi', 'Animated', 'Foreign Film', 
-                          'Comedy', 'Drama']
+            categories: ['Action Kung-Fu', 'Adult Animation Kung-Fu', 'Adventure Kung-Fu', 
+                          'Anime Kung-Fu', 'Black Stories Kung-Fu', 'Cartoons Kung-Fu', 
+                          'Classics Kung-Fu', 'Comedy Kung-Fu', 'Cooking & Food Kung-Fu',
+                          'Crime Kung-Fu', 'Documentary Kung-Fu', 'Drama Animation Kung-Fu',
+                          'Family Kung-Fu', 'Game Show Kung-Fu', 'Health & Wellness Kung-Fu',
+                          'History Kung-Fu', 'Horror Kung-Fu', 'International Kung-Fu',
+                          'Kids Kung-Fu', 'Late Night Kung-Fu', 'Latino Kung-Fu',
+                          'LGBTQ+ Kung-Fu', 'Lifestyle & Culture Kung-Fu', 'Music Kung-Fu',
+                          'Mystery Kung-Fu', 'New Kung-Fu', 'Reality Kung-Fu',
+                          'Romance Kung-Fu', 'Science & Technology Kung-Fu', 'Science Fiction Kung Fu',
+                          'Sitcom Kung-Fu', 'Sketch Comedy Kung-Fu', 'Sports Kung-Fu',
+                          'Stand Up Kung-Fu', 'Teen Kung-Fu', 'Thriller Kung-Fu',
+                          'Audio Description Kung-Fu']
+            
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     };
@@ -42,9 +53,21 @@ class IndexHeader extends React.Component {
   
 
     render() {
-        let categoryBtns = this.state.categories.map((category, idx) => {
+        let categoryBtns1= this.state.categories.slice(0, 10).map((category, idx) => {
             return <button className="category-btn" key={idx}  onClick={() => this.redirect(`/index/categories/${category}`)}>{category}</button> 
-        })
+        });
+
+        let categoryBtns2 = this.state.categories.slice(10,20).map((category, idx) => {
+            return <button className="category-btn" key={idx} onClick={() => this.redirect(`/index/categories/${category}`)}>{category}</button>
+        });
+
+        let categoryBtns3 = this.state.categories.slice(20,30).map((category, idx) => {
+            return <button className="category-btn" key={idx} onClick={() => this.redirect(`/index/categories/${category}`)}>{category}</button>
+        });
+
+        let categoryBtns4 = this.state.categories.slice(30).map((category, idx) => {
+            return <button className="category-btn" key={idx} onClick={() => this.redirect(`/index/categories/${category}`)}>{category}</button>
+        });
 
         return (
             <div className={this.state.activeClass}>
@@ -71,16 +94,16 @@ class IndexHeader extends React.Component {
                             </div>
                             <div className="categories-right">
                                 <div className="categories-right-ul">
-                                    {categoryBtns}
+                                    {categoryBtns1}
                                 </div>
                                 <div className="categories-right-ul">
-                                    {categoryBtns}
+                                    {categoryBtns2}
                                 </div>
                                 <div className="categories-right-ul">
-                                    {categoryBtns}
+                                    {categoryBtns3}
                                 </div>
                                 <div className="categories-right-ul">
-                                    {categoryBtns}                                    
+                                    {categoryBtns4}                                    
                                 </div>
                             </div>
                         </div>

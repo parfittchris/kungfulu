@@ -1,6 +1,6 @@
 import React from 'react'
 import MovieBannerItemContainer from '../indexPage/banner/movieBannerItemContainer';
-import { searchForUser } from '../../actions/session_actions';
+import TVBannerItemContainer from '../indexPage/banner/tvBannerItemContainer';
 
 class MyStuff extends React.Component {
     constructor(props) {
@@ -8,6 +8,7 @@ class MyStuff extends React.Component {
 
         this.state = {
             favoriteMovies: [],
+            favoriteShows: [],
         }
 
     }
@@ -15,14 +16,28 @@ class MyStuff extends React.Component {
     componentDidMount() {
         this.props.searchForUser(this.props.currentUserId).then(
             response => {
+                let movies = [];
+                let shows = []
+
+                response.userId.favorites.forEach(film => {
+                    if(film.id.video_type === "movie") {
+                        movies.push(film.id)
+                    } else if(film.id.video_type === 'show') {
+                        shows.push(film.id)
+                    }
+                })
+
                 this.setState({
-                    favoriteMovies: response.userId.liked_movies,
+                    favoriteMovies: movies,
+                    favoriteShows: shows
                 });
             })
     }
 
     getResults() {
+        let shows = null;
         let movies = null;
+
         if (this.state.favoriteMovies.length > 0) {
             movies = this.state.favoriteMovies.map(movie => {
                 return (
@@ -31,8 +46,20 @@ class MyStuff extends React.Component {
             });
         }
 
-        if (movies !== null) {
-            return <div className="category-results">{movies}</div>
+        if (this.state.favoriteShows.length > 0) {
+            shows = this.state.favoriteShows.map(show => {
+                return (
+                    <div><TVBannerItemContainer key={show.id} user={this.props.currentUserId} show={show} /></div>
+                )
+            });
+        }
+
+        if (movies && shows) {
+            return ( <div className="stuff-category-results">
+                        <div className="stuff-movie-results">{movies}</div>
+                        <div className="stuff-show-results">{shows}</div>
+                    </div>
+            )
         }
     }
 

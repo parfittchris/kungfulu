@@ -16,7 +16,6 @@ class TvBannerItem extends React.Component {
     
     
     render() {
-        const image = 'https://kungfulu-aa-seeds.s3.amazonaws.com/kung_fu_show.jpeg'
             return (
                 <div className="show-item">
                     <div className="show-item-photo">
