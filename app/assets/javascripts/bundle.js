@@ -1064,6 +1064,16 @@ function (_React$Component) {
       this.props.history.push("/index/shows/".concat(type, "/").concat(this.props.show.id));
     }
   }, {
+    key: "addFav",
+    value: function addFav(userId, showId) {
+      this.props.userLikeShow(userId, showId);
+    }
+  }, {
+    key: "removeFav",
+    value: function removeFav(userId, showId) {
+      this.props.userRemoveLike(1, userId, showId);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -1090,14 +1100,30 @@ function (_React$Component) {
         className: "season-info"
       }, "Season 1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "vid-description"
-      }, this.props.show.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, this.props.show.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "show-item-info-btns"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "vid-info-btn",
         onClick: function onClick(e) {
           return _this2.handleSubmit(e, 'detail');
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-arrow-circle-right fa-2x"
-      }))));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "vid-info-btn",
+        onClick: function onClick() {
+          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-plus-circle fa-2x"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "vid-info-btn",
+        onClick: function onClick() {
+          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-minus-circle fa-2x"
+      })))));
     }
   }]);
 
