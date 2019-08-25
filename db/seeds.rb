@@ -46,14 +46,14 @@ movie2 = Movie.create!(title: "The Matrix", year: 1999, rating: 8.7, description
 movie3 = Movie.create!(title: "Enter the Dragon", year: 1973, rating: 7.7, description: "A martial artist agrees to spy on a reclusive crime lord using his invitation to a tournament there as cover.", video_type: "movie");
     movie3_video1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/Dragon-clip.mp4');
     movie3.video.attach(io: movie3_video1, filename: "dragon-clip.mp4");
-    movie3_image1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/enter_dragon_cover.jpg');
+    movie3_image1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/enterdragon.jpeg');
     movie3.image.attach(io: movie3_image1, filename: "dragon-cover.jpg");
 
 
 movie4 = Movie.create!(title: "Kung Fu Panda", year: 2008, rating: 7.6, description: "The Dragon Warrior has to clash against the savage Tai Lung as China's fate hangs in the balance.", video_type: "movie");
     movie4_video1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/kung-fu-panda-scene.mp4');
     movie4.video.attach(io: movie4_video1, filename: "panda-clip.mp4");
-    movie4_image1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/kung-fu-panda-cover.jpg');
+    movie4_image1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/kungfupanda.jpg');
     movie4.image.attach(io: movie4_image1, filename: "panda-cover.jpg");
 
 movie5 = Movie.create!(title: "The Invincible Armor", year: 1977, rating: 7.1, description: "An aging martial arts expert is gifted a plaque from the Emperor declaring him the Kung Fu World Champion.", video_type: "movie");
@@ -71,7 +71,7 @@ movie6 = Movie.create!(title: "Drunken Master", year: 1978, rating: 7.6, descrip
 movie7 = Movie.create!(title: "Kung Fu Hustle", year: 2004, rating: 7.7, description: "In Shanghai, China in the 1940s, a wannabe gangster aspires to join the notorious Axe Gang while residents of a housing complex exhibit extraordinary powers in defending their turf.", video_type: "movie");
     movie7_video1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/KungFuHustleV1.mp4');
     movie7.video.attach(io: movie7_video1, filename: "hustlev1.mp4");
-    movie7_image1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/KungFuHustleI1.jpg');
+    movie7_image1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/kungFuhustlewide.jpeg');
     movie7.image.attach(io: movie7_image1, filename: "hustlei1.jpg");
 
 movie8 = Movie.create!(title: "From Beijing With Love", year: 1994, rating: 7.2, description: "An incompetent 007-wannabe is sent to locate a stolen dinosaur skull.", video_type: "movie");
@@ -133,7 +133,7 @@ show6 = Show.create!(title: "Jackie Chan Adventures", year: 2000, rating: 7.3, d
 show7 = Show.create!(title: "Into the Badlands", year: 2015, rating: 8.0, description: "A mighty warrior and a young boy search for enlightenment in a ruthless territory controlled by feudal barons.", video_type: "show");
     show7_video1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/badlandsv1.mp4');
     show7.video.attach(io: show7_video1, filename: "badlandsV1.mp4");
-    show7_image1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/badlandsI1.jpg');
+    show7_image1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/badlandswide.png');
     show7.image.attach(io: show7_image1, filename: "badlandsI1.jpg");
 
 show8 = Show.create!(title: "Street Fighter: Assassin's Fist", year: 1998, rating: 4.2, description: " multi-layered series that looks back to the formative years of Ryu and Ken as they live a traditional warrior's life in secluded Japan. ", video_type: "show");
@@ -151,7 +151,7 @@ show9 = Show.create!(title: "Lego Ninjago: Masters of Spinjitzu", year: 2011, ra
 show10 = Show.create!(title: "Walker Texas Ranger", year: 1993, rating: 5.4, description: "Walker and his partner Trivette are Texas Rangers. They make it their business to battle crime in Dallas and all around the Great State of Texas.", video_type: "show");
     show10_video1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/WalkerV1.mp4');
     show10.video.attach(io: show10_video1, filename: "WalkerV1.mp4");
-    show10_image1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/WalkerI1.jpg');
+    show10_image1 = open('https://kungfulu-aa-seeds.s3.amazonaws.com/walkerwide.jpeg');
     show10.image.attach(io: show10_image1, filename: "Walker1.mpg");
 
 

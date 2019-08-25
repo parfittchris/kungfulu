@@ -1,6 +1,6 @@
 .show-item-container {
     color: #292C33;
-    font-size: 14px;
+    font-size: 12px;
     display: flex;
     justify-content: center;
     cursor: pointer;
@@ -8,11 +8,12 @@
     transition: all .2s ease-in-out;
     height: 1px;
     z-index: 100;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .movie-item-container  {
     color: #292C33;
-    font-size: 14px;
+    font-size: 12px;
     display: flex;
     justify-content: center;
     cursor: pointer;
@@ -20,6 +21,7 @@
     transition: all .2s ease-in-out;
     height: 1px;
     z-index: 00;
+    
 }
 
 .show-item {
@@ -35,26 +37,16 @@
     transition-duration: 0.5s;
     box-shadow: 5px 5px 50px 5px lightgray;
     transform: scale(1.25);
-    height: 325px;
+    height: 345px;
     z-index:500;
     background-color: white;    
 }
 
-
-.video-image {
-    cursor: pointer;
-    height: 160px;
-    width: 265px;
-    z-index: -50;
-}
-
 .show-item-info {
-    // margin-top: 50px;
     margin-left: 30px;
     margin-right: 20px;
     display: flex;
     flex-direction: column;
-    // justify-content: space-around;
     height: 40px;
     background-color: white;
     z-index:100;
@@ -72,14 +64,29 @@
 }
 
 .vid-description {
+    position: absolute;
     visibility: hidden;
-    margin-bottom: 50px;
+    top: 63%;
     z-index: 100;
 }
 
+.video-image-btn {
+    // height: 160px;
+    // width: 265px;
+}
+
+.video-image {
+    cursor: pointer;
+    z-index: -50;
+    width: 265px;
+    height: 160px;
+    background-position: center;
+    background-size: stretch;
+}
+
 .vid-info-btn {
+
     visibility: hidden;
-    
 }
 
 .show-item:hover .show-item-info {

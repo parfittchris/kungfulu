@@ -13,7 +13,7 @@ const moviesReducer = (state = {}, action) => {
         case SEARCH_GENRE:
             return merge({}, state, action.genre)
         case LIKE_MOVIE:
-            return merge({}, state, (action.userID, action.movieId))
+            return merge({}, state, (action.userID, action.movie))
         case REMOVE_LIKE:
             return merge({}, state, (action.likeId, action.userId, action.movieId))
         default:

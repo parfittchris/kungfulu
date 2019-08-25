@@ -30,10 +30,10 @@ const searchGenre = (genre) => ({
     genre
 });
 
-const likeMovie = (userId, movieId) => ({
+const likeMovie = (userId, movie) => ({
     type: LIKE_MOVIE,
     userId,
-    movieId
+    movie
 });
 
 const removeLike = (likeId, userId, movieId) => ({
@@ -69,7 +69,7 @@ export const userSearchGenre = (genre) => dispatch => findGenre(genre)
         dispatch(receiveErrors(errors)))
     );
 
-export const userLikeMovie = (userId, movieId) => dispatch => favMovie(userId, movieId)
+export const userLikeMovie = (userId, movie) => dispatch => favMovie(userId, movie)
     .then((movie) => dispatch(likeMovie(movie))).fail(errors => (
         dispatch(receiveErrors(errors)))
     );

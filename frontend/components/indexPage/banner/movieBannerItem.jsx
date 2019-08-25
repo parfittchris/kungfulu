@@ -16,8 +16,11 @@ class MovieBannerItem extends React.Component {
         this.props.history.push(`/index/movies/${type}/${this.props.movie.id}`)
     }
 
-    addFav(userId, movieId) {
-        this.props.userLikeMovie(userId, movieId);
+    addFav(userId, movie) {
+        // let modMovie = (({title, year, rating, description, video_type}) => ({title, year, rating, description, video_type}))(movie);
+
+
+        this.props.userLikeMovie(userId, movie);
     }
 
     removeFav(userId, movieId) {
@@ -25,6 +28,7 @@ class MovieBannerItem extends React.Component {
     }
     
     render() {
+        // debugger
         return (
             <div className="show-item">
                 <div className="show-item-photo">
@@ -39,7 +43,7 @@ class MovieBannerItem extends React.Component {
                         <button className="vid-info-btn" onClick={(e) => this.handleSubmit(e, 'detail')}>
                             <i className="fas fa-arrow-circle-right fa-2x"></i>
                         </button>
-                        <button className="vid-info-btn" onClick={() => this.addFav(this.props.state.entities.users[1].id, this.props.movie.id)}>
+                        <button className="vid-info-btn" onClick={() => this.addFav(this.props.state.entities.users[1].id, this.props.movie)}>
                             <i className="fas fa-plus-circle fa-2x"></i>
                         </button>
                         <button className="vid-info-btn" onClick={() => this.removeFav(this.props.state.entities.users[1].id, this.props.movie.id)}>

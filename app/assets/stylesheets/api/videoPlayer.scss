@@ -27,7 +27,7 @@
     font-size: 50px;
     font-weight: 200;
     color: gray;
-    z-index: 10000;
+    z-index: 20000;
     right: 50px;
     top: 60px;
 }
@@ -47,9 +47,9 @@
     font-size: 50px;
     font-weight: 200;
     color: gray;
-    z-index: 10000;
-    left: 800px;
-    top: 38px;
+    z-index: 15000;
+    left: 42vw;
+    top: 5vh;
 }
 
 .video-close-button-mini:hover {

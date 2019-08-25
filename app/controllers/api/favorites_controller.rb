@@ -1,18 +1,10 @@
 class Api::FavoritesController < ApplicationController
 
    def create
-
-    @favorite = Favorite.new(favorite_params)
-    if Favorite.find_by(
-        user_id: @favorite.user_id,
-        likeable_id: @favorite.video_id,
-        likeable_type: @favorite.video_type
-        )
-
-      render json: 'Already favorited', status: 422
-    else 
-      @favorite.save
-    end
+    debugger
+    @favorite = Favorite.new(user_id: params[:user_id], likeable: favorite_params)
+    debugger
+    @favorite.save
   end
 
   def destroy
@@ -31,6 +23,6 @@ class Api::FavoritesController < ApplicationController
   private
 
   def favorite_params
-    params.permit(:user_id, :video_id, :video_type)
+    params.require(:likeable).permit(:user_id, :title, :year, :rating, :description)
   end
 end

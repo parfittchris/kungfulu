@@ -176,11 +176,11 @@ var searchGenre = function searchGenre(genre) {
   };
 };
 
-var likeMovie = function likeMovie(userId, movieId) {
+var likeMovie = function likeMovie(userId, movie) {
   return {
     type: LIKE_MOVIE,
     userId: userId,
-    movieId: movieId
+    movie: movie
   };
 };
 
@@ -236,9 +236,9 @@ var userSearchGenre = function userSearchGenre(genre) {
     });
   };
 };
-var userLikeMovie = function userLikeMovie(userId, movieId) {
+var userLikeMovie = function userLikeMovie(userId, movie) {
   return function (dispatch) {
-    return Object(_util_movie_api_util__WEBPACK_IMPORTED_MODULE_0__["favMovie"])(userId, movieId).then(function (movie) {
+    return Object(_util_movie_api_util__WEBPACK_IMPORTED_MODULE_0__["favMovie"])(userId, movie).then(function (movie) {
       return dispatch(likeMovie(movie));
     }).fail(function (errors) {
       return dispatch(receiveErrors(errors));
@@ -759,8 +759,9 @@ function (_React$Component) {
     }
   }, {
     key: "addFav",
-    value: function addFav(userId, movieId) {
-      this.props.userLikeMovie(userId, movieId);
+    value: function addFav(userId, movie) {
+      // let modMovie = (({title, year, rating, description, video_type}) => ({title, year, rating, description, video_type}))(movie);
+      this.props.userLikeMovie(userId, movie);
     }
   }, {
     key: "removeFav",
@@ -772,6 +773,7 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      // debugger
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -805,7 +807,7 @@ function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "vid-info-btn",
         onClick: function onClick() {
-          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.movie.id);
+          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.movie);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-plus-circle fa-2x"
@@ -1097,8 +1099,6 @@ function (_React$Component) {
           return _this2.handleSubmit(e, 'detail');
         }
       }, this.props.show.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "season-info"
-      }, "Season 1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "vid-description"
       }, this.props.show.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "show-item-info-btns"
@@ -1455,16 +1455,18 @@ function (_React$Component) {
     value: function handleSubmit(e, type) {
       e.preventDefault();
       this.props.history.push("/index/shows/".concat(type, "/").concat(this.props.video.id));
-    } // componentWillUnmount() {
-    //     this.props.history.push(`/index`)
-    // }
-
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.history.push("/index");
+    }
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var image = 'https://kungfulu-aa-seeds.s3.amazonaws.com/kung_fu_show.jpeg';
+      // const image = 'https://kungfulu-aa-seeds.s3.amazonaws.com/kung_fu_show.jpeg'
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "detail-page-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1474,7 +1476,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "detail-masthead-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: image,
+        src: this.props.video.image_url,
         className: "detail-masthead-picture"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "detail-masthead-info"
@@ -1858,17 +1860,17 @@ function (_React$Component) {
         video_type: "movie"
       },
       example5: {
-        title: "Lessons from the Greats: Bruce Lee",
-        year: 1994,
-        rating: 7.9,
-        description: "Bruce Lee teaches masterful kung fu techniques",
+        title: "Walker Texas Ranger",
+        year: 1993,
+        rating: 5.4,
+        description: "Walker and his partner Trivette are Texas Rangers. They make it their business to battle crime in Dallas and all around the Great State of Texas.",
         video_type: "show"
       },
       example6: {
-        title: "Lessons from the Greats: This Guy",
-        year: 1998,
-        rating: 4.2,
-        description: "This guy spouts wisdom",
+        title: "Into the Badlands",
+        year: 2015,
+        rating: 8.0,
+        description: "A mighty warrior and a young boy search for enlightenment in a ruthless territory controlled by feudal barons.",
         video_type: "show"
       }
     };
@@ -1935,8 +1937,6 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-movie-1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "slider-1-new-photo"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-1-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-1-info-details"
@@ -1947,14 +1947,28 @@ function (_React$Component) {
       }, this.state.example1.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-1-description"
       }, this.state.example1.description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "slider-1-info-buttons"
+        className: "slider-info-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slider-detail",
         onClick: function onClick(e) {
-          return _this2.handleSubmit(e, 'detail', 3);
-        },
-        className: "thumbnail-details-button"
+          return _this2.handleSubmit(e, 'detail');
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-arrow-circle-right fa-3x"
+        className: "fas fa-arrow-circle-right fa-2x"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slider-add",
+        onClick: function onClick() {
+          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-plus-circle fa-2x"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slider-remove",
+        onClick: function onClick() {
+          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-minus-circle fa-2x"
       }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-movie-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1968,14 +1982,28 @@ function (_React$Component) {
       }, this.state.example2.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-2-description"
       }, this.state.example2.description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "slider-2-info-buttons"
+        className: "slider-info-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slider-detail",
         onClick: function onClick(e) {
-          return _this2.handleSubmit(e, 'detail', 5);
-        },
-        className: "thumbnail-details-button"
+          return _this2.handleSubmit(e, 'detail');
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-arrow-circle-right fa-3x"
+        className: "fas fa-arrow-circle-right fa-2x"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slider-add",
+        onClick: function onClick() {
+          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-plus-circle fa-2x"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slider-remove",
+        onClick: function onClick() {
+          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-minus-circle fa-2x"
       }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-movie-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1989,14 +2017,28 @@ function (_React$Component) {
       }, this.state.example3.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-3-description"
       }, this.state.example1.description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "slider-3-info-buttons"
+        className: "slider-info-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slider-detail",
         onClick: function onClick(e) {
-          return _this2.handleSubmit(e, 'detail', 4);
-        },
-        className: "thumbnail-details-button"
+          return _this2.handleSubmit(e, 'detail');
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-arrow-circle-right fa-3x"
+        className: "fas fa-arrow-circle-right fa-2x"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slider-add",
+        onClick: function onClick() {
+          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-plus-circle fa-2x"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slider-remove",
+        onClick: function onClick() {
+          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-minus-circle fa-2x"
       }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-movie-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2010,14 +2052,28 @@ function (_React$Component) {
       }, this.state.example4.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-4-description"
       }, this.state.example4.description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "slider-4-info-buttons"
+        className: "slider-info-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slider-detail",
         onClick: function onClick(e) {
-          return _this2.handleSubmit(e, 'detail', 1);
-        },
-        className: "thumbnail-details-button"
+          return _this2.handleSubmit(e, 'detail');
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-arrow-circle-right fa-3x"
+        className: "fas fa-arrow-circle-right fa-2x"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slider-add",
+        onClick: function onClick() {
+          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-plus-circle fa-2x"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "slider-remove",
+        onClick: function onClick() {
+          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-minus-circle fa-2x"
       })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "shows-container-title"
       }, "TV>"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2034,7 +2090,7 @@ function (_React$Component) {
         className: "showcase-details"
       }, this.state.example5.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick(e) {
-          return _this2.handleSubmitVideo(e, 'detail', 4);
+          return _this2.handleSubmitVideo(e, 'detail', 8);
         },
         className: "showcase-btn-extra-1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -2051,7 +2107,7 @@ function (_React$Component) {
         className: "showcase-details"
       }, this.state.example6.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick(e) {
-          return _this2.handleSubmitVideo(e, 'detail', 4);
+          return _this2.handleSubmitVideo(e, 'detail', 5);
         },
         className: "showcase-btn-extra-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -2074,7 +2130,7 @@ function (_React$Component) {
         className: "showcase-details"
       }, this.state.headline.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick(e) {
-          return _this2.handleSubmitVideo(e, 'detail', 4);
+          return _this2.handleSubmit(e, 'detail', 2);
         },
         className: "showcase-btn-extra-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -2091,7 +2147,7 @@ function (_React$Component) {
         className: "showcase-details"
       }, this.state.example3.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick(e) {
-          return _this2.handleSubmitVideo(e, 'detail', 4);
+          return _this2.handleSubmit(e, 'detail', 4);
         },
         className: "showcase-btn-extra-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -2645,8 +2701,11 @@ function (_React$Component) {
 
       this.props.searchForUser(this.props.currentUserId).then(function (response) {
         var movies = [];
-        var shows = [];
+        var shows = []; // debugger
+
         response.userId.favorites.forEach(function (film) {
+          debugger;
+
           if (film.id.video_type === "movie") {
             movies.push(film.id);
           } else if (film.id.video_type === 'show') {
@@ -2663,16 +2722,14 @@ function (_React$Component) {
   }, {
     key: "getResults",
     value: function getResults() {
-      var _this3 = this;
-
       var shows = null;
       var movies = null;
+      debugger;
 
       if (this.state.favoriteMovies.length > 0) {
         movies = this.state.favoriteMovies.map(function (movie) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_indexPage_banner_movieBannerItemContainer__WEBPACK_IMPORTED_MODULE_1__["default"], {
             key: movie.id,
-            user: _this3.props.currentUserId,
             movie: movie
           });
         });
@@ -2682,7 +2739,6 @@ function (_React$Component) {
         shows = this.state.favoriteShows.map(function (show) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_indexPage_banner_tvBannerItemContainer__WEBPACK_IMPORTED_MODULE_2__["default"], {
             key: show.id,
-            user: _this3.props.currentUserId,
             show: show
           }));
         });
@@ -2701,6 +2757,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "my-stuff-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3328,7 +3385,7 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "search-results"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-          className: "results-header-show"
+          className: "results-header-movie"
         }, "Shows"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "shows-results"
         }, shows)));
@@ -4267,7 +4324,7 @@ var moviesReducer = function moviesReducer() {
       return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, action.genre);
 
     case _actions_movie_actions__WEBPACK_IMPORTED_MODULE_0__["LIKE_MOVIE"]:
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, (action.userID, action.movieId));
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, (action.userID, action.movie));
 
     case _actions_movie_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_LIKE"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, (action.likeId, action.userId, action.movieId));
@@ -4572,14 +4629,13 @@ var findGenre = function findGenre(genre) {
     url: "api/movies/search/".concat(genre)
   });
 };
-var favMovie = function favMovie(userId, movieId) {
+var favMovie = function favMovie(userId, movie) {
   return $.ajax({
     method: 'POST',
     url: "api/favorites",
     data: {
       user_id: userId,
-      video_id: movieId,
-      video_type: 'movie'
+      likeable: movie
     }
   });
 };

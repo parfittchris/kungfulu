@@ -12,8 +12,8 @@ class Index extends React.Component {
             example2: { title: "The Invincible Armor", year: 1977, rating: 7.1, description: "An aging martial arts expert is gifted a plaque from the Emperor declaring him the Kung Fu World Champion. Unsure of whether or not be is deserving of this title, he embarks on a journey to defeat the 7 Grandmasters.", video_type: "movie"},
             example3: { title: "Kung Fu Panda", year: 2008, rating: 7.6, description: "The Dragon Warrior has to clash against the savage Tai Lung as China's fate hangs in the balance. However, the Dragon Warrior mantle is supposedly mistaken to be bestowed upon an obese panda who is a novice in martial arts.", video_type: "movie"},
             example4: { title: "The Karate Kid", year: 1984, rating: 7.2, description: "A Japanese martial arts instructor agrees to teach karate to a bullied teenager.", video_type: "movie" },
-            example5: { title: "Lessons from the Greats: Bruce Lee", year: 1994, rating: 7.9, description: "Bruce Lee teaches masterful kung fu techniques", video_type: "show"},
-            example6: { title: "Lessons from the Greats: This Guy", year: 1998, rating: 4.2, description: "This guy spouts wisdom", video_type: "show" }
+            example5: { title: "Walker Texas Ranger", year: 1993, rating: 5.4, description: "Walker and his partner Trivette are Texas Rangers. They make it their business to battle crime in Dallas and all around the Great State of Texas.", video_type: "show"},
+            example6: { title: "Into the Badlands", year: 2015, rating: 8.0, description: "A mighty warrior and a young boy search for enlightenment in a ruthless territory controlled by feudal barons.", video_type: "show" }
         }
 
     }
@@ -59,16 +59,21 @@ class Index extends React.Component {
                    <div className="hub-container">
                         <div className="slider">
                             <div className="slider-movie-1">
-                                <div className="slider-1-new-photo"></div>
                                 <div className="slider-1-info">
                                     <div className="slider-1-info-details">
                                         <div className="slider-1-title">{this.state.example1.title}</div>
                                         <div className="slider-1-info-li">{this.state.example1.year}</div>
                                         <div className="slider-1-description">{this.state.example1.description}</div>
                                     </div>
-                                    <div className="slider-1-info-buttons">
-                                        <button onClick={(e) => this.handleSubmit(e, 'detail', 3)} className="thumbnail-details-button">
-                                            <i className="fas fa-arrow-circle-right fa-3x" ></i>
+                                    <div className="slider-info-buttons">
+                                        <button className="slider-detail" onClick={(e) => this.handleSubmit(e, 'detail')}>
+                                            <i className="fas fa-arrow-circle-right fa-2x"></i>
+                                        </button>
+                                        <button className="slider-add" onClick={() => this.addFav(this.props.state.entities.users[1].id, this.props.show.id)}>
+                                            <i className="fas fa-plus-circle fa-2x"></i>
+                                        </button>
+                                        <button className="slider-remove" onClick={() => this.removeFav(this.props.state.entities.users[1].id, this.props.show.id)}>
+                                            <i className="fas fa-minus-circle fa-2x"></i>
                                         </button>
                                     </div>
                                 </div>
@@ -80,9 +85,15 @@ class Index extends React.Component {
                                         <div className="slider-2-info-li">{this.state.example2.year}</div>
                                         <div className="slider-2-description">{this.state.example2.description}</div>
                                     </div>
-                                    <div className="slider-2-info-buttons">
-                                        <button onClick={(e) => this.handleSubmit(e, 'detail', 5)} className="thumbnail-details-button">
-                                            <i className="fas fa-arrow-circle-right fa-3x" ></i>
+                                    <div className="slider-info-buttons">
+                                        <button className="slider-detail" onClick={(e) => this.handleSubmit(e, 'detail')}>
+                                            <i className="fas fa-arrow-circle-right fa-2x"></i>
+                                        </button>
+                                        <button className="slider-add" onClick={() => this.addFav(this.props.state.entities.users[1].id, this.props.show.id)}>
+                                            <i className="fas fa-plus-circle fa-2x"></i>
+                                        </button>
+                                        <button className="slider-remove" onClick={() => this.removeFav(this.props.state.entities.users[1].id, this.props.show.id)}>
+                                            <i className="fas fa-minus-circle fa-2x"></i>
                                         </button>
                                     </div>
                                 </div>
@@ -94,9 +105,15 @@ class Index extends React.Component {
                                         <div className="slider-3-info-li">{this.state.example3.year}</div>
                                         <div className="slider-3-description">{this.state.example1.description}</div>
                                     </div>
-                                    <div className="slider-3-info-buttons">
-                                        <button onClick={(e) => this.handleSubmit(e, 'detail', 4)}className="thumbnail-details-button">
-                                            <i className="fas fa-arrow-circle-right fa-3x" ></i>
+                                    <div className="slider-info-buttons">
+                                        <button className="slider-detail" onClick={(e) => this.handleSubmit(e, 'detail')}>
+                                            <i className="fas fa-arrow-circle-right fa-2x"></i>
+                                        </button>
+                                        <button className="slider-add" onClick={() => this.addFav(this.props.state.entities.users[1].id, this.props.show.id)}>
+                                            <i className="fas fa-plus-circle fa-2x"></i>
+                                        </button>
+                                        <button className="slider-remove" onClick={() => this.removeFav(this.props.state.entities.users[1].id, this.props.show.id)}>
+                                            <i className="fas fa-minus-circle fa-2x"></i>
                                         </button>
                                     </div>
                                 </div>
@@ -108,11 +125,17 @@ class Index extends React.Component {
                                             <div className="slider-4-info-li">{this.state.example4.year}</div>
                                             <div className="slider-4-description">{this.state.example4.description}</div>
                                     </div>
-                                    <div className="slider-4-info-buttons">
-                                        <button onClick={(e) => this.handleSubmit(e, 'detail', 1)} className="thumbnail-details-button">
-                                            <i className="fas fa-arrow-circle-right fa-3x" ></i>
-                                        </button>
-                                    </div>
+                                        <div className="slider-info-buttons">
+                                            <button className="slider-detail" onClick={(e) => this.handleSubmit(e, 'detail')}>
+                                                <i className="fas fa-arrow-circle-right fa-2x"></i>
+                                            </button>
+                                            <button className="slider-add" onClick={() => this.addFav(this.props.state.entities.users[1].id, this.props.show.id)}>
+                                                <i className="fas fa-plus-circle fa-2x"></i>
+                                            </button>
+                                            <button className="slider-remove" onClick={() => this.removeFav(this.props.state.entities.users[1].id, this.props.show.id)}>
+                                                <i className="fas fa-minus-circle fa-2x"></i>
+                                            </button>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -123,7 +146,7 @@ class Index extends React.Component {
                                     <div className="showcase-details-1">
                                         <div className="showcase-title">{this.state.example5.title}</div>
                                         <div className="showcase-details">{this.state.example5.year}</div>
-                                        <button onClick={(e) => this.handleSubmitVideo(e, 'detail', 4)} className="showcase-btn-extra-1">
+                                        <button onClick={(e) => this.handleSubmitVideo(e, 'detail', 8)} className="showcase-btn-extra-1">
                                             <i className="fas fa-arrow-circle-right fa-3x" ></i>
                                         </button>
                                     </div>
@@ -135,7 +158,7 @@ class Index extends React.Component {
                                     <div className="showcase-details-2">
                                         <div className="showcase-title">{this.state.example6.title}</div>
                                         <div className="showcase-details">{this.state.example6.year}</div>
-                                        <button onClick={(e) => this.handleSubmitVideo(e, 'detail', 4)} className="showcase-btn-extra-2">
+                                        <button onClick={(e) => this.handleSubmitVideo(e, 'detail', 5)} className="showcase-btn-extra-2">
                                             <i className="fas fa-arrow-circle-right fa-3x" ></i>
                                         </button>
                                     </div>
@@ -150,7 +173,7 @@ class Index extends React.Component {
                                 <div className="showcase-details-3">
                                     <div className="showcase-title">{this.state.headline.title}</div>
                                     <div className="showcase-details">{this.state.headline.year}</div>
-                                        <button onClick={(e) => this.handleSubmitVideo(e, 'detail', 4)} className="showcase-btn-extra-3">
+                                        <button onClick={(e) => this.handleSubmit(e, 'detail', 2)} className="showcase-btn-extra-3">
                                             <i className="fas fa-arrow-circle-right fa-3x" ></i>
                                         </button>
                                     </div>
@@ -161,7 +184,7 @@ class Index extends React.Component {
                                     <div className="showcase-details-4">
                                         <div className="showcase-title">{this.state.example3.title}</div>
                                         <div className="showcase-details">{this.state.example3.year}</div>
-                                        <button onClick={(e) => this.handleSubmitVideo(e, 'detail', 4)} className="showcase-btn-extra-4">
+                                        <button onClick={(e) => this.handleSubmit(e, 'detail', 4)} className="showcase-btn-extra-4">
                                             <i className="fas fa-arrow-circle-right fa-3x" ></i>
                                         </button>
                                     </div>

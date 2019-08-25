@@ -18,8 +18,9 @@ class MyStuff extends React.Component {
             response => {
                 let movies = [];
                 let shows = []
-
+                // debugger
                 response.userId.favorites.forEach(film => {
+                    debugger
                     if(film.id.video_type === "movie") {
                         movies.push(film.id)
                     } else if(film.id.video_type === 'show') {
@@ -37,11 +38,11 @@ class MyStuff extends React.Component {
     getResults() {
         let shows = null;
         let movies = null;
-
+        debugger
         if (this.state.favoriteMovies.length > 0) {
             movies = this.state.favoriteMovies.map(movie => {
                 return (
-                    <MovieBannerItemContainer key={movie.id} user={this.props.currentUserId} movie={movie} />
+                    <MovieBannerItemContainer key={movie.id} movie={movie} />
                 )
             });
         }
@@ -49,7 +50,7 @@ class MyStuff extends React.Component {
         if (this.state.favoriteShows.length > 0) {
             shows = this.state.favoriteShows.map(show => {
                 return (
-                    <div><TVBannerItemContainer key={show.id} user={this.props.currentUserId} show={show} /></div>
+                    <div><TVBannerItemContainer key={show.id} show={show} /></div>
                 )
             });
         }
@@ -64,6 +65,7 @@ class MyStuff extends React.Component {
     }
 
     render() {
+        debugger
         return (
             <div className="my-stuff-container">
                 <div className="my-stuff-top-bar">

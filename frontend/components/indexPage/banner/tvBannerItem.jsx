@@ -32,7 +32,6 @@ class TvBannerItem extends React.Component {
                     </div>
                     <ul className="show-item-info">
                         <li className="vid-title" onClick={(e) => this.handleSubmit(e, 'detail')}>{this.props.show.title}</li>
-                        <li className="season-info">Season 1</li>
                         <li className= "vid-description">{this.props.show.description}</li>
                         <li className="show-item-info-btns">
                             <button className="vid-info-btn" onClick={(e) => this.handleSubmit(e, 'detail')}>

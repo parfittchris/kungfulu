@@ -26,17 +26,16 @@ export const findGenre = (genre) => (
     })
 );
 
-export const favMovie = (userId, movieId) => (
+export const favMovie = (userId, movie) => (
     $.ajax({
         method: 'POST',
         url: `api/favorites`,
         data: {
             user_id: userId,
-            video_id: movieId,
-            video_type: 'movie'
+            likeable: movie,
         }
     })
-);
+)
 
 export const removeFavMovie = (favoriteId, userId, movieId) => (
     $.ajax({
