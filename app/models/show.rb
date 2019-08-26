@@ -23,8 +23,5 @@ class Show < ApplicationRecord
     # foreign_key: :video_id,
     # class_name: :Favorite
 
-    # has_many :users,
-    # through: :favorites,
-    # source: :users
     
 end

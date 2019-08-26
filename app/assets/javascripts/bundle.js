@@ -760,8 +760,22 @@ function (_React$Component) {
   }, {
     key: "addFav",
     value: function addFav(userId, movie) {
-      // let modMovie = (({title, year, rating, description, video_type}) => ({title, year, rating, description, video_type}))(movie);
-      this.props.userLikeMovie(userId, movie);
+      var modMovie = function (_ref) {
+        var title = _ref.title,
+            year = _ref.year,
+            rating = _ref.rating,
+            description = _ref.description,
+            video_type = _ref.video_type;
+        return {
+          title: title,
+          year: year,
+          rating: rating,
+          description: description,
+          video_type: video_type
+        };
+      }(movie);
+
+      this.props.userLikeMovie(userId, modMovie);
     }
   }, {
     key: "removeFav",
@@ -814,7 +828,7 @@ function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "vid-info-btn",
         onClick: function onClick() {
-          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.movie.id);
+          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.movie);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-minus-circle fa-2x"
@@ -2704,8 +2718,7 @@ function (_React$Component) {
         var shows = []; // debugger
 
         response.userId.favorites.forEach(function (film) {
-          debugger;
-
+          // debugger
           if (film.id.video_type === "movie") {
             movies.push(film.id);
           } else if (film.id.video_type === 'show') {
@@ -4634,6 +4647,7 @@ var favMovie = function favMovie(userId, movie) {
     method: 'POST',
     url: "api/favorites",
     data: {
+      primary_key: 1,
       user_id: userId,
       likeable: movie
     }

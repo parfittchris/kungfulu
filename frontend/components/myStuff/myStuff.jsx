@@ -20,7 +20,7 @@ class MyStuff extends React.Component {
                 let shows = []
                 // debugger
                 response.userId.favorites.forEach(film => {
-                    debugger
+                    // debugger
                     if(film.id.video_type === "movie") {
                         movies.push(film.id)
                     } else if(film.id.video_type === 'show') {

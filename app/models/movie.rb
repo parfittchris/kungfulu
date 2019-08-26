@@ -7,8 +7,6 @@ class Movie < ApplicationRecord
 
     has_many :category_joins, as: :joinable
 
-    has_many :likes, as: :likeable
-
     has_many :categories,
     through: :category_joins,
     source: :categories

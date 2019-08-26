@@ -6,6 +6,7 @@ class User < ApplicationRecord
     validates :password, length: {minimum: 6}, allow_nil: true
 
     has_many :favorites,
+    primary_key: :id,
     foreign_key: :user_id,
     class_name: :Favorite
 

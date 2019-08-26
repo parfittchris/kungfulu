@@ -31,6 +31,7 @@ export const favMovie = (userId, movie) => (
         method: 'POST',
         url: `api/favorites`,
         data: {
+            primary_key: 1,
             user_id: userId,
             likeable: movie,
         }

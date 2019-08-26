@@ -17,10 +17,10 @@ class MovieBannerItem extends React.Component {
     }
 
     addFav(userId, movie) {
-        // let modMovie = (({title, year, rating, description, video_type}) => ({title, year, rating, description, video_type}))(movie);
+        let modMovie = (({title, year, rating, description, video_type}) => ({title, year, rating, description, video_type}))(movie);
 
 
-        this.props.userLikeMovie(userId, movie);
+        this.props.userLikeMovie(userId, modMovie);
     }
 
     removeFav(userId, movieId) {
@@ -46,7 +46,7 @@ class MovieBannerItem extends React.Component {
                         <button className="vid-info-btn" onClick={() => this.addFav(this.props.state.entities.users[1].id, this.props.movie)}>
                             <i className="fas fa-plus-circle fa-2x"></i>
                         </button>
-                        <button className="vid-info-btn" onClick={() => this.removeFav(this.props.state.entities.users[1].id, this.props.movie.id)}>
+                        <button className="vid-info-btn" onClick={() => this.removeFav(this.props.state.entities.users[1].id, this.props.movie)}>
                             <i className="fas fa-minus-circle fa-2x"></i>
                         </button>
                     </li>
