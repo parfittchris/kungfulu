@@ -1,5 +1,5 @@
-.search-form-container {
-    // font-family: 'Raleway', sans-serif;
+.search-page-prior {
+    height: 90vh;
 }
 
 .search-input-container {
@@ -59,7 +59,6 @@
     cursor: pointer;
 }
 
-
 .search-clear-btn:hover {
     color: black;
 }
@@ -78,7 +77,6 @@
 }
 
 .browse-header {
-    // margin-left: 40px;
     margin-bottom: 8px;
     color: #292C33;
     font-size: 18px;
@@ -90,14 +88,12 @@
 }
 
 .movies-results {
-    position: relative;;
     margin-left: 45px;
     margin-top: 20px;
     display: flex;
 }
 
 .shows-results {
-    position: relative;
     margin-left: 45px;
     margin-top: 50px;
     display: flex;
@@ -118,6 +114,15 @@
     font-size: 20px;
     font-weight: 900;
 }
+
+// .results-header-show-single {
+//     margin-left: 45px;
+//     margin-top: 30px;
+//     color: #292C33;
+//     font-size: 20px;
+//     font-weight: 900;
+// }
+
 
 .search-results {
     font-size: 14px;

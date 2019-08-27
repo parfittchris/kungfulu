@@ -16,12 +16,12 @@ class DetailModal extends React.Component {
     }
 
     
-    // componentWillUnmount() {
-    //     this.props.history.push(`/index`)
-    // }
+    componentWillUnmount() {
+        this.props.history.push(`/index`)
+    }
 
 render() {
-    const image = 'https://kungfulu-aa-seeds.s3.amazonaws.com/kung_fu_show.jpeg'
+    // const image = 'https://kungfulu-aa-seeds.s3.amazonaws.com/kung_fu_show.jpeg'
 
     return (
             <div className="detail-page-container">
@@ -29,7 +29,7 @@ render() {
                 {/* <img src={this.props.video.image_url} className="detail-background-icon"></img> */}
                 <div className="detail-body">
                     <div className="detail-masthead-container">
-                        <img src={image} className="detail-masthead-picture"></img>
+                        <img src={this.props.video.image_url} className="detail-masthead-picture"></img>
                         <div className="detail-masthead-info">
                             <div className="detail-masthead-info-title">{this.props.video.title}</div>
                             <div className="detail-masthead-info-info">{this.props.video.date}</div>

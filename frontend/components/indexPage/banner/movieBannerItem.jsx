@@ -6,18 +6,27 @@ class MovieBannerItem extends React.Component {
     constructor(props) {
         super(props)
         
+
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.addFav = this.addFav.bind(this);
     }
 
     handleSubmit(e, type) {
         e.preventDefault()
         this.props.history.push(`/index/movies/${type}/${this.props.movie.id}`)
     }
+
+    addFav(userId, movie) {
+        this.props.userLikeMovie(userId, movie);
+    }
+
+    removeFav(userId, movieId) {
+        this.props.userRemoveLike(1, userId, movieId);
+    }
     
     render() {
-// debugger
+        // debugger
         return (
-           
             <div className="show-item">
                 <div className="show-item-photo">
                     <button onClick={(e) => this.handleSubmit(e, 'video')} className="video-image-btn">
@@ -27,9 +36,17 @@ class MovieBannerItem extends React.Component {
                 <ul className="show-item-info">
                     <li className="vid-title" onClick={(e) => this.handleSubmit(e, 'detail')}>{this.props.movie.title}</li>
                     <li className="vid-description">{this.props.movie.description}</li>
-                    <button className="vid-info-btn" onClick={(e) => this.handleSubmit(e, 'detail')}>
-                        <i className="fas fa-arrow-circle-right fa-2x"></i>
-                    </button>
+                    <li className="show-item-info-btns">
+                        <button className="vid-info-btn" onClick={(e) => this.handleSubmit(e, 'detail')}>
+                            <i className="fas fa-arrow-circle-right fa-2x"></i>
+                        </button>
+                        <button className="vid-info-btn" onClick={() => this.addFav(this.props.state.entities.users[1].id, this.props.movie)}>
+                            <i className="fas fa-plus-circle fa-2x"></i>
+                        </button>
+                        <button className="vid-info-btn" onClick={() => this.removeFav(this.props.state.entities.users[1].id, this.props.movie)}>
+                            <i className="fas fa-minus-circle fa-2x"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         )

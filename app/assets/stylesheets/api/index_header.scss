@@ -54,7 +54,66 @@
     padding-right: 20px;
 }
 
+
+.categories-left {
+    width: 20%;
+    height: 100%;
+}
+
+.categories-left-items {
+    height: 80%;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 300;
+    border-right: 1px solid lightgray;
+    visibility: hidden;
+}
+
+.categories-left-li {
+    margin-bottom: 20px;
+}
+
+.categories-left-li:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+.categories-right {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.categories-right-ul {
+    display: flex;
+    width: 22%;
+    height: 100%;
+    flex-direction: column;
+    align-items: space-around;
+    padding: 10px;
+    visibility: hidden;
+}
+
+.category-btn {
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.category-btn:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+.cat {
+    margin-top: 10%;
+}
+
 .cat-link {
+    height: 72px;
     width: 30%;
     display: flex;
     margin-left: 20px;
@@ -63,6 +122,38 @@
 .cat-link:hover {
     color: gray;
     cursor: pointer;
+}
+
+ .categories-tab {
+    transition-duration: 0.5s;
+    position: absolute;
+    width: 90vw;
+    height: 0;
+    left: 5%;
+    top: 72px;
+    display: flex;
+    color: #292C33;
+    background-color: rgba(255, 255, 255, .95);
+}
+
+.cat-link:hover .categories-tab{
+    transition-duration: 0.5s;
+    height: 61.5vh;
+    border: 1px solid rgb(240, 239, 239);
+}
+
+.cat-link:hover .categories-right-ul {
+    transition-delay: 0.125s;
+    visibility: visible;
+}
+
+.cat-link:hover .categories-left-items{
+    transition-delay: 0.125s;
+    visibility: visible;
+}
+
+.cat-link:hover .categories-right{
+    padding: 20px;
 }
 
 .cat-button {
@@ -78,7 +169,6 @@
     align-items: center;
 }
 
-
 .stuff-link {
     width: 30%;
     display: flex;
@@ -89,10 +179,14 @@
     cursor: pointer;
 }
 
-.stuff-button {
+.fa-check-square {
     padding-top: 10px;
     width: 27px;
     height: 20px;
+}
+
+.stuff {
+    margin-top: 10%;
 }
 
 .stuff-text {
@@ -128,10 +222,6 @@
 .search-btn{ 
     height: 24px;
     width: 24px;
-}
-
-.search-text {
-    padding-left: 10px;
 }
 
 .profile {

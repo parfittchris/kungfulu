@@ -22,24 +22,28 @@
        display: flex;
        flex-direction: column;
        justify-content: space-around;
+       font-family: 'Quicksand', sans-serif;
     }
 
     .thumbnail-details-title {
         font-size: 52px;
         font-weight: 300;
-        margin-top: 30px
+        margin-top: 30px;
+        font-family: 'Quicksand', sans-serif;
     }
 
     .hub-container {
         margin-left: 40px; 
         margin-right: 40px;
         height: 100%;
+        font-family: 'Quicksand', sans-serif;
     }
 
     .slider {
         display: flex;
         height: 500px;
         padding-bottom: 48px;
+        font-family: 'Quicksand', sans-serif;
     }
 
     .slider-movie-1 {
@@ -54,7 +58,6 @@
         transition-delay: 0.5s;
         transition-duration: 0.5s;
         cursor: pointer;
-        
     }
 
     .thumbnail-details-info-links {
@@ -96,8 +99,8 @@
         background-color:rgba(31, 93, 185, 0.9);
     }
 
-    .slider-movie-1:hover .slider-1-info-buttons {
-        transition-delay: 0.5s;
+    .slider-movie-1:hover .slider-info-buttons {
+        transition-delay: 0.25s;
         visibility: visible;
         height: 33%;
         width: 100%;
@@ -107,7 +110,11 @@
         color: gray;
     }
 
-   .slider-1-info-buttons {
+    .slider-info-buttons:hover {
+        color: white;
+    }
+
+   .slider-info-buttons {
         visibility: hidden;
     }
 
@@ -191,7 +198,7 @@
         background-color:rgba(31, 93, 185, 0.9);
     }
 
-    .slider-movie-2:hover .slider-2-info-buttons {
+    .slider-movie-2:hover .slider-info-buttons {
         transition-delay: 0.5s;
         visibility: visible;
         height: 33%;
@@ -200,16 +207,13 @@
         display: flex;
         align-items: center;
         color: gray;
-    }
 
-   .slider-2-info-buttons {
-        visibility: hidden;
     }
 
     .slider-2-title {
         transition-delay: 0.5s;
         transition-duration: 0.5s;
-        margin-top: 150px;
+        margin-top: 200px;
         font-size: 32px;
     }
 
@@ -287,7 +291,7 @@
         background-color:rgba(31, 93, 185, 0.9);
     }
 
-    .slider-movie-3:hover .slider-3-info-buttons {
+    .slider-movie-3:hover .slider-info-buttons {
         transition-delay: 0.5s;
         visibility: visible;
         height: 33%;
@@ -296,10 +300,6 @@
         display: flex;
         align-items: center;
         color: gray;
-    }
-
-   .slider-3-info-buttons {
-        visibility: hidden;
     }
 
     .slider-3-title {
@@ -381,7 +381,7 @@
         background-color:rgba(31, 93, 185, 0.9);
     }
 
-    .slider-movie-4:hover .slider-4-info-buttons {
+    .slider-movie-4:hover .slider-info-buttons {
         transition-delay: 0.5s;
         visibility: visible;
         height: 33%;
@@ -392,9 +392,7 @@
         color: gray;
     }
 
-   .slider-4-info-buttons {
-        visibility: hidden;
-    }
+ 
 
     .slider-4-title {
         transition-delay: 0.5s;
@@ -492,14 +490,15 @@
     }
 
     .showcase-item-1-img {
-        background-image: image_url('kungshow3.jpg');
+        background-image: image_url('walkerwide.jpeg');
+        width: 100%;
         height: 100%;
         background-size: cover;
         background-position: center;
     }
 
     .showcase-item-2-img {
-        background-image: image_url('kungshow6.jpg');
+        background-image: image_url('badlandswide.png');
         height: 100%;
         background-size: cover;
         background-position: center;
@@ -716,3 +715,32 @@
        transform: scale(1.10);
     }
     
+    .next-videos-button {
+        position: absolute;
+        left: 95.25%;
+        margin-top: 4%;
+        border-radius: 50%;
+        background-color: white;
+        text-align: center;
+        height: 3.5vw;
+        width: 3.5vw;
+        z-index: 1000;
+        box-shadow: 2px 2px 10px 2px lightgray;
+        font-size: 18px;
+    }
+
+    .next-videos-button:hover {
+        cursor: pointer;
+    }
+
+    .next-videos-button:active {
+        margin-top: 4.25%;
+    }
+
+    .slider-detail {
+        margin-right: 20px;
+    }
+
+    .slider-add {
+        margin-right: 20px;
+    }

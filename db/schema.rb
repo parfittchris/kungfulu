@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_020931) do
+ActiveRecord::Schema.define(version: 2019_08_22_172111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,21 @@ ActiveRecord::Schema.define(version: 2019_08_06_020931) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "category_joins", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "categoryId", null: false
+    t.string "joinable_type"
+    t.bigint "joinable_id"
+    t.index ["joinable_type", "joinable_id"], name: "index_category_joins_on_joinable_type_and_joinable_id"
+  end
+
   create_table "episodes", force: :cascade do |t|
     t.string "title", null: false
     t.integer "number", null: false
@@ -43,6 +58,15 @@ ActiveRecord::Schema.define(version: 2019_08_06_020931) do
     t.integer "season_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "likeable_type"
+    t.bigint "likeable_id"
+    t.index ["likeable_type", "likeable_id"], name: "index_favorites_on_likeable_type_and_likeable_id"
   end
 
   create_table "movies", force: :cascade do |t|

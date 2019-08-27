@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { userSearchShowTitles } from './actions/show_actions';
+import { searchForUser } from './actions/session_actions';
+import { userLikeMovie, userRemoveLike} from './actions/movie_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -23,7 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.getState = store.getState;
     window.dispatch = store.dispatch;
-    window.searchShows = userSearchShowTitles;
+    window.searchUser = searchForUser;
+    window.likeMovie = userLikeMovie;
+    window.removeLike = userRemoveLike;
+
+
+
 
 
     const root= document.getElementById('root');

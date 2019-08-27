@@ -8,9 +8,10 @@ import indexContainer from './indexPage/indexContainer';
 import SearchHeaderContainer from './searchPage/searchHeaderContainer';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Footer } from './footer/footer'
-import movieBanner from './indexPage/banner/movieBannerContainer';
 import detailPage from './indexPage/detailPage/detailPage';
 import searchBarContainer from './searchPage/searchContainer';
+import categoryContainer from './indexPage/categories/categoriesContainer';
+import myStuffContainer from './myStuff/myStuffContainer';
 
 const App = () => (
     <div>
@@ -18,14 +19,19 @@ const App = () => (
         <header className="header">
             <Switch>
                 <AuthRoute exact path="/" component= {Navbar}/>
-                <ProtectedRoute exact path="/index" component={IndexHeader} />
                 <ProtectedRoute exact path="/search" component={SearchHeaderContainer} />
+                <ProtectedRoute path="/index/categories" component={SearchHeaderContainer} />
+                <ProtectedRoute path="/my-stuff" component={SearchHeaderContainer} />                
+                <ProtectedRoute path="/index" component={IndexHeader} />
+                <Route path='/header' component ={IndexHeader}></Route>
             </Switch>
         </header>  
         <Switch>
+            <ProtectedRoute exact path="/index/categories/:category" component={categoryContainer} />
             <ProtectedRoute path="/index" component={indexContainer}/>
+            <ProtectedRoute exact path="/search" component={searchBarContainer}/>
+            <ProtectedRoute exact path="/my-stuff" component={myStuffContainer}/>
             <AuthRoute exact path="/" component={SplashPageContainer} />
-            <ProtectedRoute exact path="/search" component={searchBarContainer} />
         </Switch>
             <ProtectedRoute path="/index/shows/detail/:videoId" component={detailPage} />
             <ProtectedRoute path="/index/shows/video/:videoId" component={detailPage} />

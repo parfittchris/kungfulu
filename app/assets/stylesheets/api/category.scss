@@ -1,0 +1,40 @@
+.category-page {
+    width: 100%;
+    margin-top: 6%;
+    margin-left: 2.5%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+.category-title {
+    margin-left: 2.5%;
+    font-size: 42px;
+    font-weight: 100;
+    font-family: 'Raleway', sans-serif;
+}
+
+.no-category-results {
+    font-size: 42px;
+    font-weight: 100;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 20%;
+    margin-left: 2.5%;
+}
+
+.category-banner-title {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: #292C33;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.category-results {
+    display: flex;
+    height: 30vh;
+}
+
+
+

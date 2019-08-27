@@ -18,3 +18,34 @@ export const findTitle = (title) => (
         url: `api/movies/search/${title}`,
     })
 );
+
+export const findGenre = (genre) => (
+    $.ajax({
+        method: 'GET',
+        url: `api/movies/search/${genre}`,
+    })
+);
+
+export const favMovie = (userId, movie) => (
+    $.ajax({
+        method: 'POST',
+        url: `api/favorites`,
+        data: {
+            user_id: userId,
+            likeable: movie,
+            type: 'Movie'
+        }
+    })
+)
+
+export const removeFavMovie = (favoriteId, userId, movieId) => (
+    $.ajax({
+        method: 'DELETE',
+        url: `api/favorites/${favoriteId}`,
+        data: {
+            user_id: userId,
+            video_id: movieId,
+            video_type: 'Movie'
+        }
+    })
+);
