@@ -2713,9 +2713,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -2740,6 +2740,8 @@ function (_React$Component) {
       favoriteMovies: [],
       favoriteShows: []
     };
+    _this.getShows = _this.getShows.bind(_assertThisInitialized(_this));
+    _this.getMovies = _this.getMovies.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2748,50 +2750,78 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      this.props.userSelectAllMovies();
-      this.props.userSelectAllShows();
+      var movieIds = [];
+      var showIds = [];
       this.props.searchForUser(this.props.currentUserId).then(function (response) {
-        var movies = [];
-        var shows = [];
+        var movieIds = [];
+        var showIds = [];
         response.userId.favorites.forEach(function (film) {
           if (film.id.video_type === "movie") {
-            movies.push(film.id);
+            movieIds.push(film.id.id);
           } else if (film.id.video_type === 'show') {
-            shows.push(film.id);
+            showIds.push(film.id.id);
           }
         });
 
         _this2.setState({
-          favoriteMovies: movies,
-          favoriteShows: shows
+          favoriteMovies: _this2.getMovies(movieIds),
+          favoriteShows: _this2.getShows(showIds)
         });
       });
-    } // componentWillUnmount(newProps) {
-    //     this.props.userSelectAllMovies();
-    //     this.props.userSelectAllShows();
-    //     this.props.searchForUser(this.props.currentUserId).then(
-    //         response => {
-    //             let movies = [];
-    //             let shows = []
-    //             response.userId.favorites.forEach(film => {
-    //                 if (film.id.video_type === "movie") {
-    //                     movies.push(film.id.id)
-    //                 } else if (film.id.video_type === 'show') {
-    //                     shows.push(film.id.id)
-    //                 }
-    //             })
-    //             this.setState({
-    //                 favoriteMovies: movies,
-    //                 favoriteShows: shows
-    //             });
-    //         })
-    // }
+      this.forceUpdate();
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount(newParams) {
+      var _this3 = this;
 
+      var movieIds = [];
+      var showIds = [];
+      this.props.searchForUser(this.props.currentUserId).then(function (response) {
+        response.userId.favorites.forEach(function (film) {
+          if (film.id.video_type === "movie") {
+            movieIds.push(film.id.id);
+          } else if (film.id.video_type === 'show') {
+            showIds.push(film.id.id);
+          }
+        });
+
+        _this3.setState({
+          favoriteMovies: _this3.getMovies(movieIds),
+          favoriteShows: _this3.getShows(showIds)
+        });
+      });
+      this.forceUpdate();
+    }
+  }, {
+    key: "getMovies",
+    value: function getMovies(movies) {
+      var _this4 = this;
+
+      var movieResults = [];
+      movies.forEach(function (movie) {
+        _this4.props.userSelectMovie(movie).then(function (response) {
+          movieResults.push(response.movie);
+        });
+      });
+      return movieResults;
+    }
+  }, {
+    key: "getShows",
+    value: function getShows(shows) {
+      var _this5 = this;
+
+      var showResults = [];
+      shows.forEach(function (show) {
+        _this5.props.userSelectShow(show).then(function (response) {
+          showResults.push(response.show);
+        });
+      });
+      return showResults;
+    }
   }, {
     key: "getResults",
     value: function getResults() {
-      // let movieArray = this.state.favoriteMovies.map(movieId => { return this.props.movies[movieId] });
-      // let showArray = this.state.favoriteShows.map(showId => { return this.props.shows[showId] });
       var shows = null;
       var movies = null;
 
@@ -2814,17 +2844,40 @@ function (_React$Component) {
       if (movies && shows) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "stuff-category-results"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "stuff-result-title"
+        }, "MOVIES"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "stuff-movie-results"
-        }, movies), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, movies), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "stuff-result-title"
+        }, "SHOWS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "stuff-show-results"
         }, shows));
+      } else if (movies && !shows) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "stuff-category-results"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "stuff-result-title"
+        }, "MOVIES"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "stuff-movie-results"
+        }, movies));
+      } else if (!movies && shows) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "stuff-category-results"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "stuff-result-title"
+        }, "SHOWS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "stuff-show-results"
+        }, shows));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "stuff-no-results"
+        }, "You have't favorited any items!"));
       }
     }
   }, {
     key: "render",
     value: function render() {
-      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "my-stuff-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2881,12 +2934,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     searchForUser: function searchForUser(userId) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["searchForUser"])(userId));
     },
-    userSelectAllMovies: function userSelectAllMovies() {
-      return dispatch(Object(_actions_movie_actions__WEBPACK_IMPORTED_MODULE_4__["userSelectAllMovies"])());
+    userSelectMovie: function userSelectMovie(movie) {
+      return dispatch(Object(_actions_movie_actions__WEBPACK_IMPORTED_MODULE_4__["userSelectMovie"])(movie));
     },
-    userSelectAllShows: function userSelectAllShows() {
-      return dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_3__["userSelectAllShows"])());
-    }
+    userSelectShow: function userSelectShow(show) {
+      return dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_3__["userSelectShow"])(show));
+    } // userSelectAllMovies: () => dispatch(userSelectAllMovies()),
+    // userSelectAllShows: () => dispatch(userSelectAllShows()),
+
   };
 };
 

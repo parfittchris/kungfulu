@@ -1,4 +1,4 @@
-json.set! @movie.id do
+
     json.extract! @movie, :id, :title, :year, :rating, :description, :categories
 
     if (@movie.video.attached?)
@@ -8,4 +8,3 @@ json.set! @movie.id do
     if (@movie.image.attached?)
             json.image_url url_for(@movie.image)
     end
-end

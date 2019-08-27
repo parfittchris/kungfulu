@@ -8,7 +8,6 @@ class Api::MoviesController < ApplicationController
 
         def show
             @movie = Movie.find_by_id(params[:id])
-
             if @movie.nil?
                 render json: "Can't find movie"
             else

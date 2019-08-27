@@ -1,6 +1,6 @@
 .my-stuff-container {
     margin-top: 82px;
-    height: 400px;
+    height: 40em;
 }
 
 .my-stuff-top-bar {
@@ -32,14 +32,30 @@
 .stuff-category-results {
     display: flex;
     flex-direction: column;
+    margin-left: 4em;
 }
 
 .stuff-movie-results {
     display: flex;
-    margin-top: 250px;
+    height: 16em;
 }
 
 .stuff-show-results {
     display: flex;
-    margin-top: 250px;
+}
+
+.stuff-result-title {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: #292C33;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.stuff-no-results {
+    font-size: 42px;
+    font-weight: 100;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 10%;
+    margin-left: 2.5%;
 }

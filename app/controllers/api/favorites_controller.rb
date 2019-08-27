@@ -1,7 +1,13 @@
 class Api::FavoritesController < ApplicationController
 
    def create 
-    @favorite = Favorite.new(id: Favorite.last.id + 1, user_id: params[:user_id], likeable_type: params[:type],likeable_id: params[:likeable][:id])
+    if Favorite.all.length == 0
+      last_fav = 0
+    else
+      last_fav = Favorite.last.id
+    end
+    
+    @favorite = Favorite.new(id: last_fav + 1, user_id: params[:user_id], likeable_type: params[:type],likeable_id: params[:likeable][:id])
       if Favorite.all.find_by(user_id: params[:user_id], likeable_type: params[:type],likeable_id: params[:likeable][:id])
         render json: 'Video already favorited'
       else

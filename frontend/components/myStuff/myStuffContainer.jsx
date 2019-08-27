@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import MyStuff from './myStuff';
 import { searchForUser } from '../../actions/session_actions';
-import { userSelectAllShows } from '../../actions/show_actions';
-import { userSelectAllMovies } from '../../actions/movie_actions';
+import { userSelectShow } from '../../actions/show_actions';
+import { userSelectMovie } from '../../actions/movie_actions';
 
 
 const mapStateToProps = (state) => {
@@ -16,8 +16,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return ({
         searchForUser: (userId) => dispatch(searchForUser(userId)),
-        userSelectAllMovies: () => dispatch(userSelectAllMovies()),
-        userSelectAllShows: () => dispatch(userSelectAllShows()),
+        userSelectMovie: (movie) => dispatch(userSelectMovie(movie)),
+        userSelectShow: (show) => dispatch(userSelectShow(show)),
+
+        // userSelectAllMovies: () => dispatch(userSelectAllMovies()),
+        // userSelectAllShows: () => dispatch(userSelectAllShows()),
     });
 }
 
