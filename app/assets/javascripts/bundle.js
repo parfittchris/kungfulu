@@ -359,7 +359,7 @@ var searchForUser = function searchForUser(userId) {
 /*!******************************************!*\
   !*** ./frontend/actions/show_actions.js ***!
   \******************************************/
-/*! exports provided: GET_SHOWS, GET_SHOW, SEARCH_TITLES, RECEIVE_ERRORS, userSelectAllShows, userSelectShow, userSearchShowTitles */
+/*! exports provided: GET_SHOWS, GET_SHOW, SEARCH_TITLES, RECEIVE_ERRORS, LIKE_SHOW, REMOVE_LIKE, userSelectAllShows, userSelectShow, userSearchShowTitles, userLikeShow, userRemoveLike */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -368,15 +368,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_SHOW", function() { return GET_SHOW; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_TITLES", function() { return SEARCH_TITLES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ERRORS", function() { return RECEIVE_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LIKE_SHOW", function() { return LIKE_SHOW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_LIKE", function() { return REMOVE_LIKE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userSelectAllShows", function() { return userSelectAllShows; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userSelectShow", function() { return userSelectShow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userSearchShowTitles", function() { return userSearchShowTitles; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userLikeShow", function() { return userLikeShow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userRemoveLike", function() { return userRemoveLike; });
 /* harmony import */ var _util_shows_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/shows_api_util */ "./frontend/util/shows_api_util.js");
 
 var GET_SHOWS = 'GET_SHOWS';
 var GET_SHOW = 'GET_SHOW';
 var SEARCH_TITLES = 'SEARCH_TITLES';
 var RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+var LIKE_SHOW = 'LIKE_SHOW';
+var REMOVE_LIKE = 'REMOVE_LIKE';
 
 var getShows = function getShows(shows) {
   return {
@@ -396,6 +402,23 @@ var searchTitles = function searchTitles(titles) {
   return {
     type: SEARCH_TITLES,
     titles: titles
+  };
+};
+
+var likeShow = function likeShow(userId, show) {
+  return {
+    type: LIKE_SHOW,
+    userId: userId,
+    show: show
+  };
+};
+
+var removeLike = function removeLike(likeId, userId, showId) {
+  return {
+    type: REMOVE_LIKE,
+    likeId: likeId,
+    userId: userId,
+    showId: showId
   };
 };
 
@@ -428,6 +451,24 @@ var userSearchShowTitles = function userSearchShowTitles(titles) {
   return function (dispatch) {
     return Object(_util_shows_api_util__WEBPACK_IMPORTED_MODULE_0__["findTitle"])(titles).then(function (titles) {
       return dispatch(searchTitles(titles));
+    }).fail(function (errors) {
+      return dispatch(receiveErrors(errors));
+    });
+  };
+};
+var userLikeShow = function userLikeShow(userId, show) {
+  return function (dispatch) {
+    return Object(_util_shows_api_util__WEBPACK_IMPORTED_MODULE_0__["favShow"])(userId, show).then(function (show) {
+      return dispatch(likeShow(show));
+    }).fail(function (errors) {
+      return dispatch(receiveErrors(errors));
+    });
+  };
+};
+var userRemoveLike = function userRemoveLike(likeId, userId, showId) {
+  return function (dispatch) {
+    return Object(_util_shows_api_util__WEBPACK_IMPORTED_MODULE_0__["removeFavShow"])(likeId, userId, showId).then(function (show) {
+      return dispatch(removeLike(show));
     }).fail(function (errors) {
       return dispatch(receiveErrors(errors));
     });
@@ -760,22 +801,7 @@ function (_React$Component) {
   }, {
     key: "addFav",
     value: function addFav(userId, movie) {
-      var modMovie = function (_ref) {
-        var title = _ref.title,
-            year = _ref.year,
-            rating = _ref.rating,
-            description = _ref.description,
-            video_type = _ref.video_type;
-        return {
-          title: title,
-          year: year,
-          rating: rating,
-          description: description,
-          video_type: video_type
-        };
-      }(movie);
-
-      this.props.userLikeMovie(userId, modMovie);
+      this.props.userLikeMovie(userId, movie);
     }
   }, {
     key: "removeFav",
@@ -1070,6 +1096,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(TvBannerItem).call(this, props));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.addFav = _this.addFav.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1081,8 +1108,8 @@ function (_React$Component) {
     }
   }, {
     key: "addFav",
-    value: function addFav(userId, showId) {
-      this.props.userLikeShow(userId, showId);
+    value: function addFav(userId, show) {
+      this.props.userLikeShow(userId, show);
     }
   }, {
     key: "removeFav",
@@ -1126,14 +1153,14 @@ function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "vid-info-btn",
         onClick: function onClick() {
-          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
+          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.show);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-plus-circle fa-2x"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "vid-info-btn",
         onClick: function onClick() {
-          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
+          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.show);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-minus-circle fa-2x"
@@ -1160,6 +1187,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _tvBannerItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tvBannerItem */ "./frontend/components/indexPage/banner/tvBannerItem.jsx");
+/* harmony import */ var _actions_show_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../actions/show_actions */ "./frontend/actions/show_actions.js");
+
 
 
 
@@ -1174,6 +1203,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     openModal: function openModal(modal, id) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_0__["openModal"])(modal, id));
+    },
+    userLikeShow: function userLikeShow(userId, show) {
+      return dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_3__["userLikeShow"])(userId, show));
+    },
+    userRemoveLike: function userRemoveLike(favId, userId, showId) {
+      return dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_3__["userRemoveLike"])(favId, userId, showId));
     }
   };
 };
@@ -2713,12 +2748,12 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      this.props.userSelectAllMovies();
+      this.props.userSelectAllShows();
       this.props.searchForUser(this.props.currentUserId).then(function (response) {
         var movies = [];
-        var shows = []; // debugger
-
+        var shows = [];
         response.userId.favorites.forEach(function (film) {
-          // debugger
           if (film.id.video_type === "movie") {
             movies.push(film.id);
           } else if (film.id.video_type === 'show') {
@@ -2731,18 +2766,38 @@ function (_React$Component) {
           favoriteShows: shows
         });
       });
-    }
+    } // componentWillUnmount(newProps) {
+    //     this.props.userSelectAllMovies();
+    //     this.props.userSelectAllShows();
+    //     this.props.searchForUser(this.props.currentUserId).then(
+    //         response => {
+    //             let movies = [];
+    //             let shows = []
+    //             response.userId.favorites.forEach(film => {
+    //                 if (film.id.video_type === "movie") {
+    //                     movies.push(film.id.id)
+    //                 } else if (film.id.video_type === 'show') {
+    //                     shows.push(film.id.id)
+    //                 }
+    //             })
+    //             this.setState({
+    //                 favoriteMovies: movies,
+    //                 favoriteShows: shows
+    //             });
+    //         })
+    // }
+
   }, {
     key: "getResults",
     value: function getResults() {
+      // let movieArray = this.state.favoriteMovies.map(movieId => { return this.props.movies[movieId] });
+      // let showArray = this.state.favoriteShows.map(showId => { return this.props.shows[showId] });
       var shows = null;
       var movies = null;
-      debugger;
 
       if (this.state.favoriteMovies.length > 0) {
         movies = this.state.favoriteMovies.map(function (movie) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_indexPage_banner_movieBannerItemContainer__WEBPACK_IMPORTED_MODULE_1__["default"], {
-            key: movie.id,
             movie: movie
           });
         });
@@ -2751,7 +2806,6 @@ function (_React$Component) {
       if (this.state.favoriteShows.length > 0) {
         shows = this.state.favoriteShows.map(function (show) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_indexPage_banner_tvBannerItemContainer__WEBPACK_IMPORTED_MODULE_2__["default"], {
-            key: show.id,
             show: show
           }));
         });
@@ -2806,13 +2860,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _myStuff__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./myStuff */ "./frontend/components/myStuff/myStuff.jsx");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_show_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/show_actions */ "./frontend/actions/show_actions.js");
+/* harmony import */ var _actions_movie_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/movie_actions */ "./frontend/actions/movie_actions.js");
+
+
 
 
 
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    movies: Object.values(state.entities.videos.movies),
+    shows: Object.values(state.entities.videos.shows)
   };
 };
 
@@ -2820,6 +2880,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     searchForUser: function searchForUser(userId) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["searchForUser"])(userId));
+    },
+    userSelectAllMovies: function userSelectAllMovies() {
+      return dispatch(Object(_actions_movie_actions__WEBPACK_IMPORTED_MODULE_4__["userSelectAllMovies"])());
+    },
+    userSelectAllShows: function userSelectAllShows() {
+      return dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_3__["userSelectAllShows"])());
     }
   };
 };
@@ -4490,6 +4556,12 @@ var showsReducer = function showsReducer() {
     case _actions_show_actions__WEBPACK_IMPORTED_MODULE_0__["SEARCH_TITLES"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, action.titles);
 
+    case _actions_show_actions__WEBPACK_IMPORTED_MODULE_0__["LIKE_SHOW"]:
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, (action.userID, action.show));
+
+    case _actions_show_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_LIKE"]:
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, (action.likeId, action.userId, action.showId));
+
     default:
       return state;
   }
@@ -4647,9 +4719,9 @@ var favMovie = function favMovie(userId, movie) {
     method: 'POST',
     url: "api/favorites",
     data: {
-      primary_key: 1,
       user_id: userId,
-      likeable: movie
+      likeable: movie,
+      type: 'Movie'
     }
   });
 };
@@ -4660,7 +4732,7 @@ var removeFavMovie = function removeFavMovie(favoriteId, userId, movieId) {
     data: {
       user_id: userId,
       video_id: movieId,
-      video_type: 'movie'
+      video_type: 'Movie'
     }
   });
 };
@@ -4777,7 +4849,7 @@ var logout = function logout() {
 /*!*****************************************!*\
   !*** ./frontend/util/shows_api_util.js ***!
   \*****************************************/
-/*! exports provided: findShows, findShow, findTitle */
+/*! exports provided: findShows, findShow, findTitle, favShow, removeFavShow */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4785,6 +4857,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findShows", function() { return findShows; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findShow", function() { return findShow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "findTitle", function() { return findTitle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "favShow", function() { return favShow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFavShow", function() { return removeFavShow; });
 var findShows = function findShows() {
   return $.ajax({
     method: 'GET',
@@ -4801,6 +4875,28 @@ var findTitle = function findTitle(title) {
   return $.ajax({
     method: 'GET',
     url: "api/shows/search/".concat(title)
+  });
+};
+var favShow = function favShow(userId, show) {
+  return $.ajax({
+    method: 'POST',
+    url: "api/favorites",
+    data: {
+      user_id: userId,
+      likeable: show,
+      type: 'Show'
+    }
+  });
+};
+var removeFavShow = function removeFavShow(favoriteId, userId, showId) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "api/favorites/".concat(favoriteId),
+    data: {
+      user_id: userId,
+      video_id: showId,
+      video_type: 'Show'
+    }
   });
 };
 

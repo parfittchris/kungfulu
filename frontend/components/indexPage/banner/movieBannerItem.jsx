@@ -17,10 +17,7 @@ class MovieBannerItem extends React.Component {
     }
 
     addFav(userId, movie) {
-        let modMovie = (({title, year, rating, description, video_type}) => ({title, year, rating, description, video_type}))(movie);
-
-
-        this.props.userLikeMovie(userId, modMovie);
+        this.props.userLikeMovie(userId, movie);
     }
 
     removeFav(userId, movieId) {

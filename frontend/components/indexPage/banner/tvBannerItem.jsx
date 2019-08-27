@@ -7,6 +7,7 @@ class TvBannerItem extends React.Component {
 
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.addFav = this.addFav.bind(this);
     }
 
     handleSubmit(e, type) {
@@ -14,8 +15,8 @@ class TvBannerItem extends React.Component {
         this.props.history.push(`/index/shows/${type}/${this.props.show.id}`)
     }
     
-    addFav(userId, showId) {
-        this.props.userLikeShow(userId, showId);
+    addFav(userId, show) {
+        this.props.userLikeShow(userId, show);
     }
 
     removeFav(userId, showId) {
@@ -37,10 +38,10 @@ class TvBannerItem extends React.Component {
                             <button className="vid-info-btn" onClick={(e) => this.handleSubmit(e, 'detail')}>
                                 <i className="fas fa-arrow-circle-right fa-2x"></i>
                             </button>
-                            <button className="vid-info-btn" onClick={() => this.addFav(this.props.state.entities.users[1].id, this.props.show.id)}>
+                            <button className="vid-info-btn" onClick={() => this.addFav(this.props.state.entities.users[1].id, this.props.show)}>
                                 <i className="fas fa-plus-circle fa-2x"></i>
                             </button>
-                            <button className="vid-info-btn" onClick={() => this.removeFav(this.props.state.entities.users[1].id, this.props.show.id)}>
+                            <button className="vid-info-btn" onClick={() => this.removeFav(this.props.state.entities.users[1].id, this.props.show)}>
                                 <i className="fas fa-minus-circle fa-2x"></i>
                             </button>
                         </li>

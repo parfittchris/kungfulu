@@ -1,23 +1,20 @@
 class Api::FavoritesController < ApplicationController
 
-   def create
-    debugger
-    @favorite = Favorite.create(user_id: params[:user_id], likeable: params[:likeable])
-    debugger
-    @favorite.save
+   def create 
+    @favorite = Favorite.new(id: Favorite.last.id + 1, user_id: params[:user_id], likeable_type: params[:type],likeable_id: params[:likeable][:id])
+      if Favorite.all.find_by(user_id: params[:user_id], likeable_type: params[:type],likeable_id: params[:likeable][:id])
+        render json: 'Video already favorited'
+      else
+        @favorite.save
+      end
   end
 
   def destroy
-    # favorite = Favorite.find_by(
-    #     user_id: params[:user_id], 
-    #     likeable_id: params[:video_id], 
-    #     likeable_type: params[:video_type]
-    #     )
-
+    favorite = Favorite.all.find_by(user_id: params[:user_id], likeable_id: params[:video_id][:id], likeable_type: params[:video_type])
     if favorite 
         favorite.destroy
     else 
-        render json: 'Movie is not a favorite'
+        render json: 'Video is not a favorite'
     end
   end
   private

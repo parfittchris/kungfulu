@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: shows
+#
+#  id          :bigint           not null, primary key
+#  title       :string           not null
+#  year        :integer          not null
+#  rating      :integer          not null
+#  description :text             not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  video_type  :string
+#  image_url   :string
+#
+
 
 class Show < ApplicationRecord
     validates :title, :year, :rating, :description, presence: true

@@ -14,13 +14,14 @@ class MyStuff extends React.Component {
     }
 
     componentDidMount() {
+        this.props.userSelectAllMovies();
+        this.props.userSelectAllShows();
+
         this.props.searchForUser(this.props.currentUserId).then(
             response => {
                 let movies = [];
                 let shows = []
-                // debugger
                 response.userId.favorites.forEach(film => {
-                    // debugger
                     if(film.id.video_type === "movie") {
                         movies.push(film.id)
                     } else if(film.id.video_type === 'show') {
@@ -35,14 +36,40 @@ class MyStuff extends React.Component {
             })
     }
 
+
+    // componentWillUnmount(newProps) {
+    //     this.props.userSelectAllMovies();
+    //     this.props.userSelectAllShows();
+
+    //     this.props.searchForUser(this.props.currentUserId).then(
+    //         response => {
+    //             let movies = [];
+    //             let shows = []
+    //             response.userId.favorites.forEach(film => {
+    //                 if (film.id.video_type === "movie") {
+    //                     movies.push(film.id.id)
+    //                 } else if (film.id.video_type === 'show') {
+    //                     shows.push(film.id.id)
+    //                 }
+    //             })
+
+    //             this.setState({
+    //                 favoriteMovies: movies,
+    //                 favoriteShows: shows
+    //             });
+    //         })
+    // }
+
     getResults() {
+        // let movieArray = this.state.favoriteMovies.map(movieId => { return this.props.movies[movieId] });
+        // let showArray = this.state.favoriteShows.map(showId => { return this.props.shows[showId] });
         let shows = null;
         let movies = null;
-        debugger
+
         if (this.state.favoriteMovies.length > 0) {
             movies = this.state.favoriteMovies.map(movie => {
                 return (
-                    <MovieBannerItemContainer key={movie.id} movie={movie} />
+                    <MovieBannerItemContainer movie={movie} />
                 )
             });
         }
@@ -50,7 +77,7 @@ class MyStuff extends React.Component {
         if (this.state.favoriteShows.length > 0) {
             shows = this.state.favoriteShows.map(show => {
                 return (
-                    <div><TVBannerItemContainer key={show.id} show={show} /></div>
+                    <div><TVBannerItemContainer show={show} /></div>
                 )
             });
         }
@@ -65,7 +92,9 @@ class MyStuff extends React.Component {
     }
 
     render() {
+        
         debugger
+
         return (
             <div className="my-stuff-container">
                 <div className="my-stuff-top-bar">

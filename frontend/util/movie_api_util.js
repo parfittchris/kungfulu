@@ -31,9 +31,9 @@ export const favMovie = (userId, movie) => (
         method: 'POST',
         url: `api/favorites`,
         data: {
-            primary_key: 1,
             user_id: userId,
             likeable: movie,
+            type: 'Movie'
         }
     })
 )
@@ -45,7 +45,7 @@ export const removeFavMovie = (favoriteId, userId, movieId) => (
         data: {
             user_id: userId,
             video_id: movieId,
-            video_type: 'movie'
+            video_type: 'Movie'
         }
     })
 );
