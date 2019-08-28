@@ -13,11 +13,14 @@ class MyStuff extends React.Component {
 
         this.getShows = this.getShows.bind(this);
         this.getMovies = this.getMovies.bind(this);
+        this.refresh = this.refresh.bind(this);
     }
 
+
+
     componentDidMount() {
-        let movieIds = [];
-        let showIds = [];
+        this.props.userSelectAllShows();
+        this.props.userSelectAllMovies();
         this.props.searchForUser(this.props.currentUserId).then(
             response => {
                 let movieIds = [];
@@ -25,74 +28,62 @@ class MyStuff extends React.Component {
                 response.userId.favorites.forEach(film => {
                     if (film.id.video_type === "movie") {
                         movieIds.push(film.id.id)
-                    } else if (film.id.video_type === 'show') {
-                        showIds.push(film.id.id)
                     }
-                });
-                this.setState({
-                    favoriteMovies: this.getMovies(movieIds),
-                    favoriteShows: this.getShows(showIds)
-                })  
-            })
-        this.forceUpdate();
-    }
 
-    componentWillUnmount(newParams) {
-        let movieIds = [];
-        let showIds = [];
-        this.props.searchForUser(this.props.currentUserId).then(
-            response => {
-                response.userId.favorites.forEach(film => {
-                    if (film.id.video_type === "movie") {
-                        movieIds.push(film.id.id)
-                    } else if (film.id.video_type === 'show') {
+                    if (film.id.video_type === 'show') {
                         showIds.push(film.id.id)
                     }
                 });
+                
                 this.setState({
-                    favoriteMovies: this.getMovies(movieIds),
-                    favoriteShows: this.getShows(showIds)
+                    favoriteMovies: movieIds,
+                    favoriteShows: showIds
                 })
             })
-        this.forceUpdate();
     }
 
-    getMovies(movies) {
+    
+    refresh() {
+        window.location.reload();
+    }
+
+    getMovies() {
         let movieResults = [];
-
-        movies.forEach(movie => {
-            this.props.userSelectMovie(movie).then(response => {
-                movieResults.push(response.movie)
-            });
+        this.props.movies.forEach(movie => {
+            if (this.state.favoriteMovies.includes(movie.id)) {
+                movieResults.push(movie)
+            }
         });
-        return movieResults;
+        return movieResults
     }
 
-    getShows(shows) {
+    getShows() {
         let showResults = [];
-        shows.forEach(show => {
-            this.props.userSelectShow(show).then(response => {
-                showResults.push(response.show)
-            });
+        this.props.shows.forEach(show => {
+            if (this.state.favoriteShows.includes(show.id)) {
+                showResults.push(show)
+            }
         });
-        return showResults;
+        return showResults
     }
 
     getResults() {
+        let movieResults = this.getMovies();
+        let showResults = this.getShows();
         let shows = null;
         let movies = null;
-        if (this.state.favoriteMovies.length > 0) {
-            movies = this.state.favoriteMovies.map(movie => {
+        if (movieResults.length > 0) {
+            movies = movieResults.map(movie => {
                 return (
-                    <MovieBannerItemContainer movie={movie} />
+                    <MovieBannerItemContainer movie={movie}  refresh={this.refresh}/>
                 )
             });
         }
 
-        if (this.state.favoriteShows.length > 0) {
-            shows = this.state.favoriteShows.map(show => {
+        if (showResults.length > 0) {
+            shows = showResults.map(show => {
                 return (
-                    <div><TVBannerItemContainer show={show} /></div>
+                    <div><TVBannerItemContainer show={show} refresh={this.refresh}/></div>
                 )
             });
         }
@@ -130,7 +121,6 @@ class MyStuff extends React.Component {
     }
 
     render() {
-
         return (
             <div className="my-stuff-container">
                 <div className="my-stuff-top-bar">

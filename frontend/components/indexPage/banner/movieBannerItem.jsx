@@ -21,11 +21,12 @@ class MovieBannerItem extends React.Component {
     }
 
     removeFav(userId, movieId) {
-        this.props.userRemoveLike(1, userId, movieId);
+        this.props.userRemoveLike(1, userId, movieId).then(response => {
+            this.props.refresh();
+        });
     }
     
     render() {
-        // debugger
         return (
             <div className="show-item">
                 <div className="show-item-photo">

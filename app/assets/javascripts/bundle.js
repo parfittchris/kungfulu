@@ -806,21 +806,24 @@ function (_React$Component) {
   }, {
     key: "removeFav",
     value: function removeFav(userId, movieId) {
-      this.props.userRemoveLike(1, userId, movieId);
+      var _this2 = this;
+
+      this.props.userRemoveLike(1, userId, movieId).then(function (response) {
+        _this2.props.refresh();
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
-      // debugger
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-item"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-item-photo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick(e) {
-          return _this2.handleSubmit(e, 'video');
+          return _this3.handleSubmit(e, 'video');
         },
         className: "video-image-btn"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -831,7 +834,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "vid-title",
         onClick: function onClick(e) {
-          return _this2.handleSubmit(e, 'detail');
+          return _this3.handleSubmit(e, 'detail');
         }
       }, this.props.movie.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "vid-description"
@@ -840,21 +843,21 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "vid-info-btn",
         onClick: function onClick(e) {
-          return _this2.handleSubmit(e, 'detail');
+          return _this3.handleSubmit(e, 'detail');
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-arrow-circle-right fa-2x"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "vid-info-btn",
         onClick: function onClick() {
-          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.movie);
+          return _this3.addFav(_this3.props.state.entities.users[1].id, _this3.props.movie);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-plus-circle fa-2x"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "vid-info-btn",
         onClick: function onClick() {
-          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.movie);
+          return _this3.removeFav(_this3.props.state.entities.users[1].id, _this3.props.movie);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-minus-circle fa-2x"
@@ -1114,12 +1117,16 @@ function (_React$Component) {
   }, {
     key: "removeFav",
     value: function removeFav(userId, showId) {
-      this.props.userRemoveLike(1, userId, showId);
+      var _this2 = this;
+
+      this.props.userRemoveLike(1, userId, showId).then(function (response) {
+        _this2.props.refresh();
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "show-item"
@@ -1127,7 +1134,7 @@ function (_React$Component) {
         className: "show-item-photo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick(e) {
-          return _this2.handleSubmit(e, 'video');
+          return _this3.handleSubmit(e, 'video');
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.props.show.image_url,
@@ -1137,7 +1144,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "vid-title",
         onClick: function onClick(e) {
-          return _this2.handleSubmit(e, 'detail');
+          return _this3.handleSubmit(e, 'detail');
         }
       }, this.props.show.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "vid-description"
@@ -1146,21 +1153,21 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "vid-info-btn",
         onClick: function onClick(e) {
-          return _this2.handleSubmit(e, 'detail');
+          return _this3.handleSubmit(e, 'detail');
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-arrow-circle-right fa-2x"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "vid-info-btn",
         onClick: function onClick() {
-          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.show);
+          return _this3.addFav(_this3.props.state.entities.users[1].id, _this3.props.show);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-plus-circle fa-2x"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "vid-info-btn",
         onClick: function onClick() {
-          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.show);
+          return _this3.removeFav(_this3.props.state.entities.users[1].id, _this3.props.show);
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-minus-circle fa-2x"
@@ -2742,6 +2749,7 @@ function (_React$Component) {
     };
     _this.getShows = _this.getShows.bind(_assertThisInitialized(_this));
     _this.getMovies = _this.getMovies.bind(_assertThisInitialized(_this));
+    _this.refresh = _this.refresh.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2750,93 +2758,82 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var movieIds = [];
-      var showIds = [];
+      this.props.userSelectAllShows();
+      this.props.userSelectAllMovies();
       this.props.searchForUser(this.props.currentUserId).then(function (response) {
         var movieIds = [];
         var showIds = [];
         response.userId.favorites.forEach(function (film) {
           if (film.id.video_type === "movie") {
             movieIds.push(film.id.id);
-          } else if (film.id.video_type === 'show') {
+          }
+
+          if (film.id.video_type === 'show') {
             showIds.push(film.id.id);
           }
         });
 
         _this2.setState({
-          favoriteMovies: _this2.getMovies(movieIds),
-          favoriteShows: _this2.getShows(showIds)
+          favoriteMovies: movieIds,
+          favoriteShows: showIds
         });
       });
-      this.forceUpdate();
     }
   }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount(newParams) {
-      var _this3 = this;
-
-      var movieIds = [];
-      var showIds = [];
-      this.props.searchForUser(this.props.currentUserId).then(function (response) {
-        response.userId.favorites.forEach(function (film) {
-          if (film.id.video_type === "movie") {
-            movieIds.push(film.id.id);
-          } else if (film.id.video_type === 'show') {
-            showIds.push(film.id.id);
-          }
-        });
-
-        _this3.setState({
-          favoriteMovies: _this3.getMovies(movieIds),
-          favoriteShows: _this3.getShows(showIds)
-        });
-      });
-      this.forceUpdate();
+    key: "refresh",
+    value: function refresh() {
+      window.location.reload();
     }
   }, {
     key: "getMovies",
-    value: function getMovies(movies) {
-      var _this4 = this;
+    value: function getMovies() {
+      var _this3 = this;
 
       var movieResults = [];
-      movies.forEach(function (movie) {
-        _this4.props.userSelectMovie(movie).then(function (response) {
-          movieResults.push(response.movie);
-        });
+      this.props.movies.forEach(function (movie) {
+        if (_this3.state.favoriteMovies.includes(movie.id)) {
+          movieResults.push(movie);
+        }
       });
       return movieResults;
     }
   }, {
     key: "getShows",
-    value: function getShows(shows) {
-      var _this5 = this;
+    value: function getShows() {
+      var _this4 = this;
 
       var showResults = [];
-      shows.forEach(function (show) {
-        _this5.props.userSelectShow(show).then(function (response) {
-          showResults.push(response.show);
-        });
+      this.props.shows.forEach(function (show) {
+        if (_this4.state.favoriteShows.includes(show.id)) {
+          showResults.push(show);
+        }
       });
       return showResults;
     }
   }, {
     key: "getResults",
     value: function getResults() {
+      var _this5 = this;
+
+      var movieResults = this.getMovies();
+      var showResults = this.getShows();
       var shows = null;
       var movies = null;
 
-      if (this.state.favoriteMovies.length > 0) {
-        movies = this.state.favoriteMovies.map(function (movie) {
+      if (movieResults.length > 0) {
+        movies = movieResults.map(function (movie) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_indexPage_banner_movieBannerItemContainer__WEBPACK_IMPORTED_MODULE_1__["default"], {
-            movie: movie
+            movie: movie,
+            refresh: _this5.refresh
           });
         });
       }
 
-      if (this.state.favoriteShows.length > 0) {
-        shows = this.state.favoriteShows.map(function (show) {
+      if (showResults.length > 0) {
+        shows = showResults.map(function (show) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_indexPage_banner_tvBannerItemContainer__WEBPACK_IMPORTED_MODULE_2__["default"], {
-            show: show
+            show: show,
+            refresh: _this5.refresh
           }));
         });
       }
@@ -2939,9 +2936,13 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     userSelectShow: function userSelectShow(show) {
       return dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_3__["userSelectShow"])(show));
-    } // userSelectAllMovies: () => dispatch(userSelectAllMovies()),
-    // userSelectAllShows: () => dispatch(userSelectAllShows()),
-
+    },
+    userSelectAllMovies: function userSelectAllMovies() {
+      return dispatch(Object(_actions_movie_actions__WEBPACK_IMPORTED_MODULE_4__["userSelectAllMovies"])());
+    },
+    userSelectAllShows: function userSelectAllShows() {
+      return dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_3__["userSelectAllShows"])());
+    }
   };
 };
 

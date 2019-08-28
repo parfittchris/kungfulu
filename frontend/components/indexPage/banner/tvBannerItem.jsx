@@ -20,7 +20,9 @@ class TvBannerItem extends React.Component {
     }
 
     removeFav(userId, showId) {
-        this.props.userRemoveLike(1, userId, showId);
+        this.props.userRemoveLike(1, userId, showId).then(response => {
+            this.props.refresh();
+        })
     }
     
     render() {
