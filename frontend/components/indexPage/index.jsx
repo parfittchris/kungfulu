@@ -16,7 +16,9 @@ class Index extends React.Component {
             example6: { title: "Into the Badlands", year: 2015, rating: 8.0, description: "A mighty warrior and a young boy search for enlightenment in a ruthless territory controlled by feudal barons.", video_type: "show" }
         }
 
-    }
+        this.addFav = this.addFav.bind(this);
+        this.removeFav = this.removeFav.bind(this);
+    }   
 
     
     componentDidMount() {
@@ -33,6 +35,16 @@ class Index extends React.Component {
         e.preventDefault()
         this.props.history.push(`/index/shows/${type}/${id}`)
     }
+
+
+    addFav(userId, show) {
+        this.props.userLikeShow(userId, show);
+    }
+
+    removeFav(userId, showId) {
+        this.props.userRemoveLike(1, userId, showId)
+    }
+
 
     render() {
      
@@ -65,7 +77,7 @@ class Index extends React.Component {
                                         <div className="slider-1-info-li">{this.state.example1.year}</div>
                                         <div className="slider-1-description">{this.state.example1.description}</div>
                                     </div>
-                                    <div className="slider-info-buttons">
+                                    {/* <div className="slider-info-buttons">
                                         <button className="slider-detail" onClick={(e) => this.handleSubmit(e, 'detail')}>
                                             <i className="fas fa-arrow-circle-right fa-2x"></i>
                                         </button>
@@ -75,7 +87,7 @@ class Index extends React.Component {
                                         <button className="slider-remove" onClick={() => this.removeFav(this.props.state.entities.users[1].id, this.props.show.id)}>
                                             <i className="fas fa-minus-circle fa-2x"></i>
                                         </button>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                             <div className="slider-movie-2">
@@ -85,7 +97,7 @@ class Index extends React.Component {
                                         <div className="slider-2-info-li">{this.state.example2.year}</div>
                                         <div className="slider-2-description">{this.state.example2.description}</div>
                                     </div>
-                                    <div className="slider-info-buttons">
+                                    {/* <div className="slider-info-buttons">
                                         <button className="slider-detail" onClick={(e) => this.handleSubmit(e, 'detail')}>
                                             <i className="fas fa-arrow-circle-right fa-2x"></i>
                                         </button>
@@ -95,7 +107,7 @@ class Index extends React.Component {
                                         <button className="slider-remove" onClick={() => this.removeFav(this.props.state.entities.users[1].id, this.props.show.id)}>
                                             <i className="fas fa-minus-circle fa-2x"></i>
                                         </button>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                             <div className="slider-movie-3">
@@ -105,7 +117,7 @@ class Index extends React.Component {
                                         <div className="slider-3-info-li">{this.state.example3.year}</div>
                                         <div className="slider-3-description">{this.state.example1.description}</div>
                                     </div>
-                                    <div className="slider-info-buttons">
+                                    {/* <div className="slider-info-buttons">
                                         <button className="slider-detail" onClick={(e) => this.handleSubmit(e, 'detail')}>
                                             <i className="fas fa-arrow-circle-right fa-2x"></i>
                                         </button>
@@ -115,7 +127,7 @@ class Index extends React.Component {
                                         <button className="slider-remove" onClick={() => this.removeFav(this.props.state.entities.users[1].id, this.props.show.id)}>
                                             <i className="fas fa-minus-circle fa-2x"></i>
                                         </button>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                             <div className="slider-movie-4">
@@ -125,7 +137,7 @@ class Index extends React.Component {
                                             <div className="slider-4-info-li">{this.state.example4.year}</div>
                                             <div className="slider-4-description">{this.state.example4.description}</div>
                                     </div>
-                                        <div className="slider-info-buttons">
+                                        {/* <div className="slider-info-buttons">
                                             <button className="slider-detail" onClick={(e) => this.handleSubmit(e, 'detail')}>
                                                 <i className="fas fa-arrow-circle-right fa-2x"></i>
                                             </button>
@@ -135,7 +147,7 @@ class Index extends React.Component {
                                             <button className="slider-remove" onClick={() => this.removeFav(this.props.state.entities.users[1].id, this.props.show.id)}>
                                                 <i className="fas fa-minus-circle fa-2x"></i>
                                             </button>
-                                        </div>
+                                        </div> */}
                                 </div>
                             </div>
                         </div>

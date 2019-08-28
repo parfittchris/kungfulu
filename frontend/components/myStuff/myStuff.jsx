@@ -21,8 +21,10 @@ class MyStuff extends React.Component {
     componentDidMount() {
         this.props.userSelectAllShows();
         this.props.userSelectAllMovies();
+        debugger
         this.props.searchForUser(this.props.currentUserId).then(
             response => {
+                debugger
                 let movieIds = [];
                 let showIds = [];
                 response.userId.favorites.forEach(film => {

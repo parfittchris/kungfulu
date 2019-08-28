@@ -1854,9 +1854,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -1930,6 +1930,8 @@ function (_React$Component) {
         video_type: "show"
       }
     };
+    _this.addFav = _this.addFav.bind(_assertThisInitialized(_this));
+    _this.removeFav = _this.removeFav.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1950,6 +1952,16 @@ function (_React$Component) {
     value: function handleSubmitVideo(e, type, id) {
       e.preventDefault();
       this.props.history.push("/index/shows/".concat(type, "/").concat(id));
+    }
+  }, {
+    key: "addFav",
+    value: function addFav(userId, show) {
+      this.props.userLikeShow(userId, show);
+    }
+  }, {
+    key: "removeFav",
+    value: function removeFav(userId, showId) {
+      this.props.userRemoveLike(1, userId, showId);
     }
   }, {
     key: "render",
@@ -2002,30 +2014,7 @@ function (_React$Component) {
         className: "slider-1-info-li"
       }, this.state.example1.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-1-description"
-      }, this.state.example1.description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "slider-info-buttons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "slider-detail",
-        onClick: function onClick(e) {
-          return _this2.handleSubmit(e, 'detail');
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-arrow-circle-right fa-2x"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "slider-add",
-        onClick: function onClick() {
-          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-plus-circle fa-2x"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "slider-remove",
-        onClick: function onClick() {
-          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-minus-circle fa-2x"
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.state.example1.description)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-movie-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-2-info"
@@ -2037,30 +2026,7 @@ function (_React$Component) {
         className: "slider-2-info-li"
       }, this.state.example2.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-2-description"
-      }, this.state.example2.description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "slider-info-buttons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "slider-detail",
-        onClick: function onClick(e) {
-          return _this2.handleSubmit(e, 'detail');
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-arrow-circle-right fa-2x"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "slider-add",
-        onClick: function onClick() {
-          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-plus-circle fa-2x"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "slider-remove",
-        onClick: function onClick() {
-          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-minus-circle fa-2x"
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.state.example2.description)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-movie-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-3-info"
@@ -2072,30 +2038,7 @@ function (_React$Component) {
         className: "slider-3-info-li"
       }, this.state.example3.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-3-description"
-      }, this.state.example1.description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "slider-info-buttons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "slider-detail",
-        onClick: function onClick(e) {
-          return _this2.handleSubmit(e, 'detail');
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-arrow-circle-right fa-2x"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "slider-add",
-        onClick: function onClick() {
-          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-plus-circle fa-2x"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "slider-remove",
-        onClick: function onClick() {
-          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-minus-circle fa-2x"
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.state.example1.description)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-movie-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-4-info"
@@ -2107,30 +2050,7 @@ function (_React$Component) {
         className: "slider-4-info-li"
       }, this.state.example4.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-4-description"
-      }, this.state.example4.description)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "slider-info-buttons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "slider-detail",
-        onClick: function onClick(e) {
-          return _this2.handleSubmit(e, 'detail');
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-arrow-circle-right fa-2x"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "slider-add",
-        onClick: function onClick() {
-          return _this2.addFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-plus-circle fa-2x"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "slider-remove",
-        onClick: function onClick() {
-          return _this2.removeFav(_this2.props.state.entities.users[1].id, _this2.props.show.id);
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-minus-circle fa-2x"
-      })))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      }, this.state.example4.description))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "shows-container-title"
       }, "TV>"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showcase-container"
@@ -2241,6 +2161,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 var mapStateToProps = function mapStateToProps(state) {
   return {
     shows: Object.values(state.entities.videos.shows),
@@ -2265,6 +2187,15 @@ var mapDispatchToPros = function mapDispatchToPros(dispatch) {
     },
     userSelectMovie: function userSelectMovie(movie) {
       return dispatch(userSelectMove(movie));
+    },
+    userLikeShow: function userLikeShow(userId, show) {
+      return dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_2__["userLikeShow"])(userId, show));
+    },
+    userRemoveLike: function userRemoveLike(favId, userId, showId) {
+      return dispatch(Object(_actions_show_actions__WEBPACK_IMPORTED_MODULE_2__["userRemoveLike"])(favId, userId, showId));
+    },
+    userLikeMovie: function userLikeMovie(userId, movieId) {
+      return dispatch(Object(_actions_movie_actions__WEBPACK_IMPORTED_MODULE_3__["userLikeMovie"])(userId, movieId));
     }
   };
 };
@@ -2760,7 +2691,9 @@ function (_React$Component) {
 
       this.props.userSelectAllShows();
       this.props.userSelectAllMovies();
+      debugger;
       this.props.searchForUser(this.props.currentUserId).then(function (response) {
+        debugger;
         var movieIds = [];
         var showIds = [];
         response.userId.favorites.forEach(function (film) {
@@ -4570,7 +4503,7 @@ var sessionReducer = function sessionReducer() {
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["SEARCH_USER"]:
       return {
-        id: action.userId
+        id: action.userId.id
       };
 
     default:
@@ -4671,6 +4604,10 @@ var usersReducer = function usersReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, _defineProperty({}, action.user.id, action.user));
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["SEARCH_USER"]:
+      debugger;
+      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])(state, action.userId.id);
 
     default:
       return state;
