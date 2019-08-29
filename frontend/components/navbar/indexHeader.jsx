@@ -130,15 +130,6 @@ class IndexHeader extends React.Component {
                             <div className="night-mode">Night Mode:</div>
                             <ul className="drop-down-items">
                                 <li>
-                                    <a>Manage Profiles</a>
-                                </li>
-                                <li>
-                                    <a>Account</a>
-                                </li>
-                                <li>
-                                    <a>Help Center</a>
-                                </li>
-                                <li>
                                     <button onClick={(e) => this.handleSubmit(e)}>Log Out</button>
                                 </li>
                             </ul>
