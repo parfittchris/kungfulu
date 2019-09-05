@@ -127,7 +127,6 @@ class IndexHeader extends React.Component {
                         <button className="profile-btn">U</button>
                         <span className="profile-text">USER</span>
                         <div className="drop-down-container">
-                            <div className="night-mode">Night Mode:</div>
                             <ul className="drop-down-items">
                                 <li>
                                     <button onClick={(e) => this.handleSubmit(e)}>Log Out</button>
