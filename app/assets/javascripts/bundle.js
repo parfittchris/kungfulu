@@ -2003,7 +2003,10 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "slider-movie-1"
+        className: "slider-movie-1",
+        onClick: function onClick(e) {
+          return _this2.handleSubmit(e, 'video', 3);
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-1-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2015,7 +2018,10 @@ function (_React$Component) {
       }, this.state.example1.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-1-description"
       }, this.state.example1.description)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "slider-movie-2"
+        className: "slider-movie-2",
+        onClick: function onClick(e) {
+          return _this2.handleSubmit(e, 'video', 5);
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-2-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2027,7 +2033,10 @@ function (_React$Component) {
       }, this.state.example2.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-2-description"
       }, this.state.example2.description)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "slider-movie-3"
+        className: "slider-movie-3",
+        onClick: function onClick(e) {
+          return _this2.handleSubmit(e, 'video', 4);
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-3-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2039,7 +2048,10 @@ function (_React$Component) {
       }, this.state.example3.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-3-description"
       }, this.state.example1.description)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "slider-movie-4"
+        className: "slider-movie-4",
+        onClick: function onClick(e) {
+          return _this2.handleSubmit(e, 'video', 1);
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-4-info"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2057,7 +2069,10 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showcase-items"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "showcase-item-1-img"
+        className: "showcase-item-1-img",
+        onClick: function onClick(e) {
+          return _this2.handleSubmitVideo(e, 'video', 8);
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showcase-details-1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2074,7 +2089,10 @@ function (_React$Component) {
       }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showcase-items"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "showcase-item-2-img"
+        className: "showcase-item-2-img",
+        onClick: function onClick(e) {
+          return _this2.handleSubmitVideo(e, 'video', 5);
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showcase-details-2"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2097,7 +2115,10 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showcase-items"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "showcase-item-3-img"
+        className: "showcase-item-3-img",
+        onClick: function onClick(e) {
+          return _this2.handleSubmit(e, 'video', 2);
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showcase-details-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2114,7 +2135,10 @@ function (_React$Component) {
       }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showcase-items"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "showcase-item-4-img"
+        className: "showcase-item-4-img",
+        onClick: function onClick(e) {
+          return _this2.handleSubmit(e, 'video', 4);
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "showcase-details-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

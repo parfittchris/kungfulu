@@ -70,7 +70,7 @@ class Index extends React.Component {
                    </div>
                    <div className="hub-container">
                         <div className="slider">
-                            <div className="slider-movie-1">
+                            <div className="slider-movie-1" onClick={(e) => this.handleSubmit(e, 'video', 3)}>
                                 <div className="slider-1-info">
                                     <div className="slider-1-info-details">
                                         <div className="slider-1-title">{this.state.example1.title}</div>
@@ -90,8 +90,8 @@ class Index extends React.Component {
                                     </div> */}
                                 </div>
                             </div>
-                            <div className="slider-movie-2">
-                                <div className="slider-2-info">
+                            <div className="slider-movie-2" onClick={(e) => this.handleSubmit(e, 'video', 5)}>
+                                <div className="slider-2-info" >
                                     <div className="slider-2-info-details">
                                         <div className="slider-2-title">{this.state.example2.title}</div>
                                         <div className="slider-2-info-li">{this.state.example2.year}</div>
@@ -110,7 +110,7 @@ class Index extends React.Component {
                                     </div> */}
                                 </div>
                             </div>
-                            <div className="slider-movie-3">
+                            <div className="slider-movie-3" onClick={(e) => this.handleSubmit(e, 'video', 4)}>
                                 <div className="slider-3-info">
                                     <div className="slider-3-info-details">
                                         <div className="slider-3-title">{this.state.example3.title}</div>
@@ -130,7 +130,7 @@ class Index extends React.Component {
                                     </div> */}
                                 </div>
                             </div>
-                            <div className="slider-movie-4">
+                            <div className="slider-movie-4" onClick={(e) => this.handleSubmit(e, 'video', 1)}>
                                 <div className="slider-4-info">
                                     <div className="slider-4-info-details">
                                             <div className="slider-4-title">{this.state.example4.title}</div>
@@ -154,7 +154,7 @@ class Index extends React.Component {
                         <h2 className="shows-container-title">TV></h2>
                         <div className="showcase-container">
                             <div className="showcase-items">
-                                <div className="showcase-item-1-img">
+                                <div className="showcase-item-1-img" onClick={(e) => this.handleSubmitVideo(e, 'video', 8)}>
                                     <div className="showcase-details-1">
                                         <div className="showcase-title">{this.state.example5.title}</div>
                                         <div className="showcase-details">{this.state.example5.year}</div>
@@ -166,7 +166,7 @@ class Index extends React.Component {
                                 </div>
                             </div>
                             <div className="showcase-items">
-                                <div className="showcase-item-2-img">
+                                <div className="showcase-item-2-img" onClick={(e) => this.handleSubmitVideo(e, 'video', 5)}>
                                     <div className="showcase-details-2">
                                         <div className="showcase-title">{this.state.example6.title}</div>
                                         <div className="showcase-details">{this.state.example6.year}</div>
@@ -181,7 +181,7 @@ class Index extends React.Component {
                         <h2 className="movies-container-title">MOVIES></h2>
                         <div className="showcase-container">
                             <div className="showcase-items">
-                                <div className="showcase-item-3-img">
+                                <div className="showcase-item-3-img" onClick={(e) => this.handleSubmit(e, 'video', 2)}>
                                 <div className="showcase-details-3">
                                     <div className="showcase-title">{this.state.headline.title}</div>
                                     <div className="showcase-details">{this.state.headline.year}</div>
@@ -192,7 +192,7 @@ class Index extends React.Component {
                              </div>
                             </div>
                             <div className="showcase-items">
-                                <div className="showcase-item-4-img">
+                                <div className="showcase-item-4-img" onClick={(e) => this.handleSubmit(e, 'video', 4)}>
                                     <div className="showcase-details-4">
                                         <div className="showcase-title">{this.state.example3.title}</div>
                                         <div className="showcase-details">{this.state.example3.year}</div>
