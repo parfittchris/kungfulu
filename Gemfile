@@ -12,7 +12,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.12'
 # gem 'open uri'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
